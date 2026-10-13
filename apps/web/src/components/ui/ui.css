@@ -1,0 +1,217 @@
+.ui-text-box,
+.ui-list-box,
+.ui-text-area {
+  width: 100%;
+}
+
+.ui-checkbox {
+  accent-color: var(--primary);
+}
+
+.ui-list-box {
+  padding-right: 2.25rem;
+}
+
+.ui-button.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.ui-button.primary:hover:not(:disabled) {
+  border-color: var(--primary-dark);
+  background: var(--primary-dark);
+  color: var(--on-primary);
+}
+
+.ui-button.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.ui-grid-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-lighter);
+}
+
+.ui-grid {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ui-grid caption {
+  padding: 0.75rem 0.9rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: left;
+}
+
+.ui-grid thead th {
+  position: relative;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.ui-grid tbody th,
+.ui-grid td {
+  min-width: 0;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.ui-grid tbody tr:last-child th,
+.ui-grid tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ui-grid tbody tr:hover {
+  background: var(--surface-subtle);
+}
+
+.ui-grid-resizer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -6px;
+  width: 12px;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.ui-grid-resizer::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 5px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--border);
+}
+
+.ui-grid-resizer:hover::after,
+.ui-grid-resizer:focus-visible::after {
+  background: var(--primary);
+}
+
+.ui-grid-overflow {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.ui-grid-overflow-value {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-grid-tooltip {
+  position: fixed;
+  z-index: 90;
+  display: none;
+  max-width: min(36rem, calc(100vw - 2rem));
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 4px;
+  background: var(--text-primary);
+  color: var(--bg-lighter);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.ui-grid-overflow.truncated:hover .ui-grid-tooltip,
+.ui-grid-overflow.truncated:focus-visible .ui-grid-tooltip {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .ui-grid,
+  .ui-grid tbody,
+  .ui-grid tr,
+  .ui-grid tbody th,
+  .ui-grid td {
+    display: block;
+    width: 100%;
+  }
+
+  .ui-grid {
+    table-layout: auto;
+  }
+
+  /* A block table leaves its caption as a table-caption sized to its content. */
+  .ui-grid caption {
+    display: block;
+  }
+
+  .ui-grid thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .ui-grid tr {
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ui-grid tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .ui-grid tbody th,
+  .ui-grid td {
+    display: grid;
+    grid-template-columns: minmax(6rem, 35%) minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border: 0;
+  }
+
+  .ui-grid tbody th::before,
+  .ui-grid td::before {
+    content: attr(data-label);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-grid tbody tr {
+    transition: none;
+  }
+}

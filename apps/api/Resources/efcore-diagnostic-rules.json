@@ -1,0 +1,86 @@
+[
+  {
+    "id": "EF1001",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/ef/core/miscellaneous/internals"
+  },
+  {
+    "id": "EF1002",
+    "category": "vulnerability",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/ef/core/querying/sql-queries#passing-parameters"
+  },
+  {
+    "id": "EF1003",
+    "category": "vulnerability",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/ef/core/querying/sql-queries#passing-parameters"
+  },
+  {
+    "id": "EF1004",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/ef/core/querying/"
+  },
+  {
+    "id": "EF9001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9100",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9101",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9103",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9104",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9105",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  },
+  {
+    "id": "EF9106",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/ef/core/what-is-new/"
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "id": "ASP0003",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0003"
+  },
+  {
+    "id": "ASP0004",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0004"
+  },
+  {
+    "id": "ASP0005",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0005"
+  },
+  {
+    "id": "ASP0006",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0006"
+  },
+  {
+    "id": "ASP0007",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0007"
+  },
+  {
+    "id": "ASP0008",
+    "category": "bug",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0008"
+  },
+  {
+    "id": "ASP0009",
+    "category": "bug",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0009"
+  },
+  {
+    "id": "ASP0010",
+    "category": "bug",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0010"
+  },
+  {
+    "id": "ASP0011",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0011"
+  },
+  {
+    "id": "ASP0012",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0012"
+  },
+  {
+    "id": "ASP0013",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0013"
+  },
+  {
+    "id": "ASP0014",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0014"
+  },
+  {
+    "id": "ASP0015",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0015"
+  },
+  {
+    "id": "ASP0016",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0016"
+  },
+  {
+    "id": "ASP0017",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0017"
+  },
+  {
+    "id": "ASP0018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0018"
+  },
+  {
+    "id": "ASP0019",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0019"
+  },
+  {
+    "id": "ASP0020",
+    "category": "bug",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0020"
+  },
+  {
+    "id": "ASP0021",
+    "category": "bug",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0021"
+  },
+  {
+    "id": "ASP0022",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0022"
+  },
+  {
+    "id": "ASP0023",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0023"
+  },
+  {
+    "id": "ASP0024",
+    "category": "bug",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0024"
+  },
+  {
+    "id": "ASP0025",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0025"
+  },
+  {
+    "id": "ASP0026",
+    "category": "vulnerability",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0026"
+  },
+  {
+    "id": "ASP0027",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0027"
+  },
+  {
+    "id": "ASP0028",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/aspnet/core/diagnostics/asp0028"
+  }
+]

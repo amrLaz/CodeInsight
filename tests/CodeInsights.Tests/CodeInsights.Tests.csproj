@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsTestProject>true</IsTestProject>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../apps/api/CodeInsights.Api.csproj" />
+    <None Include="../contracts/*.json" Link="contracts/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <PackageReference Include="Microsoft.Testing.Platform.MSBuild" Version="1.8.4" />
+    <PackageReference Include="xunit.v3" Version="3.1.0" />
+  </ItemGroup>
+</Project>

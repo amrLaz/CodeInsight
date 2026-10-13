@@ -1,0 +1,80 @@
+name: CodeInsights_Infra_$(date:yyyyMMdd)$(rev:.r)
+
+parameters:
+  - name: apply
+    type: boolean
+    default: false
+  - name: recreateDatabase
+    type: boolean
+    default: false
+
+trigger:
+  branches:
+    include: [master]
+  paths:
+    include: [infra/**]
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: CodeInsights.Infrastructure
+
+steps:
+  - checkout: self
+  - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@1
+    inputs:
+      terraformVersion: '1.15.8'
+  - task: AzureCLI@2
+    displayName: Validate, plan and apply CodeInsights infrastructure
+    inputs:
+      azureSubscription: Subscription Fabrik
+      scriptType: bash
+      scriptLocation: inlineScript
+      addSpnToEnvironment: true
+      workingDirectory: $(Build.SourcesDirectory)/infra
+      inlineScript: |
+        set -euo pipefail
+        export ARM_CLIENT_ID="$servicePrincipalId" ARM_TENANT_ID="$tenantId"
+        export ARM_SUBSCRIPTION_ID="$(az account show --query id -o tsv)"
+        if [ -n "${idToken:-}" ]; then
+          export ARM_USE_OIDC=true ARM_OIDC_TOKEN="$idToken"
+        else
+          export ARM_CLIENT_SECRET="$servicePrincipalKey"
+        fi
+        terraform init -input=false -lockfile=readonly -backend-config=variables/backend-production.tfvars
+        terraform fmt -check -recursive
+        terraform validate -no-color
+        RECREATE_DATABASE="${RECREATE_DATABASE,,}"
+        APPLY="${APPLY,,}"
+        # Bootstrap data-plane access before refreshing the keyless Blob account.
+        if [ "$APPLY" = true ] && ! terraform state list | grep -qx azurerm_role_assignment.deployment_reports; then
+          terraform plan -lock-timeout=5m -input=false -no-color -var-file=variables/production.tfvars -target=azurerm_role_assignment.deployment_reports -out=tfplan-access
+          terraform show -json tfplan-access | jq -e '[.resource_changes[]? | select(.change.actions | index("delete"))] | length == 0' >/dev/null
+          terraform apply -lock-timeout=5m -input=false -no-color tfplan-access
+          sleep 30
+        fi
+        replace=()
+        if [ "$RECREATE_DATABASE" = true ]; then
+          replace=(-replace=azurerm_postgresql_flexible_server_database.app)
+        fi
+        terraform plan -lock-timeout=5m -input=false -no-color -var-file=variables/production.tfvars "${replace[@]}" -out=tfplan
+        terraform show -json tfplan | jq -e --arg recreate "$RECREATE_DATABASE" '
+          [.resource_changes[]? | select(.change.actions | index("delete")) | .address]
+          | all(
+              (. == "azurerm_postgresql_flexible_server_database.app" and $recreate == "true")
+              or . == "azurerm_key_vault_secret.azure_openai_api_key"
+              or . == "azurerm_key_vault_secret.azure_openai_api_version"
+              or . == "azurerm_key_vault_secret.azure_openai_deployment"
+              or . == "azurerm_key_vault_secret.azure_openai_endpoint"
+            )' >/dev/null
+        if [ "$APPLY" = true ]; then
+          terraform apply -lock-timeout=5m -input=false -no-color tfplan
+        fi
+    env:
+      APPLY: ${{ parameters.apply }}
+      RECREATE_DATABASE: ${{ parameters.recreateDatabase }}
+      TF_VAR_postgres_admin_password: $(postgres-admin-password)
+      TF_VAR_platform_admin_password: $(bootstrap-admin-password)
+      TF_VAR_authentication_signing_key: $(authentication-signing-key)

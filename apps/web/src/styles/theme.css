@@ -1,0 +1,102 @@
+/* Shared theme tokens and native document defaults. */
+.notification-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+:root {
+  --primary: #005eb8;
+  color-scheme: light;
+  --font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --success-light: #eaf6ef;
+  --warning-light: #fff5dc;
+  --danger-light: #fff0f1;
+  --bg: var(--bg-lighter);
+  --text: var(--text-primary);
+  --accent: var(--primary);
+  --primary-dark: #004a94;
+  --primary-light: #eaf2fb;
+  --secondary: var(--primary);
+  --success: #197047;
+  --warning: #876000;
+  --danger: #b42332;
+  --severity-high: #c24f24;
+  --severity-low: #2f6fa9;
+  --severity-info: #667085;
+  --info: var(--primary);
+  --border: #d8e1eb;
+  --bg-light: #f2f5f9;
+  --bg-lighter: #ffffff;
+  --text-primary: #172a41;
+  --text-secondary: #516278;
+  --text-tertiary: #586b80;
+  --on-primary: #ffffff;
+  --on-danger: #ffffff;
+  --surface-subtle: #e9eff6;
+  --surface2: rgb(23 42 65 / 5%);
+  --focus-ring: 0 0 0 3px rgb(0 94 184 / 18%);
+  --backdrop: rgb(23 42 65 / 35%);
+  --shadow-sm: 0 1px 2px rgba(23, 42, 65, 0.04);
+  --shadow-md: 0 4px 14px rgba(23, 42, 65, 0.06);
+  --shadow-lg: 0 12px 32px rgba(23, 42, 65, 0.1);
+  /* Shared control geometry: one height for fields, native lists and buttons. */
+  --control-height: 36px;
+  --control-height-sm: 32px;
+  --control-padding-block: 7px;
+  --control-padding-inline: 12px;
+  --control-radius: 6px;
+  --control-font-size: 14px;
+  --control-line-height: 1.4;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --primary: #69b4ff;
+  --primary-dark: #8cc6ff;
+  --primary-light: #163a5c;
+  --success: #72d6a5;
+  --success-light: #163a2a;
+  --warning: #f2c96b;
+  --warning-light: #473815;
+  --danger: #ff9aa5;
+  --danger-light: #482129;
+  --severity-high: #ff9b73;
+  --severity-low: #82bced;
+  --severity-info: #a7b5c6;
+  --border: #3a4b5e;
+  --bg-light: #101923;
+  --bg-lighter: #182532;
+  --text-primary: #edf4fb;
+  --text-secondary: #bcc9d8;
+  --text-tertiary: #a0b1c3;
+  --on-primary: #0b1b2b;
+  --on-danger: #241014;
+  --surface-subtle: #203142;
+  --surface2: #203142;
+  --focus-ring: 0 0 0 3px rgb(105 180 255 / 28%);
+  --backdrop: rgb(2 8 15 / 72%);
+  --shadow-sm: 0 1px 2px rgb(2 8 15 / 24%);
+  --shadow-md: 0 4px 14px rgb(2 8 15 / 32%);
+  --shadow-lg: 0 12px 32px rgb(2 8 15 / 45%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+

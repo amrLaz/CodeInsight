@@ -1,0 +1,206 @@
+.feedback {
+  margin: 1rem 2rem 0 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feedback.error {
+  background: var(--danger-light);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.feedback.success {
+  background: var(--success-light);
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+
+.feedback.warning {
+  background: var(--warning-light);
+  border: 1px solid var(--warning);
+  color: var(--warning);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid.compact {
+  gap: 1rem;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-primary);
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  min-height: var(--control-height);
+  padding: var(--control-padding-block) var(--control-padding-inline);
+  border: 1px solid var(--border);
+  border-radius: var(--control-radius);
+  font-size: var(--control-font-size);
+  line-height: var(--control-line-height);
+  font-family: inherit;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+
+input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='hidden']):not([type='submit']):not([type='button']):not([type='reset']):not([type='image']),
+select,
+textarea {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  font-family: inherit;
+  min-height: var(--control-height);
+  padding: var(--control-padding-block) var(--control-padding-inline);
+  border: 1px solid var(--border);
+  border-radius: var(--control-radius);
+  font-size: var(--control-font-size);
+  line-height: var(--control-line-height);
+  background-color: var(--bg-lighter);
+  color: var(--text-primary);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+
+button,
+.button {
+  font-family: inherit;
+  cursor: pointer;
+  min-height: var(--control-height);
+  padding: var(--control-padding-block) 16px;
+  border-radius: var(--control-radius);
+  font-weight: 500;
+  font-size: var(--control-font-size);
+  line-height: var(--control-line-height);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+  border: 1px solid var(--border);
+  background-color: var(--bg-lighter);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover:not(:disabled),
+.button:hover:not(:disabled) {
+  background-color: var(--bg-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+button:disabled,
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.pagination-row {
+  margin-top: 1rem;
+}
+
+.action-row button {
+  padding: var(--control-padding-block) 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--control-radius);
+  background-color: var(--bg-lighter);
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.action-row button:hover {
+  background-color: var(--bg-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.action-row button.primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+
+.action-row button.primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.action-row button.danger {
+  background-color: var(--danger);
+  color: var(--on-danger);
+  border-color: var(--danger);
+}
+
+.action-row button.danger:hover {
+  background-color: var(--danger);
+  border-color: var(--danger);
+}
+
+.app-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: auto;
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-lighter);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+

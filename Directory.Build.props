@@ -1,0 +1,15 @@
+<Project>
+  <!-- This solution owns apps/api and its tests; src contains unrelated scan samples. -->
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'CodeInsights.Api' Or '$(MSBuildProjectName)' == 'CodeInsights.Tests'">
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);S3903</NoWarn>
+    <AzureStorageBlobsVersion>12.29.2</AzureStorageBlobsVersion>
+    <AzureIdentityVersion>1.21.0</AzureIdentityVersion>
+    <NpgsqlVersion>10.0.3</NpgsqlVersion>
+    <IdentityModelVersion>8.22.0</IdentityModelVersion>
+    <AspNetCoreVersion>10.0.11</AspNetCoreVersion>
+    <EntityFrameworkVersion>10.0.11</EntityFrameworkVersion>
+  </PropertyGroup>
+</Project>

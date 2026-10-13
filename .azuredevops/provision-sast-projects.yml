@@ -1,0 +1,335 @@
+name: Provision_CodeInsights_Projects_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger: none
+pr: none
+
+parameters:
+    - name: syncCodeInsightsServiceConnections
+      displayName: Create or update CodeInsights-Coop service connections
+      type: boolean
+      default: false
+    - name: rotateCodeInsightsToken
+      displayName: Generate a new 3650-day shared token before syncing connections
+      type: boolean
+      default: false
+pool:
+    name: ManagedDevOpsPoolsLinux24
+
+steps:
+    - checkout: self
+
+    - task: AzureCLI@2
+      displayName: Restore Entra, register projects and prepare CodeInsights connections
+      inputs:
+          azureSubscription: Subscription Fabrik Federation
+          scriptType: bash
+          scriptLocation: inlineScript
+          inlineScript: |
+              set -euo pipefail
+
+              rotate_ci_token="${CODEINSIGHTS_ROTATE_CI_TOKEN,,}"
+              sync_connections="${CODEINSIGHTS_SYNC_SERVICE_CONNECTIONS,,}"
+              if [[ "$rotate_ci_token" == "true" && "$sync_connections" != "true" ]]; then
+                echo "ERROR: token rotation requires service-connection synchronization" >&2
+                exit 2
+              fi
+
+              umask 077
+              token_file=$(mktemp)
+              chmod 600 "$token_file"
+              trap 'rm -f "$token_file"' EXIT
+
+              if [[ -n "${CODEINSIGHTS_ENTRA_CLIENT_SECRET:-}" \
+                && "$CODEINSIGHTS_ENTRA_CLIENT_SECRET" != '$('* ]]; then
+                az keyvault secret set \
+                  --vault-name up-fr-odi-sast-prod-kv \
+                  --name codeinsights-entra-client-secret \
+                  --value "$CODEINSIGHTS_ENTRA_CLIENT_SECRET" \
+                  --output none
+              else
+                export CODEINSIGHTS_ENTRA_CLIENT_SECRET
+                CODEINSIGHTS_ENTRA_CLIENT_SECRET=$(az keyvault secret show \
+                  --vault-name up-fr-odi-sast-prod-kv \
+                  --name codeinsights-entra-client-secret \
+                  --query value \
+                  --output tsv)
+              fi
+
+              export CODEINSIGHTS_ADMIN_PASSWORD
+              CODEINSIGHTS_ADMIN_PASSWORD=$(az keyvault secret show \
+                --vault-name up-fr-odi-sast-prod-kv \
+                --name bootstrap-admin-password \
+                --query value \
+                --output tsv)
+              export CODEINSIGHTS_TOKEN_FILE="$token_file"
+
+              python3 - <<'PY'
+              import json
+              import os
+              import urllib.request
+
+              base_url = "https://up-france-odi-sast-prod-app.azurewebsites.net"
+              projects = (
+                  ("Up.France.CodeInsights", "CodeInsights", "upcoop-dotnet", "2", "Up.France.ODI", 969),
+                  ("Up.France.ODI.Commercant.Web", "Commercant Web", "upcoop-react", "1", "Up.France.ODI", 162),
+                  ("Up.France.ODI.StoreLocator.Web", "StoreLocator Web", "upcoop-react", "1", "Up.France.ODI", 941),
+                  ("Up.France.ODI.StoreLocator.Data", "StoreLocator Data", "upcoop-python", "1", "Up.France.ODI", 845),
+                  ("Up.France.Services.MSC", "MSC", "upcoop-dotnet", "2", "Up.France.Services.MSC", 991),
+              )
+
+              def call(path, *, method="GET", payload=None, token=None):
+                  headers = {"Content-Type": "application/json"}
+                  if token:
+                      headers["Authorization"] = f"Bearer {token}"
+                  request = urllib.request.Request(
+                      base_url + path,
+                      data=None if payload is None else json.dumps(payload).encode(),
+                      headers=headers,
+                      method=method,
+                  )
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      return json.load(response)
+
+              session = call(
+                  "/api/v1/auth/login",
+                  method="POST",
+                  payload={
+                      "email": "admin@codeinsights.local",
+                      "password": os.environ["CODEINSIGHTS_ADMIN_PASSWORD"],
+                  },
+              )["token"]
+
+              call(
+                  "/api/v1/integrations/providers/azure-ad",
+                  method="PUT",
+                  token=session,
+                  payload={
+                      "connection_url": "",
+                      "config_json": {
+                          "tenant_id": "475fd1d1-212f-472f-9c02-635526f47568",
+                          "client_id": "60fa4790-a8dd-4565-80c3-8854e1ff163c",
+                          "client_secret": os.environ["CODEINSIGHTS_ENTRA_CLIENT_SECRET"],
+                          "redirect_uri": (
+                              "https://up-france-odi-sast-prod-app.azurewebsites.net"
+                              "/api/v1/auth/entra/callback"
+                          ),
+                      },
+                  },
+              )
+              call(
+                  "/api/v1/integrations/providers/azure-ad/test",
+                  method="POST",
+                  token=session,
+              )
+              print("Entra provider restored and enabled")
+
+              existing = {
+                  project["key"]: project for project in call("/api/v1/projects", token=session)
+              }
+
+              for key, name, profile_id, profile_version, _, _ in projects:
+                  current = existing.get(key)
+                  if (
+                      current
+                      and current.get("analysis_profile_id") == profile_id
+                      and current.get("analysis_profile_version") == profile_version
+                  ):
+                      print(f"Project already registered: {key}")
+                      continue
+                  if current:
+                      call(
+                          f"/api/v1/projects/{current['id']}",
+                          method="PATCH",
+                          token=session,
+                          payload={
+                              "analysis_profile_id": profile_id,
+                              "analysis_profile_version": profile_version,
+                          },
+                      )
+                      print(f"Project profile updated: {key}")
+                      continue
+                  call(
+                      "/api/v1/projects",
+                      method="POST",
+                      token=session,
+                      payload={
+                          "key": key,
+                          "name": name,
+                          "description": "Azure DevOps SAST analysis",
+                          "analysis_profile_id": profile_id,
+                          "analysis_profile_version": profile_version,
+                      },
+                  )
+                  print(f"Project registered: {key}")
+
+              for key, _, profile_id, profile_version, ado_project, pipeline_id in projects:
+                  call(
+                      f"/api/v1/profiles/projects/{key}",
+                      method="PUT",
+                      token=session,
+                      payload={
+                          "profile_id": profile_id,
+                          "profile_version": profile_version,
+                          "enforcement": "informative",
+                      },
+                  )
+                  print(f"CodeInsights profile assigned: {key} -> {profile_id}/{profile_version}")
+                  call(
+                      f"/api/v1/integrations/projects/{key}",
+                      method="PUT",
+                      token=session,
+                      payload={
+                          "repo_provider": "azure-devops",
+                          "repo_url": (
+                              f"https://dev.azure.com/up-group/{ado_project}/_git/{key}"
+                          ),
+                          "pipeline_provider": "azure-devops",
+                          "pipeline_url": (
+                              f"https://dev.azure.com/up-group/{ado_project}/_build"
+                              f"?definitionId={pipeline_id}"
+                          ),
+                      },
+                  )
+                  print(f"Canonical Azure DevOps integration restored: {key}")
+
+              ado_configs = call("/api/v1/integrations/azure-devops/configs", token=session)
+              ado_config = next(
+                  (
+                      config
+                      for config in ado_configs
+                      if config["organization_url"] == "https://dev.azure.com/up-group"
+                  ),
+                  None,
+              )
+              ado_payload = {
+                  "config_name": "Up Group",
+                  "organization_url": "https://dev.azure.com/up-group",
+                  "repo_import_enabled": ado_config["repo_import_enabled"] if ado_config else False,
+                  "quality_gate_enabled": True,
+              }
+              if ado_config:
+                  call(
+                      f"/api/v1/integrations/azure-devops/configs/{ado_config['config_id']}",
+                      method="PUT",
+                      token=session,
+                      payload=ado_payload,
+                  )
+              else:
+                  ado_config = call(
+                      "/api/v1/integrations/azure-devops/configs",
+                      method="POST",
+                      token=session,
+                      payload=ado_payload,
+                  )
+              call(
+                  f"/api/v1/integrations/azure-devops/configs/{ado_config['config_id']}/test",
+                  method="POST",
+                  token=session,
+              )
+              print("Azure DevOps managed identity validated: Up Group")
+
+              users = call("/api/v1/auth/users", token=session)
+              analyst = next(
+                  (
+                      user
+                      for user in users
+                      if user["email"].lower() == "heni.fazzani.ext@up.coop"
+                  ),
+                  None,
+              )
+              if analyst:
+                  if analyst["role"] != "admin" or not analyst["is_active"]:
+                      call(
+                          f"/api/v1/auth/users/{analyst['user_id']}",
+                          method="PUT",
+                          token=session,
+                          payload={"role": "admin", "is_active": True},
+                      )
+                      print("Pilot administrator role restored")
+                  organization_ids = sorted(
+                      grant["scope_id"]
+                      for grant in analyst["grants"]
+                      if grant["scope_type"] == "organization"
+                  )
+                  project_keys = sorted(
+                      {
+                          *(key for key, _, _, _, _, _ in projects),
+                          *(
+                              grant["scope_id"]
+                              for grant in analyst["grants"]
+                              if grant["scope_type"] == "project"
+                          ),
+                      }
+                  )
+                  call(
+                      f"/api/v1/auth/users/{analyst['user_id']}/grants",
+                      method="PUT",
+                      token=session,
+                      payload={
+                          "organization_ids": organization_ids,
+                          "project_keys": project_keys,
+                      },
+                  )
+                  print("Pilot project access restored without removing existing grants")
+
+              if os.environ["CODEINSIGHTS_ROTATE_CI_TOKEN"].lower() == "true":
+                  generated = call(
+                      "/api/v1/platform/token/generate",
+                      method="POST",
+                      token=session,
+                      payload={
+                          "token_name": "Azure DevOps SAST consumers",
+                          "ttl_days": 3650,
+                          "require_current_token": False,
+                          "project_keys": [key for key, _, _, _, _, _ in projects],
+                          "scopes": ["analysis:read", "analysis:write", "integration:write", "project:register"],
+                      },
+                  )
+                  descriptor = os.open(
+                      os.environ["CODEINSIGHTS_TOKEN_FILE"],
+                      os.O_WRONLY | os.O_TRUNC,
+                      0o600,
+                  )
+                  with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+                      stream.write(generated["token"])
+                  print("New 3650-day shared CI token generated; previous tokens remain valid")
+              else:
+                  print("Shared CI token left unchanged")
+              PY
+
+              unset CODEINSIGHTS_ADMIN_PASSWORD
+              unset CODEINSIGHTS_ENTRA_CLIENT_SECRET
+              if [[ "$rotate_ci_token" == "true" ]]; then
+                az keyvault secret set \
+                  --vault-name up-fr-odi-sast-prod-kv \
+                  --name codeinsights-ci-token \
+                  --file "$token_file" \
+                  --output none
+                echo "New CI token stored in Key Vault; revoke the previous token only after validation"
+              elif [[ "$sync_connections" == "true" ]]; then
+                rm -f "$token_file"
+                az keyvault secret download \
+                  --vault-name up-fr-odi-sast-prod-kv \
+                  --name codeinsights-ci-token \
+                  --file "$token_file" \
+                  --encoding utf-8 \
+                  --output none
+                chmod 600 "$token_file"
+              fi
+
+              if [[ "$sync_connections" == "true" ]]; then
+                python3 "$(Build.SourcesDirectory)/scripts/codeinsights-ado-transition.py" \
+                  sync-service-connections \
+                  --organization-url https://dev.azure.com/up-group \
+                  --projects Up.France.ODI Up.France.Services.MSC \
+                  --endpoint-name CodeInsights-Coop \
+                  --endpoint-type upcoop-codeinsights \
+                  --codeinsights-url https://up-france-odi-sast-prod-app.azurewebsites.net \
+                  --token-file "$token_file"
+              fi
+
+      env:
+          CODEINSIGHTS_ENTRA_CLIENT_SECRET: $(CodeInsightsEntraClientSecret)
+          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+          CODEINSIGHTS_ROTATE_CI_TOKEN: "${{ parameters.rotateCodeInsightsToken }}"
+          CODEINSIGHTS_SYNC_SERVICE_CONNECTIONS: "${{ parameters.syncCodeInsightsServiceConnections }}"

@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import ts from 'typescript';
+import vm from 'node:vm';
+import { test } from 'vitest';
+import { sourceUrl } from '../test-path';
+
+test('navigation state contracts', async () => {
+const source = fs.readFileSync(new URL('./workspace/navigation-state.ts', sourceUrl), 'utf8').replace(/^import type .*;$/gm, '');
+const output = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+const exports = {};
+vm.runInNewContext(output, { exports, URLSearchParams });
+const parsed = exports.parseWorkspaceUrl('?tab=rules&project=p&analysis_id=a&project_metric=coverage&rule_status=disabled&severity=high&mine=true&favorites_only=true&project_search=legacy&unknown=x');
+assert.equal(parsed.tab, 'rules');
+assert.equal(parsed.project, 'p');
+assert.equal(parsed.rules.status, 'disabled');
+assert.equal(parsed.issues.severity, 'high');
+assert.equal(parsed.issues.mine, true);
+assert.equal(parsed.projectMetric, 'coverage');
+assert.equal(exports.parseWorkspaceUrl('?tab=nope&severity=nope').tab, 'projects');
+assert.equal(exports.parseWorkspaceUrl('?tab=nope&severity=nope').issues.severity, 'all');
+const serialized = exports.workspaceSearch(parsed);
+assert.match(serialized, /tab=rules/);
+assert.match(serialized, /rule_status=disabled/);
+assert.match(serialized, /project_metric=coverage/);
+assert.doesNotMatch(serialized, /unknown=/);
+assert.equal(exports.workspaceSearch(exports.parseWorkspaceUrl('')), '');
+assert.doesNotMatch(serialized, /favorites_only|project_search/);
+assert.equal(exports.parseWorkspaceUrl('?project_metric=invalid').projectMetric, '');
+const appSource = fs.readFileSync(new URL('./workspace/Workspace.tsx', sourceUrl), 'utf8');
+assert.match(appSource, /if \(!initialUrlHasTab && !initialUrlState\.projectMetric\) setActiveTab\('issues'\)/, 'An explicit tab or project metric must win over legacy analysis deep-link routing');
+assert.match(appSource, /skipNextUrlReplace\.current = true[\s\S]*history\.pushState/, 'A pushed navigation entry is protected from a stale replace effect');
+assert.match(appSource, /if \(skipNextUrlReplace\.current\)[\s\S]*skipNextUrlReplace\.current = false[\s\S]*return/, 'The pending replace guard is consumed once');
+console.log('Navigation URL state checks passed.');
+});

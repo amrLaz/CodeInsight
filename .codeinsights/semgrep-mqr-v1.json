@@ -1,0 +1,18 @@
+{
+  "rules": [
+    {
+      "id": "dotnet.dangerous-accept-any-server-certificate",
+      "languages": ["csharp"],
+      "message": "TLS certificate validation is disabled.",
+      "severity": "ERROR",
+      "pattern": "HttpClientHandler.DangerousAcceptAnyServerCertificateValidator"
+    },
+    {
+      "id": "dotnet.permissive-cors",
+      "languages": ["csharp"],
+      "message": "Permissive CORS requires a security review.",
+      "severity": "WARNING",
+      "pattern": "$POLICY.AllowAnyOrigin()"
+    }
+  ]
+}

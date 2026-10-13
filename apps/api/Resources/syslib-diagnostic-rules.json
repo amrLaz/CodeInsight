@@ -1,0 +1,1297 @@
+[
+  {
+    "id": "SYSLIB0001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0001"
+  },
+  {
+    "id": "SYSLIB0002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0002"
+  },
+  {
+    "id": "SYSLIB0003",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0003"
+  },
+  {
+    "id": "SYSLIB0004",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0004"
+  },
+  {
+    "id": "SYSLIB0005",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0005"
+  },
+  {
+    "id": "SYSLIB0006",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0006"
+  },
+  {
+    "id": "SYSLIB0007",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0007"
+  },
+  {
+    "id": "SYSLIB0008",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0008"
+  },
+  {
+    "id": "SYSLIB0009",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0009"
+  },
+  {
+    "id": "SYSLIB0010",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0010"
+  },
+  {
+    "id": "SYSLIB0011",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0011"
+  },
+  {
+    "id": "SYSLIB0012",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0012"
+  },
+  {
+    "id": "SYSLIB0013",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0013"
+  },
+  {
+    "id": "SYSLIB0014",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0014"
+  },
+  {
+    "id": "SYSLIB0015",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0015"
+  },
+  {
+    "id": "SYSLIB0016",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0016"
+  },
+  {
+    "id": "SYSLIB0017",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0017"
+  },
+  {
+    "id": "SYSLIB0018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0018"
+  },
+  {
+    "id": "SYSLIB0019",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0019"
+  },
+  {
+    "id": "SYSLIB0020",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0020"
+  },
+  {
+    "id": "SYSLIB0021",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0021"
+  },
+  {
+    "id": "SYSLIB0023",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0023"
+  },
+  {
+    "id": "SYSLIB0024",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0024"
+  },
+  {
+    "id": "SYSLIB0025",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0025"
+  },
+  {
+    "id": "SYSLIB0026",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0026"
+  },
+  {
+    "id": "SYSLIB0027",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0027"
+  },
+  {
+    "id": "SYSLIB0028",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0028"
+  },
+  {
+    "id": "SYSLIB0029",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0029"
+  },
+  {
+    "id": "SYSLIB0030",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0030"
+  },
+  {
+    "id": "SYSLIB0031",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0031"
+  },
+  {
+    "id": "SYSLIB0032",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0032"
+  },
+  {
+    "id": "SYSLIB0033",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0033"
+  },
+  {
+    "id": "SYSLIB0034",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0034"
+  },
+  {
+    "id": "SYSLIB0035",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0035"
+  },
+  {
+    "id": "SYSLIB0036",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0036"
+  },
+  {
+    "id": "SYSLIB0037",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0037"
+  },
+  {
+    "id": "SYSLIB0038",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0038"
+  },
+  {
+    "id": "SYSLIB0039",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0039"
+  },
+  {
+    "id": "SYSLIB0040",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0040"
+  },
+  {
+    "id": "SYSLIB0042",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0042"
+  },
+  {
+    "id": "SYSLIB0043",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0043"
+  },
+  {
+    "id": "SYSLIB0044",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0044"
+  },
+  {
+    "id": "SYSLIB0045",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0045"
+  },
+  {
+    "id": "SYSLIB0046",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0046"
+  },
+  {
+    "id": "SYSLIB0047",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0047"
+  },
+  {
+    "id": "SYSLIB0048",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0048"
+  },
+  {
+    "id": "SYSLIB0049",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0049"
+  },
+  {
+    "id": "SYSLIB0050",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0050"
+  },
+  {
+    "id": "SYSLIB0052",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0052"
+  },
+  {
+    "id": "SYSLIB0053",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0053"
+  },
+  {
+    "id": "SYSLIB0054",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0054"
+  },
+  {
+    "id": "SYSLIB0055",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0055"
+  },
+  {
+    "id": "SYSLIB0056",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0056"
+  },
+  {
+    "id": "SYSLIB0058",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0058"
+  },
+  {
+    "id": "SYSLIB0059",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0059"
+  },
+  {
+    "id": "SYSLIB0060",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0060"
+  },
+  {
+    "id": "SYSLIB0061",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0061"
+  },
+  {
+    "id": "SYSLIB0062",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0062"
+  },
+  {
+    "id": "SYSLIB0063",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0063"
+  },
+  {
+    "id": "SYSLIB0064",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0064"
+  },
+  {
+    "id": "SYSLIB0065",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0065"
+  },
+  {
+    "id": "SYSLIB0066",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib0066"
+  },
+  {
+    "id": "SYSLIB1001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1001"
+  },
+  {
+    "id": "SYSLIB1002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1002"
+  },
+  {
+    "id": "SYSLIB1003",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1003"
+  },
+  {
+    "id": "SYSLIB1004",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1004"
+  },
+  {
+    "id": "SYSLIB1005",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1005"
+  },
+  {
+    "id": "SYSLIB1006",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1006"
+  },
+  {
+    "id": "SYSLIB1007",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1007"
+  },
+  {
+    "id": "SYSLIB1008",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1008"
+  },
+  {
+    "id": "SYSLIB1009",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1009"
+  },
+  {
+    "id": "SYSLIB1010",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1010"
+  },
+  {
+    "id": "SYSLIB1011",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1011"
+  },
+  {
+    "id": "SYSLIB1012",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1012"
+  },
+  {
+    "id": "SYSLIB1013",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1013"
+  },
+  {
+    "id": "SYSLIB1014",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1014"
+  },
+  {
+    "id": "SYSLIB1015",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1015"
+  },
+  {
+    "id": "SYSLIB1016",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1016"
+  },
+  {
+    "id": "SYSLIB1017",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1017"
+  },
+  {
+    "id": "SYSLIB1018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1018"
+  },
+  {
+    "id": "SYSLIB1019",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1019"
+  },
+  {
+    "id": "SYSLIB1020",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1020"
+  },
+  {
+    "id": "SYSLIB1021",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1021"
+  },
+  {
+    "id": "SYSLIB1022",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1022"
+  },
+  {
+    "id": "SYSLIB1023",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1023"
+  },
+  {
+    "id": "SYSLIB1024",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1024"
+  },
+  {
+    "id": "SYSLIB1025",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1025"
+  },
+  {
+    "id": "SYSLIB1026",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1026"
+  },
+  {
+    "id": "SYSLIB1027",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1027"
+  },
+  {
+    "id": "SYSLIB1028",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1028"
+  },
+  {
+    "id": "SYSLIB1029",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1029"
+  },
+  {
+    "id": "SYSLIB1030",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1030"
+  },
+  {
+    "id": "SYSLIB1031",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1031"
+  },
+  {
+    "id": "SYSLIB1032",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1032"
+  },
+  {
+    "id": "SYSLIB1033",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1033"
+  },
+  {
+    "id": "SYSLIB1034",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1034"
+  },
+  {
+    "id": "SYSLIB1035",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1035"
+  },
+  {
+    "id": "SYSLIB1036",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1036"
+  },
+  {
+    "id": "SYSLIB1037",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1037"
+  },
+  {
+    "id": "SYSLIB1038",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1038"
+  },
+  {
+    "id": "SYSLIB1039",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1039"
+  },
+  {
+    "id": "SYSLIB1040",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1040"
+  },
+  {
+    "id": "SYSLIB1041",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1041"
+  },
+  {
+    "id": "SYSLIB1042",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1042"
+  },
+  {
+    "id": "SYSLIB1043",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1043"
+  },
+  {
+    "id": "SYSLIB1044",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1044"
+  },
+  {
+    "id": "SYSLIB1050",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1050"
+  },
+  {
+    "id": "SYSLIB1051",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1051"
+  },
+  {
+    "id": "SYSLIB1052",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1052"
+  },
+  {
+    "id": "SYSLIB1053",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1053"
+  },
+  {
+    "id": "SYSLIB1054",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1054"
+  },
+  {
+    "id": "SYSLIB1055",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1055"
+  },
+  {
+    "id": "SYSLIB1056",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1056"
+  },
+  {
+    "id": "SYSLIB1057",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1057"
+  },
+  {
+    "id": "SYSLIB1058",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1058"
+  },
+  {
+    "id": "SYSLIB1059",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1059"
+  },
+  {
+    "id": "SYSLIB1060",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1060"
+  },
+  {
+    "id": "SYSLIB1061",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1061"
+  },
+  {
+    "id": "SYSLIB1062",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1062"
+  },
+  {
+    "id": "SYSLIB1063",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1063"
+  },
+  {
+    "id": "SYSLIB1064",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1064"
+  },
+  {
+    "id": "SYSLIB1070",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1070"
+  },
+  {
+    "id": "SYSLIB1071",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1071"
+  },
+  {
+    "id": "SYSLIB1072",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1072"
+  },
+  {
+    "id": "SYSLIB1073",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1073"
+  },
+  {
+    "id": "SYSLIB1074",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1074"
+  },
+  {
+    "id": "SYSLIB1075",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1075"
+  },
+  {
+    "id": "SYSLIB1090",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1090"
+  },
+  {
+    "id": "SYSLIB1091",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1091"
+  },
+  {
+    "id": "SYSLIB1092",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1092"
+  },
+  {
+    "id": "SYSLIB1093",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1093"
+  },
+  {
+    "id": "SYSLIB1094",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1094"
+  },
+  {
+    "id": "SYSLIB1095",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1095"
+  },
+  {
+    "id": "SYSLIB1096",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1096"
+  },
+  {
+    "id": "SYSLIB1097",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1097"
+  },
+  {
+    "id": "SYSLIB1098",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1098"
+  },
+  {
+    "id": "SYSLIB1099",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1099"
+  },
+  {
+    "id": "SYSLIB1100",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1100"
+  },
+  {
+    "id": "SYSLIB1101",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1101"
+  },
+  {
+    "id": "SYSLIB1102",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1102"
+  },
+  {
+    "id": "SYSLIB1103",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1103"
+  },
+  {
+    "id": "SYSLIB1104",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1104"
+  },
+  {
+    "id": "SYSLIB1201",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1201"
+  },
+  {
+    "id": "SYSLIB1202",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1202"
+  },
+  {
+    "id": "SYSLIB1203",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1203"
+  },
+  {
+    "id": "SYSLIB1204",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1204"
+  },
+  {
+    "id": "SYSLIB1205",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1205"
+  },
+  {
+    "id": "SYSLIB1206",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1206"
+  },
+  {
+    "id": "SYSLIB1207",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1207"
+  },
+  {
+    "id": "SYSLIB1208",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1208"
+  },
+  {
+    "id": "SYSLIB1209",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1209"
+  },
+  {
+    "id": "SYSLIB1210",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1210"
+  },
+  {
+    "id": "SYSLIB1211",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1211"
+  },
+  {
+    "id": "SYSLIB1212",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1212"
+  },
+  {
+    "id": "SYSLIB1213",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1213"
+  },
+  {
+    "id": "SYSLIB1214",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1214"
+  },
+  {
+    "id": "SYSLIB1215",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1215"
+  },
+  {
+    "id": "SYSLIB1216",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1216"
+  },
+  {
+    "id": "SYSLIB1217",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1217"
+  },
+  {
+    "id": "SYSLIB1219",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1219"
+  },
+  {
+    "id": "SYSLIB1220",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1220"
+  },
+  {
+    "id": "SYSLIB1221",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1221"
+  },
+  {
+    "id": "SYSLIB1222",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1222"
+  },
+  {
+    "id": "SYSLIB1223",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1223"
+  },
+  {
+    "id": "SYSLIB1224",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1224"
+  },
+  {
+    "id": "SYSLIB1225",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1225"
+  },
+  {
+    "id": "SYSLIB1226",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1226"
+  },
+  {
+    "id": "SYSLIB1227",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1227"
+  },
+  {
+    "id": "SYSLIB1228",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1228"
+  },
+  {
+    "id": "SYSLIB1229",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1229"
+  },
+  {
+    "id": "SYSLIB1230",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1230"
+  },
+  {
+    "id": "SYSLIB1240",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1240"
+  },
+  {
+    "id": "SYSLIB1241",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1241"
+  },
+  {
+    "id": "SYSLIB1242",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1242"
+  },
+  {
+    "id": "SYSLIB1243",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1243"
+  },
+  {
+    "id": "SYSLIB1244",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1244"
+  },
+  {
+    "id": "SYSLIB5001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5001"
+  },
+  {
+    "id": "SYSLIB5002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5002"
+  },
+  {
+    "id": "SYSLIB5003",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5003"
+  },
+  {
+    "id": "SYSLIB5004",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5004"
+  },
+  {
+    "id": "SYSLIB5005",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5005"
+  },
+  {
+    "id": "SYSLIB5006",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5006"
+  },
+  {
+    "id": "SYSLIB5007",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5007"
+  },
+  {
+    "id": "SYSLIB5008",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5008"
+  },
+  {
+    "id": "SYSLIB5009",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 10,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib5009"
+  }
+]

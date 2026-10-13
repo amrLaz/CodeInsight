@@ -1,0 +1,244 @@
+name: Build_CodeInsights_VSCode_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - apps/core/**
+      - apps/mcp/**
+      - apps/vscode/**
+      - .azuredevops/build-vscode-extension.yml
+
+pr:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - apps/core/**
+      - apps/mcp/**
+      - apps/vscode/**
+      - .azuredevops/build-vscode-extension.yml
+
+pool:
+  name: ManagedDevOpsPoolsLinux24
+
+variables:
+  - name: CORE_DIR
+    value: apps/core
+  - name: MCP_DIR
+    value: apps/mcp
+  - name: EXTENSION_DIR
+    value: apps/vscode
+
+stages:
+  - stage: Build
+    displayName: "Check & package the VS Code extension"
+    jobs:
+      # Les paths.include ci-dessus ne filtrent que les déclenchements CI : une
+      # stratégie de branche « build validation » lance le pipeline sur toutes les
+      # PR, quel que soit le chemin touché. Ce job rejoue donc le filtre au runtime
+      # pour que seul un changement de l'extension déclenche le packaging.
+      - job: Scope
+        displayName: "Changements dans apps/vscode, apps/core ou apps/mcp ?"
+        steps:
+          - checkout: self
+            fetchDepth: 0
+
+          - script: |
+              set -euo pipefail
+              # backticks : $(...) serait interprété comme une macro de pipeline.
+              # Vide hors PR : la garde de version ne s'applique qu'à une PR.
+              base=""
+              case "$BUILD_REASON" in
+                PullRequest)
+                  target="${PR_TARGET:-refs/heads/master}"
+                  git fetch --no-tags origin "$target"
+                  base=`git merge-base HEAD FETCH_HEAD`
+                  git diff --name-only "$base" HEAD > "$CHANGED_LIST"
+                  ;;
+                IndividualCI | BatchedCI)
+                  if git rev-parse --verify --quiet HEAD~1 > /dev/null; then
+                    git diff --name-only HEAD~1 HEAD > "$CHANGED_LIST"
+                  else
+                    git ls-files > "$CHANGED_LIST"
+                  fi
+                  ;;
+                *)
+                  # Exécution manuelle ou planifiée : packager sans condition.
+                  git ls-files > "$CHANGED_LIST"
+                  ;;
+              esac
+              echo "$base" > "$BASE_FILE"
+
+              # apps/core est le cœur partagé et apps/mcp le serveur embarqué dans le
+              # VSIX : un changement de l'un ou l'autre change l'extension livrée, même
+              # sans toucher apps/vscode.
+              if grep -qE '^(apps/vscode/|apps/core/|apps/mcp/|\.azuredevops/build-vscode-extension\.yml$)' "$CHANGED_LIST"; then
+                echo "##vso[task.setvariable variable=extensionTouched;isOutput=true]true"
+                echo "Extension, cœur ou serveur MCP modifié : packaging demandé."
+              else
+                echo "##vso[task.setvariable variable=extensionTouched;isOutput=true]false"
+                echo "Aucun changement sous apps/vscode, apps/core ni apps/mcp : packaging ignoré."
+              fi
+            name: scope
+            displayName: "Détecter les changements de l'extension"
+            env:
+              BUILD_REASON: $(Build.Reason)
+              PR_TARGET: $(System.PullRequest.TargetBranch)
+              # Hors du checkout, pour ne pas salir l'arbre de travail.
+              CHANGED_LIST: $(Agent.TempDirectory)/changed-paths.txt
+              BASE_FILE: $(Agent.TempDirectory)/merge-base.txt
+
+          # Une PR qui change ce qui est livré sans monter la version publierait un paquet
+          # indiscernable du précédent : le flux refuse la republication, et un poste déjà
+          # équipé ne verrait jamais la mise à jour. La garde est ici parce que c'est le
+          # dernier endroit où elle bloque encore quelque chose — après la fusion, il ne
+          # reste qu'un échec de publication sur master.
+          - script: |
+              set -euo pipefail
+              # backticks : $(...) serait interprété comme une macro de pipeline.
+              base=`cat "$BASE_FILE"`
+              if [ -z "$base" ]; then
+                echo "Base de comparaison inconnue : garde de version ignorée."
+                exit 0
+              fi
+              # Une version illisible doit arrêter la garde, jamais la faire passer en
+              # silence : une garde qui se tait quand elle ne sait pas ne garde rien.
+              if ! command -v node > /dev/null 2>&1; then
+                echo "##vso[task.logissue type=error]node est requis pour lire la version des manifestes."
+                exit 1
+              fi
+              read_version() {
+                git show "$1:$2" | node -p 'JSON.parse(require("fs").readFileSync(0, "utf8")).version'
+              }
+              failed=0
+              for manifest in $MANIFESTS; do
+                if ! git cat-file -e "$base:$manifest" 2>/dev/null; then
+                  echo "$manifest est nouveau dans cette PR : rien à comparer."
+                  continue
+                fi
+                previous=`read_version "$base" "$manifest"`
+                current=`read_version HEAD "$manifest"`
+                if [ "$previous" = "$current" ]; then
+                  echo "##vso[task.logissue type=error]$manifest : version $current inchangée alors que le paquet livré change. Monter la version (npm version patch --no-git-tag-version) avant de pousser."
+                  failed=1
+                  continue
+                fi
+                lowest=`printf '%s\n%s\n' "$previous" "$current" | sort -V | head -1`
+                if [ "$lowest" != "$previous" ]; then
+                  echo "##vso[task.logissue type=error]$manifest : version $current inférieure à $previous. Une version publiée ne se réutilise pas."
+                  failed=1
+                  continue
+                fi
+                echo "$manifest : $previous -> $current"
+              done
+              exit $failed
+            displayName: "Exiger la montée de version"
+            env:
+              BASE_FILE: $(Agent.TempDirectory)/merge-base.txt
+              MANIFESTS: "apps/vscode/package.json"
+            condition: >-
+              and(succeeded(),
+                  eq(variables['Build.Reason'], 'PullRequest'),
+                  eq(variables['scope.extensionTouched'], 'true'))
+
+      - job: Package
+        displayName: "npm ci → check → vsce package"
+        dependsOn: Scope
+        condition: >-
+          and(succeeded(),
+              eq(dependencies.Scope.outputs['scope.extensionTouched'], 'true'))
+        steps:
+          - checkout: self
+            fetchDepth: 1
+
+          - task: UseNode@1
+            displayName: "Install Node 24"
+            inputs:
+              version: "24.x"
+
+          # Le cœur partagé est bundlé depuis ses sources : ses dépendances servent à
+          # ses propres checks, et au harnais que l'extension réutilise.
+          - script: npm ci
+            displayName: "Install core dependencies"
+            workingDirectory: $(CORE_DIR)
+
+          - script: npm run check
+            displayName: "Core checks"
+            workingDirectory: $(CORE_DIR)
+
+          # Le serveur MCP est bundlé dans le VSIX depuis ses sources : ses dépendances
+          # doivent être installées avant le build de l'extension, qui les embarque.
+          - script: npm ci
+            displayName: "Install MCP dependencies"
+            workingDirectory: $(MCP_DIR)
+
+          - script: npm run check
+            displayName: "MCP checks"
+            workingDirectory: $(MCP_DIR)
+
+          - script: npm ci
+            displayName: "Install dependencies"
+            workingDirectory: $(EXTENSION_DIR)
+
+          # TypeScript type checking plus Vitest tests, as for apps/web.
+          - script: npm run check
+            displayName: "Checks"
+            workingDirectory: $(EXTENSION_DIR)
+
+          # `npm run package` construit dist/extension.js et dist/mcp-server.mjs, puis
+          # empaquette : le serveur embarqué est toujours celui des sources du commit.
+          - script: npm run package
+            displayName: "Package VSIX"
+            workingDirectory: $(EXTENSION_DIR)
+
+          # Le .vsix est isolé du bundle esbuild (dist/extension.js) pour que le
+          # paquet universel ne contienne que l'extension packagée.
+          - script: |
+              set -euo pipefail
+              # backticks : $(...) serait interprété comme une macro de pipeline.
+              version=`node -p "require('./package.json').version"`
+              mkdir -p "$(Build.ArtifactStagingDirectory)/vsix"
+              cp dist/*.vsix "$(Build.ArtifactStagingDirectory)/vsix/"
+              echo "##vso[task.setvariable variable=vsixVersion]$version"
+              echo "VSIX $version prêt"
+            displayName: "Stage VSIX & lire la version"
+            workingDirectory: $(EXTENSION_DIR)
+
+          # Hors master (PR, branche de travail), le VSIX n'est qu'un sous-produit
+          # du check : on le construit sans le publier.
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish VSIX"
+            condition: >-
+              and(succeeded(),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/vsix
+              artifact: CodeInsightsVsix
+              publishLocation: pipeline
+
+          # Optionnel : CODEINSIGHTS_VSIX_FEED = identifiant du feed Azure Artifacts.
+          # Le feed CodeInsights de up-group est *organisation* : donner son nom ou
+          # son GUID seul, sans préfixe projet (un préfixe "Up.France.ODI/" ferait
+          # chercher un feed projet inexistant → TF1600011).
+          # Sans la variable, le VSIX reste le pipeline artifact ci-dessus.
+          - task: UniversalPackages@0
+            displayName: "Publish VSIX to Azure Artifacts"
+            condition: >-
+              and(succeeded(),
+                  ne(variables['CODEINSIGHTS_VSIX_FEED'], ''),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+            inputs:
+              command: publish
+              publishDirectory: $(Build.ArtifactStagingDirectory)/vsix
+              feedsToUsePublish: internal
+              vstsFeedPublish: $(CODEINSIGHTS_VSIX_FEED)
+              vstsFeedPackagePublish: upcoop.codeinsights
+              # versionOption doit valoir custom, sinon la tâche ignore
+              # versionPublish et incrémente elle-même le patch.
+              versionOption: custom
+              versionPublish: $(vsixVersion)
+              packagePublishDescription: "Extension VS Code CodeInsights"

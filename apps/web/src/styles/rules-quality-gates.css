@@ -1,0 +1,422 @@
+/* Rules and Quality Gates workspaces: one document scroll, dense controls, explicit actions. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.section-kicker,
+.gate-editor-kicker {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rules-profile-summary,
+.rules-screen,
+.advanced-rules-panel {
+  width: min(calc(100% - 4rem), 1440px);
+  margin: 0 auto 1rem;
+}
+.rules-profile-summary {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-lighter);
+}
+.rules-profile-summary h2,
+.rules-profile-summary p,
+.rules-heading h2,
+.rules-heading p {
+  margin: 0;
+}
+.rules-profile-summary p {
+  margin-top: 0.35rem;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.rules-profile-summary > .project-picker {
+  display: grid;
+  gap: 0.35rem;
+  min-width: min(360px, 45%);
+  font-size: 12px;
+  font-weight: 700;
+}
+.advanced-rules-panel {
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-lighter);
+}
+.advanced-rules-panel > summary {
+  padding: 0.85rem 1.25rem;
+  cursor: pointer;
+  font-weight: 650;
+}
+.producer-catalogue {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.rules-screen {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-lighter);
+}
+.rules-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.rules-heading p {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.rules-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) repeat(4, minmax(130px, 1fr)) auto;
+  align-items: end;
+  gap: 0.75rem;
+  padding: 1rem;
+  box-shadow: none;
+}
+.rules-toolbar label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 650;
+}
+.rules-toolbar input,
+.rules-toolbar select {
+  width: 100%;
+  min-width: 0;
+}
+.rules-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+.rules-list {
+  max-height: none;
+  overflow: visible;
+  gap: 0.5rem;
+}
+.rule-card {
+  align-items: center;
+  padding: 0;
+  background: var(--bg-lighter);
+}
+.rule-title-button {
+  display: grid;
+  flex: 1;
+  gap: 0.2rem;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+}
+.rule-title-button strong {
+  overflow-wrap: anywhere;
+}
+.rule-title-button span,
+.rule-title-button small {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.rule-status {
+  margin-right: 0.85rem;
+}
+.rule-status.enabled {
+  color: var(--success);
+  background: var(--success-light);
+}
+.rule-status.disabled {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+.rule-status.unmanaged {
+  color: var(--text-secondary);
+  background: var(--bg-light);
+}
+.rules-pagination {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+.rule-detail {
+  position: sticky;
+  top: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-light);
+}
+.rule-detail h3 {
+  margin: 0 0 0.5rem;
+  overflow-wrap: anywhere;
+}
+.rule-detail > code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--text-secondary);
+}
+.rule-detail dl {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.rule-detail dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border);
+}
+.rule-detail dt {
+  color: var(--text-secondary);
+}
+.rule-detail dd {
+  margin: 0;
+  font-weight: 650;
+}
+.danger-link {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 40%, var(--border));
+  background: transparent;
+}
+.rule-activation-confirm {
+  padding: 1.25rem;
+}
+
+.gates-screen {
+  align-items: start;
+}
+.gates-head h2 {
+  margin: 0;
+  font-size: 16px;
+}
+.gates-head > div > span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.gates-main {
+  gap: 1rem;
+}
+.gate-editor,
+.gate-assignments {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-lighter);
+  box-shadow: var(--shadow-sm);
+}
+.gate-editor-header,
+.gate-assignments > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.gate-editor-header > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+.gate-editor-header label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 12px;
+  font-weight: 700;
+}
+.gate-title-input {
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.gate-title-input:not(:read-only):hover,
+.gate-title-input:not(:read-only):focus {
+  border-bottom-color: var(--primary);
+  box-shadow: none;
+}
+.gate-editor-state {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.chip-warning {
+  color: var(--warning);
+  background: var(--warning-light);
+}
+.gate-copy-note {
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-secondary);
+  background: var(--primary-light);
+  font-size: 13px;
+}
+.gate-condition-groups {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.gate-condition-group {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 2fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.gate-condition-group header h3,
+.gate-condition-group header p,
+.gate-assignments h2,
+.gate-assignments p {
+  margin: 0;
+}
+.gate-condition-group header h3,
+.gate-assignments h2 {
+  font-size: 16px;
+}
+.gate-condition-group header p,
+.gate-assignments p {
+  margin-top: 0.35rem;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.gate-condition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.gate-condition-grid label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 650;
+}
+.number-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-lighter);
+}
+.number-control:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+.number-control input {
+  width: 100%;
+  border: 0;
+  box-shadow: none;
+}
+.number-control small {
+  padding-right: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+.gate-editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+}
+.gate-actions-spacer {
+  flex: 1;
+}
+.gate-assignments {
+  padding-bottom: 1.25rem;
+}
+.gate-assignments > .table-wrap {
+  margin: 1rem 1.5rem 0;
+}
+.saving-indicator {
+  margin-left: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .rules-toolbar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .rule-search {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 768px) {
+  .rules-profile-summary,
+  .rules-screen,
+  .advanced-rules-panel {
+    width: calc(100% - 2rem);
+  }
+  .rules-profile-summary {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .rules-profile-summary > .project-picker {
+    min-width: 0;
+  }
+  .rules-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rule-search {
+    grid-column: auto;
+  }
+  .rules-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rule-detail {
+    position: static;
+  }
+  .gate-condition-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .gate-condition-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .gate-editor-header,
+  .gate-assignments > header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .gate-editor-state {
+    flex-wrap: wrap;
+  }
+  .gate-editor-actions {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  .gate-assignments > .table-wrap {
+    margin: 1rem;
+  }
+}

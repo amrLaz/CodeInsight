@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/apps/" />
+  <Folder Name="/apps/api/">
+    <Project Path="apps/api/CodeInsights.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CodeInsights.Tests/CodeInsights.Tests.csproj" />
+  </Folder>
+</Solution>

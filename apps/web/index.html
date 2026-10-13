@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Upcoop code quality and security governance hub." />
+    <meta name="theme-color" content="#005eb8" />
+    <meta name="google-site-verification" content="gvplTDSCDYla6_Bt0AF6STi4BOc_3bxmqPOqKoN5J8Q" />
+    <script>
+      (() => {
+        const storageKey = 'codeinsights-theme-v1';
+        let storedTheme = null;
+        try {
+          const candidate = window.localStorage.getItem(storageKey);
+          storedTheme = candidate === 'light' || candidate === 'dark' ? candidate : null;
+        } catch {}
+        const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+        const theme = storedTheme ?? (prefersDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#101923' : '#005eb8';
+      })();
+    </script>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>CodeInsights</title>
+  </head>
+  <body>
+    <div id="startup-splash" class="startup-splash" role="status" aria-live="polite" aria-atomic="true">
+      <div class="startup-splash__content">
+        <div class="startup-splash__identity">
+          <span class="startup-splash__mark" aria-hidden="true">
+            <img src="/app-icon.svg" alt="" width="72" height="72" />
+          </span>
+          <span>
+            <strong class="startup-splash__product">CodeInsights</strong>
+            <span class="startup-splash__status">Initializing analysis workspace</span>
+          </span>
+        </div>
+        <span class="startup-splash__track" aria-hidden="true"><span></span></span>
+      </div>
+    </div>
+    <div id="root" inert aria-hidden="true"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

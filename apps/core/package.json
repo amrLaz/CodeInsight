@@ -1,0 +1,24 @@
+{
+  "name": "@upcoop/codeinsights-core",
+  "version": "0.4.0",
+  "description": "Cœur partagé de CodeInsights : client d'API, transformations de rapport, analyse locale et résolution de projet, sans dépendance à un hôte.",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://dev.azure.com/up-group/Up.France.ODI/_git/Up.France.CodeInsights"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "api": "node scripts/generate-api-types.mjs",
+    "check": "tsc --noEmit --noUnusedLocals && vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.2",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

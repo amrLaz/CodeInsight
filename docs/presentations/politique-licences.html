@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeInsights – Politique de licences</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Rendu autonome des slides : canevas 1920×1080 mis à l'échelle de la page. */
+  body { margin: 0; padding: 24px 16px 48px; background: #DDE3EA; color: #172A41; font-family: 'IBM Plex Sans', Arial, sans-serif; }
+  header, .entry { max-width: 1280px; margin: 0 auto 32px; }
+  header h1 { font-size: 28px; margin: 0 0 8px; }
+  header p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A4B5E; }
+  .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(23, 42, 65, 0.18); }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; box-sizing: border-box; transform-origin: top left; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide ul, .slide ol { padding-left: 1.3em; }
+  .slide table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  .slide th, .slide td { padding: 0.35em 0.6em; text-align: left; vertical-align: top; border-bottom: 1px solid #D8E1EB; }
+  .slide th { font-weight: 600; }
+  .slide tr:last-child td { border-bottom: none; }
+  .slide x-shape[kind="arrow-right"] { display: block; flex: none; clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .notes { margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3A4B5E; }
+  .notes summary { cursor: pointer; font-weight: 600; }
+  @media print { body { background: #FFFFFF; } .entry { break-inside: avoid; } .notes { display: none; } }
+</style>
+</head>
+<body>
+<header>
+<h1>CodeInsights – Politique de licences</h1>
+<p>Présentation de la politique de licences (lot P5.6), datée du 29 septembre 2026. Elle explique les changements de la branche <code>feat/license-policy</code> ; la référence fonctionnelle reste <a href="../licenses.md">licenses.md</a>.</p>
+</header>
+<article class="entry" aria-label="Slide 1 sur 10">
+<div class="frame">
+<section class="slide" id="cover" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<p style="font-size:26px; font-weight:600; color:#69B4FF; letter-spacing:3px; text-transform:uppercase">CodeInsights · Lot P5.6 · Licences</p>
+<h1 style="font-size:96px; font-weight:700; line-height:1.05">Politique de licences</h1>
+<p style="font-size:32px; color:#BCC9D8; line-height:1.4; width:1300px">Une politique d'organisation classe les composants SBOM et rend enfin mesurable license_violations, sans réécrire un verdict passé.</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">feat/license-policy</p>
+<p style="font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">29 septembre 2026</p>
+</div>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 1</summary><p>Premier élément du lot P5.6 : la politique de licences. Avant ce changement, license_violations restait toujours non mesurée, faute de liste. Les autres éléments du lot (OSV-Scanner, CodeQL, Java) restent à décider.</p></details>
+</article>
+<article class="entry" aria-label="Slide 2 sur 10">
+<div class="frame">
+<section class="slide" id="context" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contexte</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Deux décisions avant le code</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Portée</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Politique d'organisation</h3><p style="font-size:26px; line-height:1.4; color:#516278">Une seule liste pour tous les projets, sans nouvelle version de profil ni changement de template.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Copyleft faible</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Autorisé</h3><p style="font-size:26px; line-height:1.4; color:#516278">LGPL, MPL et EPL, pour des dépendances utilisées sans modification.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Priorité</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Le profil d'abord</h3><p style="font-size:26px; line-height:1.4; color:#516278">Un profil qui porte ses propres listes les garde.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Validation</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Juridique</h3><p style="font-size:26px; line-height:1.4; color:#516278">La classification initiale reste à confirmer.</p></div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">Porter les listes dans de nouvelles versions de profils aurait obligé à publier un tag des templates AzurePipelines et à réaffecter chaque projet, en invalidant une fois sa baseline New Code. La politique d'organisation évite tout cela.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 2 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 2</summary><p>Les deux décisions : politique d'organisation plutôt que nouvelles versions de profils, et copyleft faible autorisé. La classification est une pratique courante, pas un avis juridique.</p></details>
+</article>
+<article class="entry" aria-label="Slide 3 sur 10">
+<div class="frame">
+<section class="slide" id="flow" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Fonctionnement</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Figée à la création, appliquée au traitement</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px; align-items:center">
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Création d'ingestion</h3><p style="font-size:24px; line-height:1.4; color:#516278">Profil avec listes ? Sinon politique d'organisation.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Snapshot figé</h3><p style="font-size:24px; line-height:1.4; color:#516278">license_policy_snapshot : source, version, listes.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Traitement</h3><p style="font-size:24px; line-height:1.4; color:#516278">Chaque composant SBOM classé allowed, denied ou review.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600; color:#EDF4FB;">license_violations</h3><p style="font-size:24px; line-height:1.4; color:#BCC9D8">Nombre de denied, si plus rien n'est en review.</p></div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">Une reprise ou un rejeu juge avec la politique du jour de la publication : enregistrer une nouvelle politique ne réécrit aucun verdict. Une ingestion créée avant ce changement reste jugée par les seules listes de son profil.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 3 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 3</summary><p>Le même mécanisme fige déjà le profil, les exceptions, la définition New Code et les décisions de revue au moment de la création de l'ingestion. La politique de licences suit exactement ce chemin.</p></details>
+</article>
+<article class="entry" aria-label="Slide 4 sur 10">
+<div class="frame">
+<section class="slide" id="rules" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Classement</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Une comparaison exacte</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:26%">Décision</th><th style="width:74%">Quand</th></tr><tr><td>denied</td><td>L'une des licences du composant est refusée</td></tr><tr><td>allowed</td><td>Le composant déclare au moins une licence, et toutes sont autorisées</td></tr><tr><td>review</td><td>Aucune licence déclarée, ou une licence absente des deux listes</td></tr></table>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Sensible à la casse : <b>mit</b> ne correspond pas à MIT</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Expression non évaluée : <b>MIT OR Apache-2.0</b> se liste telle quelle</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Nom libre : <b>Apache License 2.0</b> n'est pas Apache-2.0</p>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 4 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 4</summary><p>La chaîne comparée est celle du SBOM : CycloneDX expression, sinon license.id, sinon license.name ; SPDX licenseDeclared. L'évaluation des expressions SPDX (AND, OR, WITH) est prévue dans la roadmap, en P4.3.</p></details>
+</article>
+<article class="entry" aria-label="Slide 5 sur 10">
+<div class="frame">
+<section class="slide" id="initial" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Classification initiale</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Créée par la migration, à valider</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:24%">Liste</th><th style="width:76%">Licences</th></tr><tr><td>Autorisées</td><td>MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, Zlib, BSL-1.0, Unlicense, CC0-1.0, PostgreSQL, Python-2.0</td></tr><tr><td>Autorisées</td><td>LGPL-2.1 et 3.0 (only, or-later, formes dépréciées), MPL-2.0, EPL-2.0</td></tr><tr><td>Refusées</td><td>GPL-2.0 et 3.0 (only, or-later, formes dépréciées), AGPL-3.0, SSPL-1.0, BUSL-1.1, CC-BY-NC-4.0</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">22 licences autorisées et 14 refusées. Les formes SPDX dépréciées (GPL-3.0, LGPL-2.1+…) sont listées parce que certains outils les émettent encore. Une application SaaS est concernée par l'AGPL et la SSPL même sans distribution.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 5 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 5</summary><p>La liste exacte figure dans docs/licenses.md et dans LicensePolicy.InitialAllowed et InitialDenied. Les deux listes sont disjointes, ce que vérifie LicenseTests.</p></details>
+</article>
+<article class="entry" aria-label="Slide 6 sur 10">
+<div class="frame">
+<section class="slide" id="inventory" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Mesurabilité</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Pourquoi une mesure peut rester vide</h2></div>
+<div style="display:flex; flex-direction:row; gap:32px">
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Règle</h3>
+<p style="font-size:26px; line-height:1.4; color:#172A41">license_violations n'est calculée que si tous les SBOM sont mesurés et qu'aucun composant n'est en review. Un seul composant non classé la laisse non mesurée : afficher zéro violation serait trompeur.</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Inventaire</h3>
+<ul style="font-size:26px; line-height:1.5">
+<li>Licences non classées de la dernière analyse de chaque projet</li>
+<li>Nombre de composants et de projets, les plus fréquentes d'abord</li>
+<li>Composants sans licence comptés à part</li>
+<li>Allow ou Deny ajoute au brouillon</li>
+</ul>
+</div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">Un composant sans licence déclarée ne peut être classé par aucune liste : il faut corriger le SBOM ou son producteur.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 6 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 6</summary><p>L'inventaire remplace le script que j'avais proposé : il est calculé par l'API à partir des composants déjà importés, pour la dernière ingestion terminée et non purgée de chaque projet.</p></details>
+</article>
+<article class="entry" aria-label="Slide 7 sur 10">
+<div class="frame">
+<section class="slide" id="api" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">API et administration</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Trois routes, un écran</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:40%">Route</th><th style="width:22%">Accès</th><th style="width:38%">Comportement</th></tr><tr><td>GET /api/v1/licenses/policy</td><td>Session ou jeton personnel</td><td>Politique d'organisation et sa version</td></tr><tr><td>PUT /api/v1/licenses/policy</td><td>Administrateur</td><td>409 si la version a changé ; 422 si une licence est dans les deux listes ; audit</td></tr><tr><td>GET /api/v1/licenses/unclassified</td><td>Administrateur</td><td>Inventaire, 200 licences au plus</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Administration › Configuration › Licenses : une licence par ligne dans chaque liste, conflit signalé et bloquant, inventaire avec Allow et Deny. Entrées épurées, 1 000 par liste et 200 caractères par entrée au plus. Tokens CI refusés.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 7 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 7</summary><p>Les routes sont ajoutées au catalogue du test de refus anonyme, qui passe de 145 à 148 combinaisons route-méthode.</p></details>
+</article>
+<article class="entry" aria-label="Slide 8 sur 10">
+<div class="frame">
+<section class="slide" id="files" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Livraison</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">12 fichiers créés, 18 modifiés</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:24px">
+<div style="width:600px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/api/ · backend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">Services/LicensePolicies.cs +<br>Endpoints/LicenseEndpoints.cs +<br>Data/LicenseEntities.cs +<br>Data/Migrations/ (2 +, snapshot)<br>Services/IngestionProcessor.cs<br>Endpoints/IngestionEndpoints.cs<br>Data/IngestionEntities.cs<br>Data/AppDbContext.cs, Program.cs</p>
+</div>
+<div style="width:640px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/web/src/ · frontend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">utils/licenses.ts +<br>features/administration/<br>LicensePolicySettings.tsx +<br>features/administration/Administration.tsx<br>config/navigation.ts<br>types/api.ts</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Tests et docs</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">LicenseTests.cs +<br>routes.json<br>2 tests Vitest +<br>admin-data.test.ts<br>docs/licenses.md +<br>docs/ : 6 fichiers<br>presentations/ : 2</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 8 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 8</summary><p>Tests Vitest créés : utils/licenses.test.ts et LicensePolicySettings.test.tsx. Documentation modifiée : index, integration, interface, profiles, roadmap et security-access ; cette présentation et sa ligne d'index sous docs/presentations. Rien sous apps/core, apps/vscode, apps/mcp ou apps/visualstudio : aucune montée de version.</p></details>
+</article>
+<article class="entry" aria-label="Slide 9 sur 10">
+<div class="frame">
+<section class="slide" id="tests" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Vérifications</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui a tourné, et ce qui reste à voir</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">59 / 59</p><p style="font-size:24px; line-height:1.4; color:#516278">xUnit contre l'API, PostgreSQL et Azurite</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">148</p><p style="font-size:24px; line-height:1.4; color:#516278">routes qui refusent un appel anonyme</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">54 + 5</p><p style="font-size:24px; line-height:1.4; color:#516278">xUnit sans base, 5 ignorés</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">66</p><p style="font-size:24px; line-height:1.4; color:#516278">tests Vitest réussis, 7 ignorés</p></div>
+</div>
+<div style="display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#197047">Vérifié à la main</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>Politique amorcée : 22 autorisées, 14 refusées</li>
+<li>422 sur conflit, 409 sur version périmée</li>
+<li>Snapshot figé par chaque ingestion publiée</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#876000">Non vérifié</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>Inventaire sur les SBOM réels de production</li>
+<li>Validation juridique de la classification</li>
+<li>Parcours dans un navigateur, docker build</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Politique de licences · 9 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 9</summary><p>Toutes les passes ont eu lieu après la dernière modification du code, sur une base migrée au préalable comme en CI. Les deux ingestions sans snapshot observées pendant la passe HTTP sont des lignes créées directement par des tests existants, sans passer par la route de création : elles suivent le chemin des ingestions antérieures à la politique.</p></details>
+</article>
+<article class="entry" aria-label="Slide 10 sur 10">
+<div class="frame">
+<section class="slide" id="limits" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#69B4FF; letter-spacing:2px; text-transform:uppercase">Suite</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Limites connues et prochaines étapes</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Limites assumées</h3>
+<ul style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Expressions SPDX non évaluées (prévu en P4.3)</li>
+<li>Comparaison sensible à la casse</li>
+<li>Une seule politique pour toute l'organisation</li>
+<li>Les analyses déjà publiées ne sont pas rejugées</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Prochaines étapes</h3>
+<ol style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Commit et PR vers develop</li>
+<li>Faire valider la classification par le juridique</li>
+<li>Classer l'inventaire réel de la production</li>
+<li>Suite de la roadmap : gates dans Git (P5.5)</li>
+</ol>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#BCC9D8">CodeInsights · Politique de licences · 10 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 10</summary><p>La documentation de référence est docs/licenses.md. La roadmap marque la politique de licences comme livrée dans P5.6 ; OSV-Scanner, CodeQL et la stack Java restent à décider.</p></details>
+</article>
+<script>
+  // Met chaque canevas 1920×1080 à la largeur de son cadre.
+  const fit = () => document.querySelectorAll('.frame').forEach((frame) => {
+    frame.firstElementChild.style.transform = `scale(${frame.clientWidth / 1920})`;
+  });
+  addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>

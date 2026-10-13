@@ -1,0 +1,219 @@
+name: Build_CodeInsights_VisualStudio_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - apps/core/**
+      - apps/mcp/**
+      - apps/visualstudio/**
+      - .azuredevops/build-visualstudio-extension.yml
+
+pr:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - apps/core/**
+      - apps/mcp/**
+      - apps/visualstudio/**
+      - .azuredevops/build-visualstudio-extension.yml
+
+variables:
+  - name: CORE_DIR
+    value: apps/core
+  - name: MCP_DIR
+    value: apps/mcp
+  - name: EXTENSION_DIR
+    value: apps/visualstudio
+
+stages:
+  - stage: Build
+    displayName: "Check & package the Visual Studio extension"
+    jobs:
+      - job: Scope
+        displayName: "Changements dans apps/visualstudio, apps/core ou apps/mcp ?"
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - checkout: self
+            fetchDepth: 0
+
+          - script: |
+              set -euo pipefail
+              base=""
+              case "$BUILD_REASON" in
+                PullRequest)
+                  target="${PR_TARGET:-refs/heads/master}"
+                  git fetch --no-tags origin "$target"
+                  base=`git merge-base HEAD FETCH_HEAD`
+                  git diff --name-only "$base" HEAD > "$CHANGED_LIST"
+                  ;;
+                IndividualCI | BatchedCI)
+                  if git rev-parse --verify --quiet HEAD~1 > /dev/null; then
+                    git diff --name-only HEAD~1 HEAD > "$CHANGED_LIST"
+                  else
+                    git ls-files > "$CHANGED_LIST"
+                  fi
+                  ;;
+                *)
+                  git ls-files > "$CHANGED_LIST"
+                  ;;
+              esac
+              echo "$base" > "$BASE_FILE"
+              if grep -qE '^(apps/visualstudio/|apps/core/|apps/mcp/|\.azuredevops/build-visualstudio-extension\.yml$)' "$CHANGED_LIST"; then
+                echo "##vso[task.setvariable variable=extensionTouched;isOutput=true]true"
+                echo "Extension Visual Studio, cœur ou serveur MCP modifié : packaging demandé."
+              else
+                echo "##vso[task.setvariable variable=extensionTouched;isOutput=true]false"
+                echo "Aucun changement sous apps/visualstudio, apps/core ni apps/mcp : packaging ignoré."
+              fi
+            name: scope
+            displayName: "Détecter les changements de l'extension"
+            env:
+              BUILD_REASON: $(Build.Reason)
+              PR_TARGET: $(System.PullRequest.TargetBranch)
+              CHANGED_LIST: $(Agent.TempDirectory)/changed-paths.txt
+              BASE_FILE: $(Agent.TempDirectory)/merge-base.txt
+
+          - script: |
+              set -euo pipefail
+              base=`cat "$BASE_FILE"`
+              if [ -z "$base" ]; then
+                echo "Base de comparaison inconnue : garde de version ignorée."
+                exit 0
+              fi
+              if ! command -v node > /dev/null 2>&1; then
+                echo "##vso[task.logissue type=error]node est requis pour lire la version des manifestes."
+                exit 1
+              fi
+              read_version() {
+                git show "$1:$2" | node -p 'JSON.parse(require("fs").readFileSync(0, "utf8")).version'
+              }
+              failed=0
+              for manifest in $MANIFESTS; do
+                if ! git cat-file -e "$base:$manifest" 2>/dev/null; then
+                  echo "$manifest est nouveau dans cette PR : rien à comparer."
+                  continue
+                fi
+                previous=`read_version "$base" "$manifest"`
+                current=`read_version HEAD "$manifest"`
+                if [ "$previous" = "$current" ]; then
+                  echo "##vso[task.logissue type=error]$manifest : version $current inchangée alors que le paquet livré change. Monter la version (npm version patch --no-git-tag-version) avant de pousser."
+                  failed=1
+                  continue
+                fi
+                lowest=`printf '%s\n%s\n' "$previous" "$current" | sort -V | head -1`
+                if [ "$lowest" != "$previous" ]; then
+                  echo "##vso[task.logissue type=error]$manifest : version $current inférieure à $previous. Une version publiée ne se réutilise pas."
+                  failed=1
+                  continue
+                fi
+                echo "$manifest : $previous -> $current"
+              done
+              exit $failed
+            displayName: "Exiger la montée de version"
+            env:
+              BASE_FILE: $(Agent.TempDirectory)/merge-base.txt
+              MANIFESTS: "apps/visualstudio/package.json"
+            condition: >-
+              and(succeeded(),
+                  eq(variables['Build.Reason'], 'PullRequest'),
+                  eq(variables['scope.extensionTouched'], 'true'))
+
+      - job: CheckHost
+        displayName: "npm ci → check (hôte Node)"
+        dependsOn: Scope
+        condition: >-
+          and(succeeded(),
+              eq(dependencies.Scope.outputs['scope.extensionTouched'], 'true'))
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - checkout: self
+            fetchDepth: 1
+
+          - task: UseNode@1
+            displayName: "Install Node 24"
+            inputs:
+              version: "24.x"
+
+          - script: npm ci
+            displayName: "Install core dependencies"
+            workingDirectory: $(CORE_DIR)
+
+          - script: npm run check
+            displayName: "Core checks"
+            workingDirectory: $(CORE_DIR)
+
+          - script: npm ci
+            displayName: "Install host dependencies"
+            workingDirectory: $(EXTENSION_DIR)
+
+          - script: npm run check
+            displayName: "Host checks"
+            workingDirectory: $(EXTENSION_DIR)
+
+      - job: Package
+        displayName: "VSIX Windows"
+        dependsOn:
+          - Scope
+          - CheckHost
+        condition: >-
+          and(succeeded(),
+              eq(dependencies.Scope.outputs['scope.extensionTouched'], 'true'))
+        pool:
+          vmImage: windows-latest
+        steps:
+          - checkout: self
+            fetchDepth: 1
+
+          - task: UseNode@1
+            displayName: "Install Node 24"
+            inputs:
+              version: "24.x"
+
+          - script: npm ci
+            displayName: "Install core dependencies"
+            workingDirectory: $(CORE_DIR)
+
+          - script: npm ci && npm run check && npm run build
+            displayName: "Build MCP server"
+            workingDirectory: $(MCP_DIR)
+
+          - script: npm ci && npm run package
+            displayName: "Bundle host"
+            workingDirectory: $(EXTENSION_DIR)
+
+          - task: UseDotNet@2
+            displayName: "Install .NET 8"
+            inputs:
+              packageType: sdk
+              version: "8.x"
+
+          - script: dotnet build vsix/CodeInsights.VisualStudio.csproj -c Release
+            displayName: "Build VSIX"
+            workingDirectory: $(EXTENSION_DIR)
+
+          - powershell: |
+              $ErrorActionPreference = "Stop"
+              $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+              New-Item -ItemType Directory -Force -Path "$(Build.ArtifactStagingDirectory)/vsix" | Out-Null
+              Get-ChildItem -Recurse -Filter *.vsix | Copy-Item -Destination "$(Build.ArtifactStagingDirectory)/vsix/"
+              Write-Host "##vso[task.setvariable variable=vsixVersion]$version"
+              Write-Host "VSIX $version prêt"
+            displayName: "Stage VSIX & lire la version"
+            workingDirectory: $(EXTENSION_DIR)
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish VSIX"
+            condition: >-
+              and(succeeded(),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/vsix
+              artifact: CodeInsightsVisualStudioVsix
+              publishLocation: pipeline

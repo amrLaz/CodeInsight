@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeInsights – Ratings MQR PHP</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Rendu autonome des slides : canevas 1920×1080 mis à l'échelle de la page. */
+  body { margin: 0; padding: 24px 16px 48px; background: #DDE3EA; color: #172A41; font-family: 'IBM Plex Sans', Arial, sans-serif; }
+  header, .entry { max-width: 1280px; margin: 0 auto 32px; }
+  header h1 { font-size: 28px; margin: 0 0 8px; }
+  header p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A4B5E; }
+  .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(23, 42, 65, 0.18); }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; box-sizing: border-box; transform-origin: top left; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide ul, .slide ol { padding-left: 1.3em; }
+  .slide table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  .slide th, .slide td { padding: 0.35em 0.6em; text-align: left; vertical-align: top; border-bottom: 1px solid #D8E1EB; }
+  .slide th { font-weight: 600; }
+  .slide tr:last-child td { border-bottom: none; }
+  .slide x-shape[kind="arrow-right"] { display: block; flex: none; clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .notes { margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3A4B5E; }
+  .notes summary { cursor: pointer; font-weight: 600; }
+  @media print { body { background: #FFFFFF; } .entry { break-inside: avoid; } .notes { display: none; } }
+</style>
+</head>
+<body>
+<header>
+<h1>CodeInsights – Ratings MQR PHP</h1>
+<p>Présentation du passage de upcoop-php/1 en profil MQR, datée du 12 octobre 2026. La référence fonctionnelle reste <a href="../mqr-ratings.md#catalogue-upcoop-php1">Catalogue upcoop-php/1</a>.</p>
+</header>
+<article class="entry" aria-label="Slide 1 sur 6">
+<div class="frame">
+<section class="slide" id="cover" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<p style="font-size:26px; font-weight:600; color:#69B4FF; letter-spacing:3px; text-transform:uppercase">CodeInsights · Profils par stack</p>
+<h1 style="font-size:96px; font-weight:700; line-height:1.05">Ratings MQR pour PHP</h1>
+<p style="font-size:32px; color:#BCC9D8; line-height:1.4; width:1300px">upcoop-php/1 calcule désormais Security, Reliability, Maintainability, Security review et la densité de duplication.</p>
+<div style="display:flex; flex-direction:row; gap:16px"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">feat/php-mqr-ratings</p><p style="font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">12 octobre 2026</p></div>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 1</summary><p>Suite du lot Analyse des projets PHP : après les deux pilotes, le hub affichait « - » pour les ratings, réservés aux profils MQR.</p></details>
+</article>
+<article class="entry" aria-label="Slide 2 sur 6">
+<div class="frame">
+<section class="slide" id="context" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contexte et décisions</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Pas de note sans règle classée</h2></div><div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Constat</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Ratings à « - »</h3><p style="font-size:24px; line-height:1.4; color:#516278">Les ratings et la duplication ne sont calculés que pour un profil à conditions *_rating ; upcoop-php/1 n’en avait pas.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Contrainte</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Aucune règle par joker</h3><p style="font-size:24px; line-height:1.4; color:#516278">Une règle observée non cataloguée rend la dimension MQR indisponible.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Décision</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Mise à jour en place</h3><p style="font-size:24px; line-height:1.4; color:#516278">upcoop-php/1 devient MQR le jour de sa création : pas de réaffectation ni de changement de pipeline. Les snapshots pilotes gardent leur définition.</p></div></div><p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Ratings MQR PHP · 2 / 6</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 2</summary><p>Écart assumé au principe de version immuable, demandé explicitement : seules deux analyses pilotes existaient.</p></details>
+</article>
+<article class="entry" aria-label="Slide 3 sur 6">
+<div class="frame">
+<section class="slide" id="catalogue" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Catalogue</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">1 770 règles, toutes issues de sources publiées</h2></div><table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:24%">Outil</th><th style="width:30%">Source</th><th style="width:46%">Classification</th></tr><tr><td>PHPStan + Larastan (1 187)</td><td>errorsIdentifiers.json 2.3.x, Larastan 3.13</td><td>bug Medium si PHP lève une Error/TypeError ; sinon code smell Low à 5 min</td></tr><tr><td>Semgrep (180)</td><td>p/ci et p/php</td><td>vuln → vulnerability, audit → hotspot</td></tr><tr><td>Gitleaks, Trivy, Checkov</td><td>imports existants</td><td>secrets ; Dockerfile en security hotspot</td></tr></table><p style="font-size:26px; line-height:1.4; color:#516278">Relecture sur les 52 identifiants PHPStan observés : parameter.notFound reste un code smell (PHPDoc), method.staticCall devient un bug.</p><p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Ratings MQR PHP · 3 / 6</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 3</summary><p>Les identifiants émis uniquement par les règles PhpDoc, Deprecations, DeadCode ou Generics restent des code smells, d’après les classes publiées par PHPStan.</p></details>
+</article>
+<article class="entry" aria-label="Slide 4 sur 6">
+<div class="frame">
+<section class="slide" id="files" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Livraison</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Fichiers créés et modifiés</h2></div><div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; border-top:4px solid #005EB8; padding:16px 0 0 0"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.5">Endpoints/ProfileEndpoints.cs<br>Services/GateEvaluation.cs<br>Resources/phpstan-rules.json +<br>Resources/semgrep-ci-php-rules.json +</p></div><div style="flex:1; border-top:4px solid #005EB8; padding:16px 0 0 0"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.5">MqrRatingTests.cs<br>NewCodeGateTests.cs<br>docs/mqr-ratings.md, integration.md<br>docs/pipelines-scanners-…md, TODO.md</p></div></div><p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Ratings MQR PHP · 4 / 6</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 4</summary><p>Aucun changement de pipeline ni de template : le manifeste reste upcoop-php/1.</p></details>
+</article>
+<article class="entry" aria-label="Slide 5 sur 6">
+<div class="frame">
+<section class="slide" id="tests" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Vérifications</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui a réellement tourné</h2></div><div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">59</p><p style="font-size:24px; line-height:1.35; color:#516278">tests API réussis ; 10 ignorés faute de PostgreSQL jetable</p></div><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">925 / 925</p><p style="font-size:24px; line-height:1.35; color:#516278">findings réels des builds 283004 et 283076 classés</p></div><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">139</p><p style="font-size:24px; line-height:1.35; color:#516278">règles de vulnérabilité : Security calculable</p></div><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">C</p><p style="font-size:24px; line-height:1.35; color:#516278">Reliability d’un bug Medium dans le test MQR</p></div></div><p style="font-size:26px; line-height:1.4; color:#516278">Non vérifié : ratings sur un hub déployé, et notes réelles des pilotes après redéploiement.</p><p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Ratings MQR PHP · 5 / 6</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 5</summary><p>Le catalogue chargé par le hub passe ProfileEndpoints.Validate (identités uniques, liens HTTPS, coûts de remédiation).</p></details>
+</article>
+<article class="entry" aria-label="Slide 6 sur 6">
+<div class="frame">
+<section class="slide" id="limits" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#69B4FF; letter-spacing:2px; text-transform:uppercase">Suite</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Limites connues et prochaines étapes</h2></div><div style="flex:1; display:flex; flex-direction:row; gap:48px"><div style="flex:1; background:#22384F; border-radius:12px; padding:36px"><h3 style="font-size:32px; font-weight:600">Limites</h3><ul style="font-size:26px; line-height:1.5; color:#BCC9D8"><li>Classification PHPStan par règle sémantique, non éditée règle par règle</li><li>Seulement 24 règles Semgrep PHP publiques</li><li>Couverture de branches toujours non mesurée</li></ul></div><div style="flex:1; background:#22384F; border-radius:12px; padding:36px"><h3 style="font-size:32px; font-weight:600">Suite</h3><ol style="font-size:26px; line-height:1.5; color:#BCC9D8"><li>Tag du hub et relance des pilotes</li><li>Passer les pipelines PHP sur p/php</li><li>Régénérer à chaque version PHPStan</li></ol></div></div><p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#BCC9D8">CodeInsights · Ratings MQR PHP · 6 / 6</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 6</summary><p>Référence : docs/mqr-ratings.md, section Catalogue upcoop-php/1.</p></details>
+</article>
+<script>
+  // Met chaque canevas 1920×1080 à la largeur de son cadre.
+  const fit = () => document.querySelectorAll('.frame').forEach((frame) => {
+    frame.firstElementChild.style.transform = `scale(${frame.clientWidth / 1920})`;
+  });
+  addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>

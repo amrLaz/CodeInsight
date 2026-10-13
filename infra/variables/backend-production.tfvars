@@ -1,0 +1,5 @@
+resource_group_name  = "fd-infrastructure"
+storage_account_name = "fdinfraterraformstates"
+container_name       = "sast-platform-devops-governance"
+subscription_id      = "6936e3c2-8d29-4883-892b-9490850e9caa"
+key                  = "sast-platform-production.tfstate"

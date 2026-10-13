@@ -1,0 +1,2109 @@
+[
+  {
+    "id": "CA1001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001"
+  },
+  {
+    "id": "CA1002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1002"
+  },
+  {
+    "id": "CA1003",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1003"
+  },
+  {
+    "id": "CA1005",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1005"
+  },
+  {
+    "id": "CA1008",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1008"
+  },
+  {
+    "id": "CA1010",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1010"
+  },
+  {
+    "id": "CA1012",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1012"
+  },
+  {
+    "id": "CA1014",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1014"
+  },
+  {
+    "id": "CA1016",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1016"
+  },
+  {
+    "id": "CA1017",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1017"
+  },
+  {
+    "id": "CA1018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1018"
+  },
+  {
+    "id": "CA1019",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1019"
+  },
+  {
+    "id": "CA1021",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1021"
+  },
+  {
+    "id": "CA1024",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1024"
+  },
+  {
+    "id": "CA1027",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1027"
+  },
+  {
+    "id": "CA1028",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1028"
+  },
+  {
+    "id": "CA1030",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1030"
+  },
+  {
+    "id": "CA1031",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1031"
+  },
+  {
+    "id": "CA1032",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1032"
+  },
+  {
+    "id": "CA1033",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1033"
+  },
+  {
+    "id": "CA1034",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1034"
+  },
+  {
+    "id": "CA1036",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1036"
+  },
+  {
+    "id": "CA1040",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1040"
+  },
+  {
+    "id": "CA1041",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1041"
+  },
+  {
+    "id": "CA1043",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1043"
+  },
+  {
+    "id": "CA1044",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1044"
+  },
+  {
+    "id": "CA1045",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1045"
+  },
+  {
+    "id": "CA1046",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1046"
+  },
+  {
+    "id": "CA1047",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1047"
+  },
+  {
+    "id": "CA1052",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1052"
+  },
+  {
+    "id": "CA1054",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1054"
+  },
+  {
+    "id": "CA1055",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1055"
+  },
+  {
+    "id": "CA1056",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1056"
+  },
+  {
+    "id": "CA1058",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1058"
+  },
+  {
+    "id": "CA1060",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1060"
+  },
+  {
+    "id": "CA1061",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1061"
+  },
+  {
+    "id": "CA1062",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1062"
+  },
+  {
+    "id": "CA1063",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1063"
+  },
+  {
+    "id": "CA1064",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1064"
+  },
+  {
+    "id": "CA1065",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1065"
+  },
+  {
+    "id": "CA1066",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1066"
+  },
+  {
+    "id": "CA1067",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1067"
+  },
+  {
+    "id": "CA1069",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1069"
+  },
+  {
+    "id": "CA1070",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1070"
+  },
+  {
+    "id": "CA1200",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1200"
+  },
+  {
+    "id": "CA1303",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1303"
+  },
+  {
+    "id": "CA1304",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304"
+  },
+  {
+    "id": "CA1305",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305"
+  },
+  {
+    "id": "CA1307",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1307"
+  },
+  {
+    "id": "CA1308",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1308"
+  },
+  {
+    "id": "CA1309",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1309"
+  },
+  {
+    "id": "CA1310",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1310"
+  },
+  {
+    "id": "CA1311",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1311"
+  },
+  {
+    "id": "CA1401",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1401"
+  },
+  {
+    "id": "CA1416",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1416"
+  },
+  {
+    "id": "CA1417",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1417"
+  },
+  {
+    "id": "CA1418",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1418"
+  },
+  {
+    "id": "CA1419",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1419"
+  },
+  {
+    "id": "CA1420",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1420"
+  },
+  {
+    "id": "CA1421",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1421"
+  },
+  {
+    "id": "CA1422",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1422"
+  },
+  {
+    "id": "CA1501",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1501"
+  },
+  {
+    "id": "CA1502",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1502"
+  },
+  {
+    "id": "CA1505",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1505"
+  },
+  {
+    "id": "CA1506",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1506"
+  },
+  {
+    "id": "CA1507",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1507"
+  },
+  {
+    "id": "CA1508",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1508"
+  },
+  {
+    "id": "CA1509",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1509"
+  },
+  {
+    "id": "CA1510",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1510"
+  },
+  {
+    "id": "CA1511",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1511"
+  },
+  {
+    "id": "CA1512",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1512"
+  },
+  {
+    "id": "CA1513",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1513"
+  },
+  {
+    "id": "CA1514",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1514"
+  },
+  {
+    "id": "CA1515",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1515"
+  },
+  {
+    "id": "CA1700",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1700"
+  },
+  {
+    "id": "CA1707",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707"
+  },
+  {
+    "id": "CA1708",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1708"
+  },
+  {
+    "id": "CA1710",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1710"
+  },
+  {
+    "id": "CA1711",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1711"
+  },
+  {
+    "id": "CA1712",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1712"
+  },
+  {
+    "id": "CA1713",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1713"
+  },
+  {
+    "id": "CA1715",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1715"
+  },
+  {
+    "id": "CA1716",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1716"
+  },
+  {
+    "id": "CA1720",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1720"
+  },
+  {
+    "id": "CA1721",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1721"
+  },
+  {
+    "id": "CA1724",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1724"
+  },
+  {
+    "id": "CA1725",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1725"
+  },
+  {
+    "id": "CA1727",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1727"
+  },
+  {
+    "id": "CA1801",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/visualstudio/code-quality/ca1801"
+  },
+  {
+    "id": "CA1802",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1802"
+  },
+  {
+    "id": "CA1805",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1805"
+  },
+  {
+    "id": "CA1810",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1810"
+  },
+  {
+    "id": "CA1812",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1812"
+  },
+  {
+    "id": "CA1813",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1813"
+  },
+  {
+    "id": "CA1814",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1814"
+  },
+  {
+    "id": "CA1815",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1815"
+  },
+  {
+    "id": "CA1816",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1816"
+  },
+  {
+    "id": "CA1819",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1819"
+  },
+  {
+    "id": "CA1820",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1820"
+  },
+  {
+    "id": "CA1821",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1821"
+  },
+  {
+    "id": "CA1823",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1823"
+  },
+  {
+    "id": "CA1825",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1825"
+  },
+  {
+    "id": "CA1826",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1826"
+  },
+  {
+    "id": "CA1827",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1827"
+  },
+  {
+    "id": "CA1828",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1828"
+  },
+  {
+    "id": "CA1830",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1830"
+  },
+  {
+    "id": "CA1831",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1831"
+  },
+  {
+    "id": "CA1832",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1832"
+  },
+  {
+    "id": "CA1833",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1833"
+  },
+  {
+    "id": "CA1834",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1834"
+  },
+  {
+    "id": "CA1835",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1835"
+  },
+  {
+    "id": "CA1836",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1836"
+  },
+  {
+    "id": "CA1837",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1837"
+  },
+  {
+    "id": "CA1838",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1838"
+  },
+  {
+    "id": "CA1839",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1839"
+  },
+  {
+    "id": "CA1840",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1840"
+  },
+  {
+    "id": "CA1841",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1841"
+  },
+  {
+    "id": "CA1842",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1842"
+  },
+  {
+    "id": "CA1843",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1843"
+  },
+  {
+    "id": "CA1844",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1844"
+  },
+  {
+    "id": "CA1845",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1845"
+  },
+  {
+    "id": "CA1846",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1846"
+  },
+  {
+    "id": "CA1847",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1847"
+  },
+  {
+    "id": "CA1849",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1849"
+  },
+  {
+    "id": "CA1850",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1850"
+  },
+  {
+    "id": "CA1851",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1851"
+  },
+  {
+    "id": "CA1852",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1852"
+  },
+  {
+    "id": "CA1853",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1853"
+  },
+  {
+    "id": "CA1854",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1854"
+  },
+  {
+    "id": "CA1855",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1855"
+  },
+  {
+    "id": "CA1856",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1856"
+  },
+  {
+    "id": "CA1857",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1857"
+  },
+  {
+    "id": "CA1858",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1858"
+  },
+  {
+    "id": "CA1863",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1863"
+  },
+  {
+    "id": "CA1864",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1864"
+  },
+  {
+    "id": "CA1865",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1865"
+  },
+  {
+    "id": "CA1867",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1867"
+  },
+  {
+    "id": "CA1868",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1868"
+  },
+  {
+    "id": "CA1870",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1870"
+  },
+  {
+    "id": "CA1871",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1871"
+  },
+  {
+    "id": "CA1872",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1872"
+  },
+  {
+    "id": "CA1874",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1874"
+  },
+  {
+    "id": "CA1875",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1875"
+  },
+  {
+    "id": "CA2000",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2000"
+  },
+  {
+    "id": "CA2002",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2002"
+  },
+  {
+    "id": "CA2007",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2007"
+  },
+  {
+    "id": "CA2008",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2008"
+  },
+  {
+    "id": "CA2009",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2009"
+  },
+  {
+    "id": "CA2011",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2011"
+  },
+  {
+    "id": "CA2012",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2012"
+  },
+  {
+    "id": "CA2013",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2013"
+  },
+  {
+    "id": "CA2014",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2014"
+  },
+  {
+    "id": "CA2015",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2015"
+  },
+  {
+    "id": "CA2017",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2017"
+  },
+  {
+    "id": "CA2018",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2018"
+  },
+  {
+    "id": "CA2019",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2019"
+  },
+  {
+    "id": "CA2020",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2020"
+  },
+  {
+    "id": "CA2021",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2021"
+  },
+  {
+    "id": "CA2022",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2022"
+  },
+  {
+    "id": "CA2023",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2023"
+  },
+  {
+    "id": "CA2024",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2024"
+  },
+  {
+    "id": "CA2025",
+    "category": "bug",
+    "severity": "medium",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2025"
+  },
+  {
+    "id": "CA2100",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2100"
+  },
+  {
+    "id": "CA2101",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2101"
+  },
+  {
+    "id": "CA2109",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2109"
+  },
+  {
+    "id": "CA2119",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2119"
+  },
+  {
+    "id": "CA2153",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2153"
+  },
+  {
+    "id": "CA2200",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2200"
+  },
+  {
+    "id": "CA2201",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2201"
+  },
+  {
+    "id": "CA2207",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2207"
+  },
+  {
+    "id": "CA2208",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2208"
+  },
+  {
+    "id": "CA2211",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2211"
+  },
+  {
+    "id": "CA2213",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2213"
+  },
+  {
+    "id": "CA2214",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2214"
+  },
+  {
+    "id": "CA2215",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2215"
+  },
+  {
+    "id": "CA2216",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2216"
+  },
+  {
+    "id": "CA2217",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2217"
+  },
+  {
+    "id": "CA2219",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2219"
+  },
+  {
+    "id": "CA2225",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2225"
+  },
+  {
+    "id": "CA2226",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2226"
+  },
+  {
+    "id": "CA2227",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2227"
+  },
+  {
+    "id": "CA2229",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2229"
+  },
+  {
+    "id": "CA2231",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2231"
+  },
+  {
+    "id": "CA2234",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2234"
+  },
+  {
+    "id": "CA2235",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2235"
+  },
+  {
+    "id": "CA2237",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2237"
+  },
+  {
+    "id": "CA2241",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2241"
+  },
+  {
+    "id": "CA2242",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2242"
+  },
+  {
+    "id": "CA2243",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2243"
+  },
+  {
+    "id": "CA2244",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2244"
+  },
+  {
+    "id": "CA2245",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2245"
+  },
+  {
+    "id": "CA2246",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2246"
+  },
+  {
+    "id": "CA2247",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2247"
+  },
+  {
+    "id": "CA2248",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2248"
+  },
+  {
+    "id": "CA2249",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2249"
+  },
+  {
+    "id": "CA2250",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2250"
+  },
+  {
+    "id": "CA2251",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2251"
+  },
+  {
+    "id": "CA2252",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2252"
+  },
+  {
+    "id": "CA2253",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2253"
+  },
+  {
+    "id": "CA2255",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2255"
+  },
+  {
+    "id": "CA2256",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2256"
+  },
+  {
+    "id": "CA2257",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2257"
+  },
+  {
+    "id": "CA2258",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2258"
+  },
+  {
+    "id": "CA2259",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2259"
+  },
+  {
+    "id": "CA2260",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2260"
+  },
+  {
+    "id": "CA2261",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2261"
+  },
+  {
+    "id": "CA2262",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2262"
+  },
+  {
+    "id": "CA2263",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2263"
+  },
+  {
+    "id": "CA2264",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2264"
+  },
+  {
+    "id": "CA2265",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2265"
+  },
+  {
+    "id": "CA2300",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2300"
+  },
+  {
+    "id": "CA2301",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2301"
+  },
+  {
+    "id": "CA2302",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2302"
+  },
+  {
+    "id": "CA2305",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2305"
+  },
+  {
+    "id": "CA2310",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2310"
+  },
+  {
+    "id": "CA2311",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2311"
+  },
+  {
+    "id": "CA2312",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2312"
+  },
+  {
+    "id": "CA2315",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2315"
+  },
+  {
+    "id": "CA2321",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2321"
+  },
+  {
+    "id": "CA2322",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2322"
+  },
+  {
+    "id": "CA2326",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2326"
+  },
+  {
+    "id": "CA2327",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2327"
+  },
+  {
+    "id": "CA2328",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2328"
+  },
+  {
+    "id": "CA2329",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2329"
+  },
+  {
+    "id": "CA2330",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2330"
+  },
+  {
+    "id": "CA2350",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2350"
+  },
+  {
+    "id": "CA2351",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2351"
+  },
+  {
+    "id": "CA2352",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2352"
+  },
+  {
+    "id": "CA2353",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2353"
+  },
+  {
+    "id": "CA2354",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2354"
+  },
+  {
+    "id": "CA2355",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2355"
+  },
+  {
+    "id": "CA2356",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2356"
+  },
+  {
+    "id": "CA2361",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2361"
+  },
+  {
+    "id": "CA2362",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2362"
+  },
+  {
+    "id": "CA3001",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3001"
+  },
+  {
+    "id": "CA3002",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3002"
+  },
+  {
+    "id": "CA3003",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3003"
+  },
+  {
+    "id": "CA3004",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3004"
+  },
+  {
+    "id": "CA3005",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3005"
+  },
+  {
+    "id": "CA3006",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3006"
+  },
+  {
+    "id": "CA3007",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3007"
+  },
+  {
+    "id": "CA3008",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3008"
+  },
+  {
+    "id": "CA3009",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3009"
+  },
+  {
+    "id": "CA3010",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3010"
+  },
+  {
+    "id": "CA3011",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3011"
+  },
+  {
+    "id": "CA3012",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3012"
+  },
+  {
+    "id": "CA3061",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3061"
+  },
+  {
+    "id": "CA3075",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3075"
+  },
+  {
+    "id": "CA3076",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3076"
+  },
+  {
+    "id": "CA3077",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3077"
+  },
+  {
+    "id": "CA3147",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca3147"
+  },
+  {
+    "id": "CA5350",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5350"
+  },
+  {
+    "id": "CA5351",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5351"
+  },
+  {
+    "id": "CA5358",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5358"
+  },
+  {
+    "id": "CA5359",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5359"
+  },
+  {
+    "id": "CA5360",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5360"
+  },
+  {
+    "id": "CA5361",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5361"
+  },
+  {
+    "id": "CA5362",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5362"
+  },
+  {
+    "id": "CA5363",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5363"
+  },
+  {
+    "id": "CA5364",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5364"
+  },
+  {
+    "id": "CA5365",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5365"
+  },
+  {
+    "id": "CA5366",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5366"
+  },
+  {
+    "id": "CA5367",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5367"
+  },
+  {
+    "id": "CA5368",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5368"
+  },
+  {
+    "id": "CA5369",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5369"
+  },
+  {
+    "id": "CA5370",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5370"
+  },
+  {
+    "id": "CA5371",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5371"
+  },
+  {
+    "id": "CA5372",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5372"
+  },
+  {
+    "id": "CA5373",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5373"
+  },
+  {
+    "id": "CA5374",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5374"
+  },
+  {
+    "id": "CA5375",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5375"
+  },
+  {
+    "id": "CA5376",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5376"
+  },
+  {
+    "id": "CA5377",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5377"
+  },
+  {
+    "id": "CA5378",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5378"
+  },
+  {
+    "id": "CA5379",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5379"
+  },
+  {
+    "id": "CA5380",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5380"
+  },
+  {
+    "id": "CA5381",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5381"
+  },
+  {
+    "id": "CA5382",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5382"
+  },
+  {
+    "id": "CA5383",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5383"
+  },
+  {
+    "id": "CA5384",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5384"
+  },
+  {
+    "id": "CA5385",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5385"
+  },
+  {
+    "id": "CA5386",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5386"
+  },
+  {
+    "id": "CA5387",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5387"
+  },
+  {
+    "id": "CA5388",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5388"
+  },
+  {
+    "id": "CA5389",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5389"
+  },
+  {
+    "id": "CA5390",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5390"
+  },
+  {
+    "id": "CA5391",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5391"
+  },
+  {
+    "id": "CA5392",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5392"
+  },
+  {
+    "id": "CA5393",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5393"
+  },
+  {
+    "id": "CA5394",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5394"
+  },
+  {
+    "id": "CA5395",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5395"
+  },
+  {
+    "id": "CA5396",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5396"
+  },
+  {
+    "id": "CA5397",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5397"
+  },
+  {
+    "id": "CA5398",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5398"
+  },
+  {
+    "id": "CA5399",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5399"
+  },
+  {
+    "id": "CA5400",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5400"
+  },
+  {
+    "id": "CA5401",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5401"
+  },
+  {
+    "id": "CA5402",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5402"
+  },
+  {
+    "id": "CA5403",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5403"
+  },
+  {
+    "id": "CA5404",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/visualstudio/code-quality/ca5404"
+  },
+  {
+    "id": "CA5405",
+    "category": "vulnerability",
+    "severity": "high",
+    "remediation_minutes": null,
+    "documentation_url": "https://learn.microsoft.com/visualstudio/code-quality/ca5405"
+  }
+]

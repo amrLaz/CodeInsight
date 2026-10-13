@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev: dependencies up",
+      "detail": "PostgreSQL (127.0.0.1:5433) and Azurite (127.0.0.1:10000) for local debugging",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.dev.yml up -d --wait",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "dev: dependencies down",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.dev.yml down",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "api: build",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/apps/api/CodeInsights.Api.csproj", "-c", "Debug", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "api: prepare",
+      "dependsOrder": "sequence",
+      "dependsOn": ["dev: dependencies up", "api: build"],
+      "problemMatcher": []
+    },
+    {
+      "label": "web: dev",
+      "detail": "Vite on http://127.0.0.1:5173 (fails if the port is taken), proxying /api to the API on port 8000",
+      "type": "shell",
+      "command": "npm run dev -- --strictPort",
+      "options": { "cwd": "${workspaceFolder}/apps/web" },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": { "regexp": "^x^" },
+        "background": {
+          "activeBegin": true,
+          "beginsPattern": "VITE",
+          "endsPattern": "Local:"
+        }
+      }
+    }
+  ]
+}

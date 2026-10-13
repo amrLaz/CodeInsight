@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeInsights – SLA par sévérité</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Rendu autonome des slides : canevas 1920×1080 mis à l'échelle de la page. */
+  body { margin: 0; padding: 24px 16px 48px; background: #DDE3EA; color: #172A41; font-family: 'IBM Plex Sans', Arial, sans-serif; }
+  header, .entry { max-width: 1280px; margin: 0 auto 32px; }
+  header h1 { font-size: 28px; margin: 0 0 8px; }
+  header p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A4B5E; }
+  .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(23, 42, 65, 0.18); }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; box-sizing: border-box; transform-origin: top left; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide ul, .slide ol { padding-left: 1.3em; }
+  .slide table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  .slide th, .slide td { padding: 0.35em 0.6em; text-align: left; vertical-align: top; border-bottom: 1px solid #D8E1EB; }
+  .slide th { font-weight: 600; }
+  .slide tr:last-child td { border-bottom: none; }
+  .slide x-shape[kind="arrow-right"] { display: block; flex: none; clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .notes { margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3A4B5E; }
+  .notes summary { cursor: pointer; font-weight: 600; }
+  @media print { body { background: #FFFFFF; } .entry { break-inside: avoid; } .notes { display: none; } }
+</style>
+</head>
+<body>
+<header>
+<h1>CodeInsights – SLA par sévérité</h1>
+<p>Présentation du lot 1 (P5.1), datée du 29 septembre 2026. Elle explique les changements de la branche <code>feat/finding-sla</code> ; la référence fonctionnelle reste la section « Délais de correction (SLA) » de <a href="../collaboration.md">collaboration.md</a>.</p>
+</header>
+<article class="entry" aria-label="Slide 1 sur 14">
+<div class="frame">
+<section class="slide" id="cover" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<p style="font-size:26px; font-weight:600; color:#69B4FF; letter-spacing:3px; text-transform:uppercase">CodeInsights · Lot 1 · P5.1</p>
+<h1 style="font-size:96px; font-weight:700; line-height:1.05">SLA par sévérité</h1>
+<p style="font-size:32px; color:#BCC9D8; line-height:1.4; width:1300px">Des délais de correction sur les findings de la branche principale : calcul, statuts, API, notifications et interface — chaque changement expliqué.</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">feat/finding-sla</p>
+<p style="font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">29 septembre 2026</p>
+</div>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 1</summary><p>Présentation du lot 1 de la vision cible : les délais de correction (SLA) des findings. La branche feat/finding-sla part de docs/reorganize-by-domain (PR 51304), parce que la documentation SLA vit dans docs/collaboration.md créé par cette PR. Rien n'est encore commité au moment de cette présentation.</p></details>
+</article>
+<article class="entry" aria-label="Slide 2 sur 14">
+<div class="frame">
+<section class="slide" id="context" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contexte</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Pourquoi ce lot, et ce qui a été décidé</h2>
+</div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="width:620px; flex:none; display:flex; flex-direction:column; gap:28px">
+<p style="font-size:32px; line-height:1.35">La vision cible confie les délais de correction à DefectDojo. CodeInsights suivait déjà l'identité, l'assignation et les exceptions des findings, mais <b>aucune échéance</b>.</p>
+<p style="font-size:26px; line-height:1.45; color:#516278">Objectif : chaque finding de la branche principale porte une échéance explicable, filtrable et notifiable, sans jamais inventer une date ni présenter une mesure absente comme « dans les temps ».</p>
+</div>
+<div style="flex:1; display:grid; grid-template-columns:1fr 1fr; gap:24px">
+<div style="display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Branches</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">Branche principale uniquement</h3>
+<p style="font-size:26px; line-height:1.4; color:#516278">Les autres branches sont « non applicable ».</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Délais par défaut</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">7 · 30 · 90 · 180 jours</h3>
+<p style="font-size:26px; line-height:1.4; color:#516278">Blocker, High, Medium, Low ; Info sans échéance.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Notifications</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">Incluses dans le lot 1</h3>
+<p style="font-size:26px; line-height:1.4; color:#516278">Désactivées par défaut sur chaque canal.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Portée</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">Globale + surcharge projet</h3>
+<p style="font-size:26px; line-height:1.4; color:#516278">La surcharge remplace tout, sans fusion.</p>
+</div>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 2 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 2</summary><p>Les quatre décisions ont été prises avant le code : SLA sur la branche principale seulement, délais par défaut 7/30/90/180 jours avec Info sans échéance, notifications dans ce lot, politique globale avec surcharge complète par projet. Tout le reste en découle.</p></details>
+</article>
+<article class="entry" aria-label="Slide 3 sur 14">
+<div class="frame">
+<section class="slide" id="flow" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Fonctionnement</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">D'une ingestion à une échéance visible</h2>
+</div>
+<div style="display:flex; flex-direction:row; gap:24px; align-items:center">
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px">
+<h3 style="font-size:32px; font-weight:600">Ingestion</h3>
+<p style="font-size:24px; line-height:1.4; color:#516278">ObserveAsync fixe la sévérité et la date de première détection.</p>
+</div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px">
+<h3 style="font-size:32px; font-weight:600">Échéance persistée</h3>
+<p style="font-size:24px; line-height:1.4; color:#516278">sla_basis, sla_due_at et sla_warn_at, pour filtrer en SQL.</p>
+</div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px">
+<h3 style="font-size:32px; font-weight:600">Statut à la lecture</h3>
+<p style="font-size:24px; line-height:1.4; color:#516278">Dérivé de l'horloge et de l'état de revue du finding.</p>
+</div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:24px">
+<h3 style="font-size:32px; font-weight:600; color:#EDF4FB">Usages</h3>
+<p style="font-size:24px; line-height:1.4; color:#BCC9D8">Filtre sla_status, détail Issues, décompte projet, notifications.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Déclencheurs de recalcul</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Changement de politique globale ou de surcharge</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Changement de branche principale</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Job durable sla réveillé aussitôt</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Maintenance horaire, filet de sécurité</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 3 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 3</summary><p>L'échéance est persistée parce que les listes filtrent et paginent en SQL. Le statut, lui, dépend de l'heure courante et de l'état de revue : il est calculé à chaque lecture, avec la même partition que le filtre SQL. Tout changement qui modifie l'échéance remet les findings concernés en « pending » et réveille le job sla.</p></details>
+</article>
+<article class="entry" aria-label="Slide 4 sur 14">
+<div class="frame">
+<section class="slide" id="data" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Données</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Une migration, sept colonnes, une table</h2>
+</div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px">
+<tr><th style="width:22%">Table</th><th style="width:28%">Colonne</th><th style="width:50%">Rôle</th></tr>
+<tr><td>durable_findings</td><td>severity</td><td>Sévérité de la dernière occurrence ; unknown par défaut</td></tr>
+<tr><td>durable_findings</td><td>first_detected_at</td><td>Première analyse prouvée ; null si la rétention la masque</td></tr>
+<tr><td>durable_findings</td><td>sla_basis</td><td>Cause du statut ; pending tant que non calculé</td></tr>
+<tr><td>durable_findings</td><td>sla_due_at, sla_warn_at</td><td>Échéance et début de la période « bientôt dû »</td></tr>
+<tr><td>durable_findings</td><td>sla_notified_at</td><td>Horodatage du résumé qui a inclus le finding</td></tr>
+<tr style="background:#E6EEF8"><td>sla_policies</td><td>scope_key, *_days, version</td><td>Nouvelle : politique globale ou surcharge d'un projet</td></tr>
+<tr><td>notification_channels</td><td>on_sla_breach</td><td>Option du canal, désactivée par défaut</td></tr>
+</table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Migration <b>20260929172726_AddFindingSla</b> : index (sla_basis, sla_due_at), index unique sur project_key, politique globale insérée. Les findings existants démarrent en pending.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 4 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 4</summary><p>Aucune donnée existante n'est modifiée par la migration elle-même : les findings existants prennent sla_basis = pending et la maintenance horaire calcule leur échéance, rattrapage de la date de détection compris. La table sla_policies a pour clé scope_key : "global", ou "project:" suivi de la clé du projet.</p></details>
+</article>
+<article class="entry" aria-label="Slide 5 sur 14">
+<div class="frame">
+<section class="slide" id="rules" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Calcul</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Une échéance seulement si tout est connu</h2>
+</div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:24px">
+<div style="display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:26px; line-height:1.5; color:#EDF4FB">échéance = première détection + délai de la sévérité</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:26px; line-height:1.5; color:#69B4FF">bientôt dû = dernier cinquième du délai, au moins 1 jour</p>
+</div>
+<p style="font-size:26px; line-height:1.45">Exemple : un finding High détecté le 1er septembre expire le 1er octobre ; il est « bientôt dû » dès le 25 septembre.</p>
+<p style="font-size:26px; line-height:1.45; color:#516278">Sévérité : critical et error deviennent blocker, warning devient medium. Une sévérité inconnue reste unknown, jamais assimilée à info.</p>
+</div>
+<div style="width:700px; flex:none; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Contrôles, dans l'ordre</h3>
+<ol style="font-size:26px; line-height:1.5">
+<li>Branche principale inconnue → unknown_main_branch</li>
+<li>Autre branche → not_main_branch</li>
+<li>Aucune politique → no_policy</li>
+<li>Sévérité inconnue → unknown_severity</li>
+<li>Sévérité sans délai → no_target</li>
+<li>Date de détection inconnue → unknown_detection</li>
+<li>Sinon → applies, avec échéance</li>
+</ol>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 5 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 5</summary><p>FindingSla.Apply applique ces contrôles dans cet ordre et s'arrête au premier qui manque. Les branches sont comparées sous leur forme canonique refs/heads/… des deux côtés. La date de première détection est conservée lors d'une réouverture : un finding qui revient ne repart pas de zéro.</p></details>
+</article>
+<article class="entry" aria-label="Slide 6 sur 14">
+<div class="frame">
+<section class="slide" id="statuses" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Statuts</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Neuf statuts, chacun avec sa cause</h2>
+</div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px">
+<tr><th style="width:22%">Statut</th><th style="width:50%">Quand</th><th style="width:28%">basis</th></tr>
+<tr><td style="color:#B42332">breached</td><td>Échéance dépassée, finding ouvert ou confirmé</td><td>applies</td></tr>
+<tr><td style="color:#876000">due_soon</td><td>Dans le dernier cinquième du délai</td><td>applies</td></tr>
+<tr><td style="color:#197047">on_track</td><td>Avant la période d'alerte</td><td>applies</td></tr>
+<tr><td>suspended</td><td>Exception active : faux positif, risque accepté</td><td>applies</td></tr>
+<tr><td>closed</td><td>Finding résolu</td><td>applies</td></tr>
+<tr><td>not_applicable</td><td>Autre branche, ou sévérité sans délai</td><td>not_main_branch, no_target</td></tr>
+<tr><td>not_configured</td><td>Aucune politique ne s'applique</td><td>no_policy</td></tr>
+<tr><td>indeterminate</td><td>Branche principale, sévérité ou date inconnue</td><td>unknown_*</td></tr>
+<tr><td>pending</td><td>Échéance en cours de calcul</td><td>pending</td></tr>
+</table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Le filtre SQL et le statut affiché partagent la même partition : un test vérifie que chaque finding tombe dans exactement un filtre.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 6 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 6</summary><p>Une exception expirée rend le finding de nouveau ouvert, et l'échéance reprend là où elle en était. Le statut n'est jamais « dans les temps » par défaut : sans échéance prouvée, le statut dit pourquoi (not_applicable, not_configured, indeterminate ou pending).</p></details>
+</article>
+<article class="entry" aria-label="Slide 7 sur 14">
+<div class="frame">
+<section class="slide" id="backfill" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Findings existants</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Une date prouvée, ou pas de date</h2>
+</div>
+<div style="display:flex; flex-direction:row; gap:32px">
+<div style="flex:1; display:flex; flex-direction:column; gap:18px; background:#FBFCFE; border:1px solid #D8E1EB; border-top:6px solid #197047; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Date prouvée</h3>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#E6EEF8; border-radius:6px; padding:4px 12px">J-20</p><p style="font-size:26px">Première analyse avec une occurrence</p></div>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#E6EEF8; border-radius:6px; padding:4px 12px">J-10</p><p style="font-size:26px">Occurrence suivante</p></div>
+<p style="font-size:26px; color:#516278">Aucune analyse antérieure purgée sur la branche.</p>
+<p style="font-size:26px; font-weight:600; color:#197047">Résultat : first_detected_at = J-20</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:18px; background:#FBFCFE; border:1px solid #D8E1EB; border-top:6px solid #876000; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Date inconnue</h3>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#FFF5DC; border-radius:6px; padding:4px 12px">J-60</p><p style="font-size:26px">Analyse purgée par la rétention</p></div>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#E6EEF8; border-radius:6px; padding:4px 12px">J-20</p><p style="font-size:26px">Première occurrence encore visible</p></div>
+<p style="font-size:26px; color:#516278">La vraie détection peut précéder la purge.</p>
+<p style="font-size:26px; font-weight:600; color:#876000">Résultat : date null → indeterminate</p>
+</div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">La sévérité est reprise de la dernière occurrence. Un finding déjà jugé indéterminable n'est pas re-rattrapé à chaque ingestion.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 7 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 7</summary><p>FindingSla.BackfillAsync ne concerne que les findings suivis avant ce lot. La règle est volontairement prudente : si une analyse plus ancienne de la même branche a perdu ses détails, on ne peut pas prouver que la première occurrence visible est la vraie première détection. Dans le doute, pas de date, donc pas d'échéance.</p></details>
+</article>
+<article class="entry" aria-label="Slide 8 sur 14">
+<div class="frame">
+<section class="slide" id="recompute" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Recalcul</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Qui recalcule l'échéance, et quand</h2>
+</div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px">
+<tr><th style="width:30%">Événement</th><th style="width:48%">Effet</th><th style="width:22%">Où</th></tr>
+<tr><td>Ingestion d'une analyse</td><td>Échéance calculée pour chaque finding observé</td><td>ObserveAsync</td></tr>
+<tr><td>Politique modifiée</td><td>Findings concernés en pending et job sla réveillé, dans la même transaction</td><td>SlaEndpoints</td></tr>
+<tr><td>Branche principale modifiée</td><td>Findings du projet en pending, même transaction</td><td>NewCodeEndpoints</td></tr>
+<tr><td>Job durable sla</td><td>Recalcul par projet et branche sous le verrou de collaboration, puis dépassements</td><td>IngestionWorker</td></tr>
+<tr><td>Maintenance horaire</td><td>Même recalcul ; rattrape l'initialisation automatique de la branche principale</td><td>IngestionWorker</td></tr>
+</table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Le recalcul avance par lots de 500 findings. La même transaction garantit qu'une politique enregistrée ne laisse jamais d'échéances périmées que la maintenance ignorerait.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 8 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 8</summary><p>Le verrou de collaboration est le même que celui de l'ingestion : un recalcul ne peut pas écraser une observation en cours sur la même branche. La politique globale n'invalide que les projets sans surcharge.</p></details>
+</article>
+<article class="entry" aria-label="Slide 9 sur 14">
+<div class="frame">
+<section class="slide" id="api" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">API</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Cinq routes et un filtre</h2>
+</div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px">
+<tr><th style="width:38%">Route</th><th style="width:22%">Accès</th><th style="width:40%">Comportement</th></tr>
+<tr><td>GET /api/v1/sla/policy</td><td>Session ou jeton personnel</td><td>Politique globale</td></tr>
+<tr><td>PUT /api/v1/sla/policy</td><td>Administrateur</td><td>Version lue, 409 si modifiée ; 1 à 3 650 jours ou null</td></tr>
+<tr><td>GET /api/v1/sla/projects/{projectKey}</td><td>Accès au projet</td><td>Branche principale, surcharge, politique effective, décompte par statut</td></tr>
+<tr><td>PUT /api/v1/sla/projects/{projectKey}</td><td>Administrateur</td><td>Crée la surcharge (version 0) ou la modifie</td></tr>
+<tr><td>DELETE /api/v1/sla/projects/{projectKey}</td><td>Administrateur</td><td>Retire la surcharge ; la politique globale s'applique</td></tr>
+<tr style="background:#E6EEF8"><td>?sla_status=</td><td>Lecture</td><td>Filtre serveur : findings suivis, findings d'une analyse, export CSV</td></tr>
+</table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Vue d'un finding : severity, first_detected_at et sla (status, basis, due_at, warn_at). Tokens CI refusés ; écritures auditées ; routes ajoutées au catalogue du test de refus anonyme.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 9 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 9</summary><p>Le contrat POST /api/v1/analyses n'est pas touché. Un statut inconnu dans sla_status renvoie 422. Les jetons personnels sont en lecture seule : ils lisent les politiques mais ne les écrivent pas. La matrice des autorisations de docs/security-access.md a une nouvelle ligne pour ces routes.</p></details>
+</article>
+<article class="entry" aria-label="Slide 10 sur 14">
+<div class="frame">
+<section class="slide" id="notifications" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Notifications</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Un résumé par projet, jamais d'avalanche</h2>
+</div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:16px">
+<div style="display:flex; flex-direction:row; gap:20px; align-items:start"><p style="font-size:26px; font-weight:700; color:#EDF4FB; background:#005EB8; border-radius:6px; padding:4px 14px">1</p><p style="flex:1; font-size:26px; line-height:1.4">La maintenance ou le job sla repère les dépassements non encore notifiés pour leur échéance.</p></div>
+<div style="display:flex; flex-direction:row; gap:20px; align-items:start"><p style="font-size:26px; font-weight:700; color:#EDF4FB; background:#005EB8; border-radius:6px; padding:4px 14px">2</p><p style="flex:1; font-size:26px; line-height:1.4">sla_notified_at reçoit l'horodatage du passage, même sans canal actif.</p></div>
+<div style="display:flex; flex-direction:row; gap:20px; align-items:start"><p style="font-size:26px; font-weight:700; color:#EDF4FB; background:#005EB8; border-radius:6px; padding:4px 14px">3</p><p style="flex:1; font-size:26px; line-height:1.4">Un job sla-notification par projet et par canal dont l'option on_sla_breach est active.</p></div>
+<div style="display:flex; flex-direction:row; gap:20px; align-items:start"><p style="font-size:26px; font-weight:700; color:#EDF4FB; background:#005EB8; border-radius:6px; padding:4px 14px">4</p><p style="flex:1; font-size:26px; line-height:1.4">Contenu : nombre de findings, les 20 plus anciennes échéances, puis « and N more ».</p></div>
+</div>
+<div style="width:640px; flex:none; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Garanties</h3>
+<ul style="font-size:26px; line-height:1.5">
+<li>Une seule fois par échéance ; un délai allongé peut renotifier</li>
+<li>Activer un canal n'envoie pas l'historique</li>
+<li>Webhook JSON sla.breached, carte Teams, email HTML</li>
+<li>Livraison au moins une fois, comme les autres effets externes</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 10 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 10</summary><p>Le premier passage après le déploiement trouvera probablement de nombreux dépassements historiques. Comme aucun canal n'a l'option activée à ce moment, ils sont marqués sans rien envoyer : l'administrateur qui active ensuite un canal ne reçoit que les nouveaux dépassements. Côté code, NotificationService a été découpé : le transport webhook et SMTP est partagé entre les événements de gate et de SLA.</p></details>
+</article>
+<article class="entry" aria-label="Slide 11 sur 14">
+<div class="frame">
+<section class="slide" id="ui" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Interface</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Trois écrans touchés</h2>
+</div>
+<div style="display:flex; flex-direction:row; gap:28px">
+<div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Issues</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">Filtre et détail</h3>
+<ul style="font-size:26px; line-height:1.45; color:#3A4B5E">
+<li>Filtre SLA status, gardé dans l'URL</li>
+<li>Pastille, échéance en jours et première détection</li>
+<li>La cause s'affiche à la place d'une date absente</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Administration › Projects › SLA</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">Politiques</h3>
+<ul style="font-size:26px; line-height:1.45; color:#3A4B5E">
+<li>Globale, puis surcharge du projet choisi</li>
+<li>Champ vide : pas d'échéance, jamais zéro</li>
+<li>Décompte des findings par statut</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Administration › Notifications</p>
+<h3 style="font-size:32px; font-weight:600; line-height:1.2">Nouvelle option</h3>
+<ul style="font-size:26px; line-height:1.45; color:#3A4B5E">
+<li>Case « breach their SLA »</li>
+<li>Décochée par défaut</li>
+<li>Affichée sur la carte du canal</li>
+</ul>
+</div>
+</div>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+<p style="font-size:24px; font-weight:600; color:#B42332; background:#FFF0F1; border-radius:4px; padding:4px 12px">Breached</p>
+<p style="font-size:24px; font-weight:600; color:#876000; background:#FFF5DC; border-radius:4px; padding:4px 12px">Due soon</p>
+<p style="font-size:24px; font-weight:600; color:#197047; background:#EAF6EF; border-radius:4px; padding:4px 12px">On track</p>
+<p style="font-size:24px; font-weight:600; color:#516278; background:#E4EAF1; border-radius:4px; padding:4px 12px">Indeterminate</p>
+<p style="font-size:26px; color:#516278">Tokens existants du design system, toujours avec le libellé.</p>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 11 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 11</summary><p>Aucune nouvelle couleur ni nouveau composant : les pastilles réutilisent status-pill avec les tokens danger, warning et success. L'écran SLA est chargé à la demande dans son propre chunk Vite, comme les autres sections d'administration. Les libellés de l'application restent en anglais.</p></details>
+</article>
+<article class="entry" aria-label="Slide 12 sur 14">
+<div class="frame">
+<section class="slide" id="files" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Livraison</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">9 fichiers créés, 27 modifiés</h2>
+</div>
+<div style="flex:1; display:flex; flex-direction:row; gap:24px">
+<div style="width:560px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/api/ · backend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">Services/FindingSla.cs +<br>Endpoints/SlaEndpoints.cs +<br>Services/FindingCollaboration.cs<br>Services/NotificationService.cs<br>Services/IngestionWorker.cs<br>Endpoints/CollaborationEndpoints.cs<br>Endpoints/InsightEndpoints.cs<br>Endpoints/NotificationEndpoints.cs<br>Endpoints/NewCodeEndpoints.cs<br>Data/CollaborationEntities.cs<br>Data/Entities.cs, AppDbContext.cs<br>Data/Migrations/ (2 +, snapshot)<br>Program.cs</p>
+</div>
+<div style="width:640px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/web/src/ · frontend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">utils/sla.ts +<br>features/administration/SlaSettings.tsx +<br>features/administration/Administration.tsx<br>features/administration/Notifications.tsx<br>features/issues/Issues.tsx<br>features/issues/components/IssueReview.tsx<br>workspace/navigation-state.ts<br>config/navigation.ts<br>types/api.ts<br>styles/shared-details.css</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Tests et docs</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">SlaTests.cs +<br>routes.json<br>sla.test.ts +<br>SlaSettings.test.tsx +<br>admin-data.test.ts<br>docs/collaboration.md<br>docs/interface.md<br>docs/security-access.md<br>docs/architecture.md<br>docs/roadmap.md</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 12 / 14 · « + » = fichier créé</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 12</summary><p>Les tests .NET sont dans tests/CodeInsights.Tests/SlaTests.cs et le catalogue de routes dans tests/contracts/routes.json. Les tests Vitest sont colocalisés : apps/web/src/utils/sla.test.ts et apps/web/src/features/administration/SlaSettings.test.tsx ; le contrat d'administration est apps/web/tests/contracts/admin-data.test.ts. Rien sous apps/core, apps/vscode, apps/mcp ou apps/visualstudio : aucune montée de version n'est nécessaire.</p></details>
+</article>
+<article class="entry" aria-label="Slide 13 sur 14">
+<div class="frame">
+<section class="slide" id="tests" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Vérifications</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui a tourné, et ce qui reste à voir</h2>
+</div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:60px; font-weight:700; color:#005EB8">38 / 38</p>
+<p style="font-size:24px; line-height:1.4; color:#516278">xUnit contre l'API, PostgreSQL et Azurite</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:60px; font-weight:700; color:#005EB8">140</p>
+<p style="font-size:24px; line-height:1.4; color:#516278">routes qui refusent un appel anonyme</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:60px; font-weight:700; color:#005EB8">37 + 1</p>
+<p style="font-size:24px; line-height:1.4; color:#516278">xUnit PostgreSQL seul, après le dernier correctif</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px">
+<p style="font-size:60px; font-weight:700; color:#005EB8">46</p>
+<p style="font-size:24px; line-height:1.4; color:#516278">tests Vitest réussis, 7 ignorés</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#197047">Vérifié à la main</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>409 sur version périmée, 422 sur délai de 0 jour</li>
+<li>Invalidation puis job sla traité par le worker</li>
+<li>Build Release sans avertissement, chunk SlaSettings séparé</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#876000">Non vérifié</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>Parcours dans un navigateur</li>
+<li>docker build de l'image complète</li>
+<li>Envoi réel vers Teams ou par email</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · SLA par sévérité · 13 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 13</summary><p>Précision sur l'ordre : la passe complète 38/38 (API, PostgreSQL, Azurite) a eu lieu avant le dernier correctif d'ObserveAsync, qui évite de relancer le rattrapage pour un finding indéterminable. Après ce correctif, la suite a été relancée sur PostgreSQL seul : 37 réussis, 1 ignoré (le test HTTP, faute d'API). Sans base, 36 réussis et 2 ignorés.</p></details>
+</article>
+<article class="entry" aria-label="Slide 14 sur 14">
+<div class="frame">
+<section class="slide" id="limits" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; color:#69B4FF; letter-spacing:2px; text-transform:uppercase">Suite</p>
+<h2 style="font-size:60px; font-weight:600; line-height:1.1">Limites connues et prochaines étapes</h2>
+</div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Limites assumées</h3>
+<ul style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Le résumé n'a pas de lien vers le hub</li>
+<li>Un recalcul demandé pendant un job sla attend la maintenance suivante, une heure au plus</li>
+<li>VS Code, Visual Studio et MCP n'affichent pas encore le SLA</li>
+<li>Les SLA ne changent ni l'état d'un finding ni le verdict du gate</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Prochaines étapes</h3>
+<ol style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Commit et PR vers docs/reorganize-by-domain, puis develop après la PR 51304</li>
+<li>Acceptation pilote : politique validée par la sécurité, résumé observé sur un vrai canal</li>
+<li>Lot 2 : work items Azure Boards, appuyés sur ces statuts</li>
+</ol>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#BCC9D8">CodeInsights · SLA par sévérité · 14 / 14</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 14</summary><p>La documentation de référence est la section « Délais de correction (SLA) » de docs/collaboration.md. La roadmap marque P5.1 comme livré, avec l'acceptation pilote encore à faire.</p></details>
+</article>
+<script>
+  // Met chaque canevas 1920×1080 à la largeur de son cadre.
+  const fit = () => document.querySelectorAll('.frame').forEach((frame) => {
+    frame.firstElementChild.style.transform = `scale(${frame.clientWidth / 1920})`;
+  });
+  addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>

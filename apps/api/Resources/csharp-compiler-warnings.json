@@ -1,0 +1,2249 @@
+[
+  {
+    "id": "CS0028",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0028"
+  },
+  {
+    "id": "CS0067",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0067"
+  },
+  {
+    "id": "CS0078",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0078"
+  },
+  {
+    "id": "CS0108",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0108"
+  },
+  {
+    "id": "CS0109",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0109"
+  },
+  {
+    "id": "CS0114",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0114"
+  },
+  {
+    "id": "CS0162",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0162"
+  },
+  {
+    "id": "CS0164",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0164"
+  },
+  {
+    "id": "CS0183",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0183"
+  },
+  {
+    "id": "CS0184",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0184"
+  },
+  {
+    "id": "CS0197",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0197"
+  },
+  {
+    "id": "CS0251",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0251"
+  },
+  {
+    "id": "CS0252",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0252"
+  },
+  {
+    "id": "CS0253",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0253"
+  },
+  {
+    "id": "CS0278",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0278"
+  },
+  {
+    "id": "CS0279",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0279"
+  },
+  {
+    "id": "CS0280",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0280"
+  },
+  {
+    "id": "CS0282",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0282"
+  },
+  {
+    "id": "CS0402",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0402"
+  },
+  {
+    "id": "CS0414",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0414"
+  },
+  {
+    "id": "CS0419",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0419"
+  },
+  {
+    "id": "CS0420",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0420"
+  },
+  {
+    "id": "CS0435",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0435"
+  },
+  {
+    "id": "CS0436",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0436"
+  },
+  {
+    "id": "CS0437",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0437"
+  },
+  {
+    "id": "CS0440",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0440"
+  },
+  {
+    "id": "CS0458",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0458"
+  },
+  {
+    "id": "CS0464",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0464"
+  },
+  {
+    "id": "CS0465",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0465"
+  },
+  {
+    "id": "CS0469",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0469"
+  },
+  {
+    "id": "CS0473",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0473"
+  },
+  {
+    "id": "CS0612",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0612"
+  },
+  {
+    "id": "CS0626",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0626"
+  },
+  {
+    "id": "CS0628",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0628"
+  },
+  {
+    "id": "CS0642",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0642"
+  },
+  {
+    "id": "CS0652",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0652"
+  },
+  {
+    "id": "CS0657",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0657"
+  },
+  {
+    "id": "CS0658",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0658"
+  },
+  {
+    "id": "CS0659",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0659"
+  },
+  {
+    "id": "CS0660",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0660"
+  },
+  {
+    "id": "CS0661",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0661"
+  },
+  {
+    "id": "CS0665",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0665"
+  },
+  {
+    "id": "CS0672",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0672"
+  },
+  {
+    "id": "CS0675",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0675"
+  },
+  {
+    "id": "CS0684",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0684"
+  },
+  {
+    "id": "CS0693",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0693"
+  },
+  {
+    "id": "CS0728",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0728"
+  },
+  {
+    "id": "CS0809",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0809"
+  },
+  {
+    "id": "CS0811",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0811"
+  },
+  {
+    "id": "CS0824",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs0824"
+  },
+  {
+    "id": "CS1030",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1030"
+  },
+  {
+    "id": "CS1058",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1058"
+  },
+  {
+    "id": "CS1062",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1062"
+  },
+  {
+    "id": "CS1064",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1064"
+  },
+  {
+    "id": "CS1066",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1066"
+  },
+  {
+    "id": "CS1072",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1072"
+  },
+  {
+    "id": "CS1522",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1522"
+  },
+  {
+    "id": "CS1570",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1570"
+  },
+  {
+    "id": "CS1571",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1571"
+  },
+  {
+    "id": "CS1572",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1572"
+  },
+  {
+    "id": "CS1573",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1573"
+  },
+  {
+    "id": "CS1574",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1574"
+  },
+  {
+    "id": "CS1580",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1580"
+  },
+  {
+    "id": "CS1581",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1581"
+  },
+  {
+    "id": "CS1584",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1584"
+  },
+  {
+    "id": "CS1587",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1587"
+  },
+  {
+    "id": "CS1589",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1589"
+  },
+  {
+    "id": "CS1590",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1590"
+  },
+  {
+    "id": "CS1591",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1591"
+  },
+  {
+    "id": "CS1592",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1592"
+  },
+  {
+    "id": "CS1607",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1607"
+  },
+  {
+    "id": "CS1616",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1616"
+  },
+  {
+    "id": "CS1633",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1633"
+  },
+  {
+    "id": "CS1634",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1634"
+  },
+  {
+    "id": "CS1635",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1635"
+  },
+  {
+    "id": "CS1645",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1645"
+  },
+  {
+    "id": "CS1658",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1658"
+  },
+  {
+    "id": "CS1668",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1668"
+  },
+  {
+    "id": "CS1685",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1685"
+  },
+  {
+    "id": "CS1687",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1687"
+  },
+  {
+    "id": "CS1690",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1690"
+  },
+  {
+    "id": "CS1692",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1692"
+  },
+  {
+    "id": "CS1695",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1695"
+  },
+  {
+    "id": "CS1696",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1696"
+  },
+  {
+    "id": "CS1697",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1697"
+  },
+  {
+    "id": "CS1700",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1700"
+  },
+  {
+    "id": "CS1701",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1701"
+  },
+  {
+    "id": "CS1702",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1702"
+  },
+  {
+    "id": "CS1710",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1710"
+  },
+  {
+    "id": "CS1711",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1711"
+  },
+  {
+    "id": "CS1712",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1712"
+  },
+  {
+    "id": "CS1717",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1717"
+  },
+  {
+    "id": "CS1718",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1718"
+  },
+  {
+    "id": "CS1720",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1720"
+  },
+  {
+    "id": "CS1723",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1723"
+  },
+  {
+    "id": "CS1734",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1734"
+  },
+  {
+    "id": "CS1735",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1735"
+  },
+  {
+    "id": "CS1762",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1762"
+  },
+  {
+    "id": "CS1927",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1927"
+  },
+  {
+    "id": "CS1956",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1956"
+  },
+  {
+    "id": "CS1957",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1957"
+  },
+  {
+    "id": "CS1974",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1974"
+  },
+  {
+    "id": "CS1981",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs1981"
+  },
+  {
+    "id": "CS2002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs2002"
+  },
+  {
+    "id": "CS2008",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs2008"
+  },
+  {
+    "id": "CS2023",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs2023"
+  },
+  {
+    "id": "CS2029",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs2029"
+  },
+  {
+    "id": "CS2038",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs2038"
+  },
+  {
+    "id": "CS3000",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3000"
+  },
+  {
+    "id": "CS3001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3001"
+  },
+  {
+    "id": "CS3002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3002"
+  },
+  {
+    "id": "CS3003",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3003"
+  },
+  {
+    "id": "CS3005",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3005"
+  },
+  {
+    "id": "CS3006",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3006"
+  },
+  {
+    "id": "CS3007",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3007"
+  },
+  {
+    "id": "CS3008",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3008"
+  },
+  {
+    "id": "CS3009",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3009"
+  },
+  {
+    "id": "CS3010",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3010"
+  },
+  {
+    "id": "CS3011",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3011"
+  },
+  {
+    "id": "CS3012",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3012"
+  },
+  {
+    "id": "CS3013",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3013"
+  },
+  {
+    "id": "CS3014",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3014"
+  },
+  {
+    "id": "CS3015",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3015"
+  },
+  {
+    "id": "CS3016",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3016"
+  },
+  {
+    "id": "CS3017",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3017"
+  },
+  {
+    "id": "CS3018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3018"
+  },
+  {
+    "id": "CS3019",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3019"
+  },
+  {
+    "id": "CS3021",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3021"
+  },
+  {
+    "id": "CS3022",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3022"
+  },
+  {
+    "id": "CS3023",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3023"
+  },
+  {
+    "id": "CS3024",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3024"
+  },
+  {
+    "id": "CS3026",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3026"
+  },
+  {
+    "id": "CS3027",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs3027"
+  },
+  {
+    "id": "CS4024",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs4024"
+  },
+  {
+    "id": "CS4025",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs4025"
+  },
+  {
+    "id": "CS4026",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs4026"
+  },
+  {
+    "id": "CS7022",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7022"
+  },
+  {
+    "id": "CS7023",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7023"
+  },
+  {
+    "id": "CS7033",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7033"
+  },
+  {
+    "id": "CS7035",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7035"
+  },
+  {
+    "id": "CS7080",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7080"
+  },
+  {
+    "id": "CS7081",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7081"
+  },
+  {
+    "id": "CS7082",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7082"
+  },
+  {
+    "id": "CS7090",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7090"
+  },
+  {
+    "id": "CS7095",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs7095"
+  },
+  {
+    "id": "CS8001",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8001"
+  },
+  {
+    "id": "CS8002",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8002"
+  },
+  {
+    "id": "CS8009",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8009"
+  },
+  {
+    "id": "CS8012",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8012"
+  },
+  {
+    "id": "CS8018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8018"
+  },
+  {
+    "id": "CS8021",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8021"
+  },
+  {
+    "id": "CS8029",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8029"
+  },
+  {
+    "id": "CS8032",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8032"
+  },
+  {
+    "id": "CS8033",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8033"
+  },
+  {
+    "id": "CS8034",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8034"
+  },
+  {
+    "id": "CS8094",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8094"
+  },
+  {
+    "id": "CS8105",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8105"
+  },
+  {
+    "id": "CS8123",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8123"
+  },
+  {
+    "id": "CS8305",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8305"
+  },
+  {
+    "id": "CS8321",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8321"
+  },
+  {
+    "id": "CS8359",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8359"
+  },
+  {
+    "id": "CS8360",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8360"
+  },
+  {
+    "id": "CS8371",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8371"
+  },
+  {
+    "id": "CS8383",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8383"
+  },
+  {
+    "id": "CS8387",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8387"
+  },
+  {
+    "id": "CS8424",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8424"
+  },
+  {
+    "id": "CS8425",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8425"
+  },
+  {
+    "id": "CS8500",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8500"
+  },
+  {
+    "id": "CS8509",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8509"
+  },
+  {
+    "id": "CS8512",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8512"
+  },
+  {
+    "id": "CS8513",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8513"
+  },
+  {
+    "id": "CS8519",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8519"
+  },
+  {
+    "id": "CS8520",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8520"
+  },
+  {
+    "id": "CS8524",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8524"
+  },
+  {
+    "id": "CS8597",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8597"
+  },
+  {
+    "id": "CS8605",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8605"
+  },
+  {
+    "id": "CS8607",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8607"
+  },
+  {
+    "id": "CS8608",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8608"
+  },
+  {
+    "id": "CS8609",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8609"
+  },
+  {
+    "id": "CS8610",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8610"
+  },
+  {
+    "id": "CS8611",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8611"
+  },
+  {
+    "id": "CS8612",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8612"
+  },
+  {
+    "id": "CS8613",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8613"
+  },
+  {
+    "id": "CS8614",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8614"
+  },
+  {
+    "id": "CS8615",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8615"
+  },
+  {
+    "id": "CS8616",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8616"
+  },
+  {
+    "id": "CS8617",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8617"
+  },
+  {
+    "id": "CS8619",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8619"
+  },
+  {
+    "id": "CS8620",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8620"
+  },
+  {
+    "id": "CS8621",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8621"
+  },
+  {
+    "id": "CS8622",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8622"
+  },
+  {
+    "id": "CS8624",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8624"
+  },
+  {
+    "id": "CS8631",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8631"
+  },
+  {
+    "id": "CS8633",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8633"
+  },
+  {
+    "id": "CS8634",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8634"
+  },
+  {
+    "id": "CS8643",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8643"
+  },
+  {
+    "id": "CS8644",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8644"
+  },
+  {
+    "id": "CS8645",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8645"
+  },
+  {
+    "id": "CS8655",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8655"
+  },
+  {
+    "id": "CS8656",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8656"
+  },
+  {
+    "id": "CS8667",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8667"
+  },
+  {
+    "id": "CS8669",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8669"
+  },
+  {
+    "id": "CS8670",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8670"
+  },
+  {
+    "id": "CS8714",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8714"
+  },
+  {
+    "id": "CS8762",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8762"
+  },
+  {
+    "id": "CS8763",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8763"
+  },
+  {
+    "id": "CS8764",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8764"
+  },
+  {
+    "id": "CS8765",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8765"
+  },
+  {
+    "id": "CS8766",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8766"
+  },
+  {
+    "id": "CS8767",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8767"
+  },
+  {
+    "id": "CS8768",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8768"
+  },
+  {
+    "id": "CS8769",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8769"
+  },
+  {
+    "id": "CS8770",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8770"
+  },
+  {
+    "id": "CS8774",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8774"
+  },
+  {
+    "id": "CS8775",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8775"
+  },
+  {
+    "id": "CS8776",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8776"
+  },
+  {
+    "id": "CS8777",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8777"
+  },
+  {
+    "id": "CS8778",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8778"
+  },
+  {
+    "id": "CS8784",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8784"
+  },
+  {
+    "id": "CS8785",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8785"
+  },
+  {
+    "id": "CS8793",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8793"
+  },
+  {
+    "id": "CS8794",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8794"
+  },
+  {
+    "id": "CS8819",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8819"
+  },
+  {
+    "id": "CS8824",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8824"
+  },
+  {
+    "id": "CS8825",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8825"
+  },
+  {
+    "id": "CS8826",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8826"
+  },
+  {
+    "id": "CS8846",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8846"
+  },
+  {
+    "id": "CS8847",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8847"
+  },
+  {
+    "id": "CS8848",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8848"
+  },
+  {
+    "id": "CS8850",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8850"
+  },
+  {
+    "id": "CS8851",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8851"
+  },
+  {
+    "id": "CS8860",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8860"
+  },
+  {
+    "id": "CS8880",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8880"
+  },
+  {
+    "id": "CS8881",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8881"
+  },
+  {
+    "id": "CS8882",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8882"
+  },
+  {
+    "id": "CS8883",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8883"
+  },
+  {
+    "id": "CS8884",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8884"
+  },
+  {
+    "id": "CS8885",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8885"
+  },
+  {
+    "id": "CS8886",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8886"
+  },
+  {
+    "id": "CS8887",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8887"
+  },
+  {
+    "id": "CS8892",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8892"
+  },
+  {
+    "id": "CS8897",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8897"
+  },
+  {
+    "id": "CS8898",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8898"
+  },
+  {
+    "id": "CS8907",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8907"
+  },
+  {
+    "id": "CS8909",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8909"
+  },
+  {
+    "id": "CS8947",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8947"
+  },
+  {
+    "id": "CS8960",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8960"
+  },
+  {
+    "id": "CS8961",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8961"
+  },
+  {
+    "id": "CS8962",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8962"
+  },
+  {
+    "id": "CS8963",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8963"
+  },
+  {
+    "id": "CS8965",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8965"
+  },
+  {
+    "id": "CS8966",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8966"
+  },
+  {
+    "id": "CS8971",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8971"
+  },
+  {
+    "id": "CS8973",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8973"
+  },
+  {
+    "id": "CS8974",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8974"
+  },
+  {
+    "id": "CS8981",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs8981"
+  },
+  {
+    "id": "CS9016",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9016"
+  },
+  {
+    "id": "CS9017",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9017"
+  },
+  {
+    "id": "CS9018",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9018"
+  },
+  {
+    "id": "CS9019",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9019"
+  },
+  {
+    "id": "CS9020",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9020"
+  },
+  {
+    "id": "CS9021",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9021"
+  },
+  {
+    "id": "CS9022",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9022"
+  },
+  {
+    "id": "CS9042",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9042"
+  },
+  {
+    "id": "CS9057",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9057"
+  },
+  {
+    "id": "CS9067",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9067"
+  },
+  {
+    "id": "CS9073",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9073"
+  },
+  {
+    "id": "CS9074",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9074"
+  },
+  {
+    "id": "CS9080",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9080"
+  },
+  {
+    "id": "CS9081",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9081"
+  },
+  {
+    "id": "CS9082",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9082"
+  },
+  {
+    "id": "CS9083",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9083"
+  },
+  {
+    "id": "CS9084",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9084"
+  },
+  {
+    "id": "CS9085",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9085"
+  },
+  {
+    "id": "CS9086",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9086"
+  },
+  {
+    "id": "CS9087",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9087"
+  },
+  {
+    "id": "CS9088",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9088"
+  },
+  {
+    "id": "CS9089",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9089"
+  },
+  {
+    "id": "CS9090",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9090"
+  },
+  {
+    "id": "CS9091",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9091"
+  },
+  {
+    "id": "CS9092",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9092"
+  },
+  {
+    "id": "CS9093",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9093"
+  },
+  {
+    "id": "CS9094",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9094"
+  },
+  {
+    "id": "CS9095",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9095"
+  },
+  {
+    "id": "CS9097",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9097"
+  },
+  {
+    "id": "CS9099",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9099"
+  },
+  {
+    "id": "CS9100",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9100"
+  },
+  {
+    "id": "CS9107",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9107"
+  },
+  {
+    "id": "CS9113",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9113"
+  },
+  {
+    "id": "CS9123",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9123"
+  },
+  {
+    "id": "CS9124",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9124"
+  },
+  {
+    "id": "CS9125",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9125"
+  },
+  {
+    "id": "CS9154",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9154"
+  },
+  {
+    "id": "CS9158",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9158"
+  },
+  {
+    "id": "CS9159",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9159"
+  },
+  {
+    "id": "CS9181",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9181"
+  },
+  {
+    "id": "CS9182",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9182"
+  },
+  {
+    "id": "CS9183",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9183"
+  },
+  {
+    "id": "CS9184",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9184"
+  },
+  {
+    "id": "CS9191",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9191"
+  },
+  {
+    "id": "CS9192",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9192"
+  },
+  {
+    "id": "CS9193",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9193"
+  },
+  {
+    "id": "CS9195",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9195"
+  },
+  {
+    "id": "CS9196",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9196"
+  },
+  {
+    "id": "CS9197",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9197"
+  },
+  {
+    "id": "CS9198",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9198"
+  },
+  {
+    "id": "CS9200",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9200"
+  },
+  {
+    "id": "CS9201",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9201"
+  },
+  {
+    "id": "CS9204",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9204"
+  },
+  {
+    "id": "CS9208",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9208"
+  },
+  {
+    "id": "CS9209",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9209"
+  },
+  {
+    "id": "CS9216",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9216"
+  },
+  {
+    "id": "CS9256",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9256"
+  },
+  {
+    "id": "CS9258",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9258"
+  },
+  {
+    "id": "CS9264",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9264"
+  },
+  {
+    "id": "CS9265",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9265"
+  },
+  {
+    "id": "CS9266",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9266"
+  },
+  {
+    "id": "CS9268",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9268"
+  },
+  {
+    "id": "CS9269",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9269"
+  },
+  {
+    "id": "CS9270",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9270"
+  },
+  {
+    "id": "CS9336",
+    "category": "code_smell",
+    "severity": "low",
+    "remediation_minutes": 5,
+    "documentation_url": "https://learn.microsoft.com/dotnet/csharp/misc/cs9336"
+  }
+]

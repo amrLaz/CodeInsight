@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeInsights – Tendances de portefeuille</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Rendu autonome des slides : canevas 1920×1080 mis à l'échelle de la page. */
+  body { margin: 0; padding: 24px 16px 48px; background: #DDE3EA; color: #172A41; font-family: 'IBM Plex Sans', Arial, sans-serif; }
+  header, .entry { max-width: 1280px; margin: 0 auto 32px; }
+  header h1 { font-size: 28px; margin: 0 0 8px; }
+  header p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A4B5E; }
+  .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(23, 42, 65, 0.18); }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; box-sizing: border-box; transform-origin: top left; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide ul, .slide ol { padding-left: 1.3em; }
+  .slide table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  .slide th, .slide td { padding: 0.35em 0.6em; text-align: left; vertical-align: top; border-bottom: 1px solid #D8E1EB; }
+  .slide th { font-weight: 600; }
+  .slide tr:last-child td { border-bottom: none; }
+  .slide x-shape[kind="arrow-right"] { display: block; flex: none; clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .notes { margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3A4B5E; }
+  .notes summary { cursor: pointer; font-weight: 600; }
+  @media print { body { background: #FFFFFF; } .entry { break-inside: avoid; } .notes { display: none; } }
+</style>
+</head>
+<body>
+<header>
+<h1>CodeInsights – Tendances de portefeuille</h1>
+<p>Présentation du lot 3 (P5.3), datée du 29 septembre 2026. Elle explique les changements de la branche <code>feat/portfolio-trends</code> ; la référence fonctionnelle reste <a href="../portfolio.md">portfolio.md</a>.</p>
+</header>
+<article class="entry" aria-label="Slide 1 sur 10">
+<div class="frame">
+<section class="slide" id="cover" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<p style="font-size:26px; font-weight:600; color:#69B4FF; letter-spacing:3px; text-transform:uppercase">CodeInsights · Lot 3 · P5.3</p>
+<h1 style="font-size:96px; font-weight:700; line-height:1.05">Tendances de portefeuille</h1>
+<p style="font-size:32px; color:#BCC9D8; line-height:1.4; width:1300px">Suivre jour après jour les projets que l'on a le droit de voir, sans moyenne qui masque un projet et sans zéro inventé.</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">feat/portfolio-trends</p>
+<p style="font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">29 septembre 2026</p>
+</div>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 1</summary><p>Lot 3 de la vision cible : les tendances de portefeuille. La branche part de develop, qui contient les lots 1 (SLA) et 2 (work items). Les courbes SLA s'appuient sur le lot 1.</p></details>
+</article>
+<article class="entry" aria-label="Slide 2 sur 10">
+<div class="frame">
+<section class="slide" id="context" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contexte</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Trois décisions, un principe</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Outil</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Une vue dans le hub</h3><p style="font-size:26px; line-height:1.4; color:#516278">Grafana ou Power BI verraient tout le portefeuille, sans les droits par projet.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Indicateurs</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Quatre familles</h3><p style="font-size:26px; line-height:1.4; color:#516278">Ratings A–E, findings par sévérité, SLA, couverture et duplication.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Historique</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Ce qui est prouvable</h3><p style="font-size:26px; line-height:1.4; color:#516278">Reconstruit depuis les analyses conservées ; les SLA passés, jamais.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Principe</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Aucune moyenne</h3><p style="font-size:26px; line-height:1.4; color:#516278">Chaque somme donne son nombre de projets mesurés.</p></div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">La vision cible confie les tendances à Grafana. Dans CodeInsights, les droits sont par projet : une vue dans le hub garde ces droits sans nouvelle infrastructure. C'est une révision explicite de l'ancienne décision « pas de vue Portefeuille ».</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 2 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 2</summary><p>Les trois décisions ont été prises avant le code : outil dans le hub, quatre familles d'indicateurs, reconstruction de ce qui est prouvable. Le principe « aucune moyenne » vient de la roadmap : une moyenne masquerait un projet critique.</p></details>
+</article>
+<article class="entry" aria-label="Slide 3 sur 10">
+<div class="frame">
+<section class="slide" id="flow" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Fonctionnement</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Des analyses aux courbes</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px; align-items:center">
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Analyses conservées</h3><p style="font-size:24px; line-height:1.4; color:#516278">Branche principale, analyses terminées et leurs occurrences.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Maintenance horaire</h3><p style="font-size:24px; line-height:1.4; color:#516278">Recalcule le jour courant, reconstruit les jours manquants.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">portfolio_snapshots</h3><p style="font-size:24px; line-height:1.4; color:#516278">Une ligne par projet et par jour UTC.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600; color:#EDF4FB;">Portfolio trends</h3><p style="font-size:24px; line-height:1.4; color:#BCC9D8">Agrégats des projets autorisés, dans All Projects.</p></div>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Deux sources de ligne</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px"><b>live</b> : le jour observé en direct, SLA compris, recalculé à chaque passage</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px"><b>reconstructed</b> : un jour passé rebâti depuis les analyses, sans SLA</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 3 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 3</summary><p>Aucun calcul lourd n'a lieu à la lecture : l'API agrège en SQL des lignes déjà calculées. La maintenance horaire ajoute quelques requêtes par projet ; son coût réel reste à mesurer sur le volume de production.</p></details>
+</article>
+<article class="entry" aria-label="Slide 4 sur 10">
+<div class="frame">
+<section class="slide" id="proof" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Données</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce que chaque valeur prouve</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:30%">Valeur</th><th style="width:40%">Source</th><th style="width:30%">Absente quand</th></tr><tr><td>Ratings A–E</td><td>Analyse retenue pour le jour</td><td>Profil sans ratings MQR</td></tr><tr><td>Couverture, duplication</td><td>Pourcentages entiers, comme l'historique d'un projet</td><td>Producteur absent</td></tr><tr><td>Findings par sévérité</td><td>Dernière révision terminée, hors exceptions de profil</td><td>Détails de l'analyse purgés</td></tr><tr><td>SLA breached, due soon</td><td>Findings durables de la branche principale</td><td>Jour non observé en direct</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Analyse retenue : la dernière analyse terminée de la branche principale créée avant la fin du jour. Une valeur absente reste null ; les agrégats l'ignorent et la courbe s'interrompt. Une sévérité inconnue est comptée à part, jamais versée dans Info.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 4 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 4</summary><p>Les findings sont comptés exactement comme dans l'écran Issues : dernière révision terminée de l'analyse, occurrences hors exceptions de profil. Deux vues ne peuvent donc pas donner deux chiffres pour la même analyse.</p></details>
+</article>
+<article class="entry" aria-label="Slide 5 sur 10">
+<div class="frame">
+<section class="slide" id="rebuild" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Historique</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Reconstruire sans inventer</h2></div>
+<div style="display:flex; flex-direction:row; gap:32px">
+<div style="flex:1; display:flex; flex-direction:column; gap:18px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Exemple, sur quatre jours</h3>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#E6EEF8; border-radius:6px; padding:4px 12px">J-3</p><p style="font-size:26px">Analyse A : ratings, couverture, findings</p></div>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#E6EEF8; border-radius:6px; padding:4px 12px">J-2</p><p style="font-size:26px">Pas d'analyse : l'état de A se prolonge</p></div>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#FFF5DC; border-radius:6px; padding:4px 12px">J-1</p><p style="font-size:26px">Analyse B purgée : findings null</p></div>
+<div style="display:flex; flex-direction:row; gap:16px; align-items:center"><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; background:#EAF6EF; border-radius:6px; padding:4px 12px">J</p><p style="font-size:26px">Observé en direct : SLA compté</p></div>
+</div>
+<div style="width:640px; flex:none; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Bornes</h3>
+<ul style="font-size:26px; line-height:1.5">
+<li>Jusqu'à 400 jours, dès la première analyse</li>
+<li>Au plus 50 projets reconstruits par passage</li>
+<li>Un jour manqué est rebâti au passage suivant</li>
+<li>Pas de ligne avant la première analyse</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 5 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 5</summary><p>Cet exemple est celui de PortfolioTests : quatre lignes, dont trois reconstruites et une observée en direct ; la ligne J-1 garde ratings et couverture de l'analyse B mais laisse ses findings à null parce que ses détails ont été purgés.</p></details>
+</article>
+<article class="entry" aria-label="Slide 6 sur 10">
+<div class="frame">
+<section class="slide" id="api" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">API</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Une route, filtrée par les droits</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:34%">Élément</th><th style="width:66%">Contenu</th></tr><tr><td>GET /api/v1/insights/portfolio?days=</td><td>7 à 365 jours, 90 par défaut ; session ou jeton personnel ; 422 hors bornes</td></tr><tr><td>days[]</td><td>Projets du jour, répartition par lettre pour chaque rating, findings et SLA avec leur nombre de projets mesurés</td></tr><tr><td>projects[]</td><td>Dernière ligne de chaque projet, couverture et duplication du premier jour de la période</td></tr><tr><td>projects_without_main_branch</td><td>Projets autorisés exclus faute de branche principale</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Seuls les projets accordés à l'appelant sont agrégés : la vue respecte les mêmes droits que Projects et Issues. Une somme sur zéro projet mesuré renvoie null, pas 0. Route ajoutée au catalogue du test de refus anonyme.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 6 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 6</summary><p>L'agrégation se fait en SQL, groupée par jour avec des comptages conditionnels. Elle a été extraite dans une méthode testée sur PostgreSQL, qui vérifie aussi qu'un projet non autorisé n'apparaît pas.</p></details>
+</article>
+<article class="entry" aria-label="Slide 7 sur 10">
+<div class="frame">
+<section class="slide" id="ui" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Interface</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Quatre onglets dans All Projects</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Ratings</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Projets par lettre</h3><p style="font-size:26px; line-height:1.4; color:#516278">Pour la dimension choisie : A, B, C, D, E et non notés.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Findings</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Somme par sévérité</h3><p style="font-size:26px; line-height:1.4; color:#516278">Sur les projets mesurés ; l'infobulle en donne le nombre.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">SLA</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Dépassements</h3><p style="font-size:26px; line-height:1.4; color:#516278">Un message tant qu'aucun jour n'a été observé en direct.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Qualité</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Tableau par projet</h3><p style="font-size:26px; line-height:1.4; color:#516278">Couverture et duplication, du moins couvert au plus couvert.</p></div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">Période de 30, 90, 180 ou 365 jours. Les courbes reprennent le rendu de l'historique d'un projet : tokens existants, un tracé par série, interruption à chaque absence de mesure. La section est chargée à la demande dans son propre chunk Vite.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 7 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 7</summary><p>Aucune nouvelle couleur : A et B en vert, C en ambre, D en orange, E en rouge, non noté en gris, chacun avec un tracé différent pour ne jamais porter l'information par la seule couleur.</p></details>
+</article>
+<article class="entry" aria-label="Slide 8 sur 10">
+<div class="frame">
+<section class="slide" id="files" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Livraison</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">12 fichiers créés, 14 modifiés</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:24px">
+<div style="width:600px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/api/ · backend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">Services/PortfolioSnapshots.cs +<br>Endpoints/PortfolioEndpoints.cs +<br>Data/PortfolioEntities.cs +<br>Data/Migrations/ (2 +, snapshot)<br>Services/IngestionWorker.cs<br>Data/AppDbContext.cs<br>Program.cs</p>
+</div>
+<div style="width:640px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/web/src/ · frontend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">utils/portfolio.ts +<br>features/projects/components/<br>  PortfolioTrends.tsx +<br>features/projects/Projects.tsx<br>workspace/Workspace.tsx<br>styles/shared-details.css</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Tests et docs</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">PortfolioTests.cs +<br>routes.json<br>2 tests Vitest +<br>docs/portfolio.md +<br>docs/ : 5 fichiers<br>presentations/ : 2</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 8 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 8</summary><p>Tests Vitest créés : utils/portfolio.test.ts et PortfolioTrends.test.tsx. Documentation modifiée : architecture, index, interface, roadmap et security-access ; cette présentation et sa ligne d'index sous docs/presentations. Rien sous apps/core, apps/vscode, apps/mcp ou apps/visualstudio : aucune montée de version.</p></details>
+</article>
+<article class="entry" aria-label="Slide 9 sur 10">
+<div class="frame">
+<section class="slide" id="tests" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Vérifications</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui a tourné, et ce qui reste à voir</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">48 / 48</p><p style="font-size:24px; line-height:1.4; color:#516278">xUnit contre l'API, PostgreSQL et Azurite</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">145</p><p style="font-size:24px; line-height:1.4; color:#516278">routes qui refusent un appel anonyme</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">44 + 4</p><p style="font-size:24px; line-height:1.4; color:#516278">xUnit sans base, 4 ignorés</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">61</p><p style="font-size:24px; line-height:1.4; color:#516278">tests Vitest réussis, 7 ignorés</p></div>
+</div>
+<div style="display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#197047">Vérifié</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>Snapshots et agrégation SQL sur PostgreSQL</li>
+<li>422 sur une période hors bornes</li>
+<li>Build Release sans avertissement</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#876000">Non vérifié</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>Courbes sur plusieurs semaines réelles</li>
+<li>Coût de la maintenance sur le volume réel</li>
+<li>Parcours dans un navigateur, docker build</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Tendances de portefeuille · 9 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 9</summary><p>Toutes les passes ont eu lieu après la dernière modification du code, sur une base migrée au préalable comme en CI. Les projets créés par les tests HTTP n'ont pas de branche principale : la route y a répondu avec un portefeuille vide et seize projets exclus, ce qui valide aussi ce comptage.</p></details>
+</article>
+<article class="entry" aria-label="Slide 10 sur 10">
+<div class="frame">
+<section class="slide" id="limits" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#69B4FF; letter-spacing:2px; text-transform:uppercase">Suite</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Limites connues et prochaines étapes</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Limites assumées</h3>
+<ul style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Un jour décrit le dernier passage horaire de ce jour</li>
+<li>La courbe SLA commence au déploiement</li>
+<li>Branche principale seulement</li>
+<li>Snapshots non purgés, une ligne par projet et par jour</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Prochaines étapes</h3>
+<ol style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Commit et PR vers develop</li>
+<li>Pilote : lecture par les responsables sur plusieurs semaines</li>
+<li>Mesurer le coût de la maintenance, ajuster si besoin</li>
+<li>Suite de la roadmap : licences (P5.6), gates dans Git (P5.5)</li>
+</ol>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#BCC9D8">CodeInsights · Tendances de portefeuille · 10 / 10</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 10</summary><p>La documentation de référence est docs/portfolio.md. La roadmap marque P5.3 comme livré, avec l'acceptation pilote encore à faire.</p></details>
+</article>
+<script>
+  // Met chaque canevas 1920×1080 à la largeur de son cadre.
+  const fit = () => document.querySelectorAll('.frame').forEach((frame) => {
+    frame.firstElementChild.style.transform = `scale(${frame.clientWidth / 1920})`;
+  });
+  addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>

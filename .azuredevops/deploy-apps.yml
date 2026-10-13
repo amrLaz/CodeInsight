@@ -1,0 +1,413 @@
+name: Deploy_CodeInsights_Apps_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - master
+  tags:
+    include:
+      - v*
+  paths:
+    include:
+      - apps/api/**
+      - apps/web/**
+      - Dockerfile
+      - .dockerignore
+      - Directory.Build.props
+      - CodeInsights.slnx
+      - tests/CodeInsights.Tests/**
+      - tests/contracts/**
+      - .azuredevops/deploy-apps.yml
+
+pr: none
+
+resources:
+  repositories:
+    - repository: AzPipelinesTpl
+      type: git
+      name: Up.France.ODI.AzurePipelines
+      ref: refs/tags/v3.1.7
+
+pool:
+  name: ManagedDevOpsPoolsLinux24
+
+variables:
+  - name: IMAGE_NAME
+    value: sast-platform
+  - name: IMAGE_TAG
+    value: $(Build.BuildId)
+  - name: ACR_LOGIN_SERVER
+    value: upgroup.azurecr.io
+  - name: CONTAINER_APP_NAME
+    value: up-france-odi-sast-prod-app
+  - name: RESOURCE_GROUP
+    value: up-france-odi-sast-prod-rg
+
+stages:
+  # ── Build & Push ──────────────────────────────────────────────────────────────
+  - stage: Build
+    displayName: "Build & Push → ACR"
+    jobs:
+      - job: BuildAndPush
+        displayName: "Docker build → upgroup.azurecr.io"
+        steps:
+          - checkout: self
+            fetchDepth: 0
+            fetchTags: true
+
+          - bash: |
+              echo "##vso[task.setvariable variable=path;isOutput=true]$BUILD_SOURCESDIRECTORY"
+            name: ReportSourceRoot
+            displayName: "Record source root used by build reports"
+
+          - bash: |
+              set -euo pipefail
+              APP_VERSION=$(git describe --tags --exact-match HEAD 2>/dev/null || printf 'build-%s-%s' "$BUILD_BUILDID" "$(git rev-parse --short HEAD)")
+              echo "Application version: $APP_VERSION"
+              echo "##vso[task.setvariable variable=APP_VERSION]$APP_VERSION"
+            displayName: "Resolve application version"
+
+          - template: az-dotnet-core-codeinsights.yml@AzPipelinesTpl
+            parameters:
+              dotnet_version:
+                - "10.0.104"
+              restoreProjects: CodeInsights.slnx
+              buildProjects: CodeInsights.slnx
+              prune_before_build: true
+              tests_enabled: false
+              codeinsights_publish_enabled: false
+              codeinsights_test_results_directory: ""
+              codeinsights_projects:
+                - name: api
+                  path: apps/api/CodeInsights.Api.csproj
+              custom_test_steps:
+                - bash: |
+                    set -euo pipefail
+                    tool_path="$(Agent.ToolsDirectory)/codeinsights-dotnet-tools"
+                    mkdir -p "$tool_path"
+                    if ! "$tool_path/dotnet-coverage" --version 2>/dev/null | grep --quiet '^18\.11\.0'; then
+                      dotnet tool install --tool-path "$tool_path" --version 18.11.0 dotnet-coverage --add-source https://api.nuget.org/v3/index.json --ignore-failed-sources
+                    fi
+                    echo '##vso[task.setvariable variable=DOTNET_COVERAGE_VERSION]18.11.0'
+                  displayName: "Install pinned dotnet-coverage 18.11.0"
+
+                - bash: |
+                    set -euo pipefail
+                    export DB_HOST=127.0.0.1 DB_PORT=55432 DB_USER=postgres DB_NAME=codeinsights_checks
+                    export DB_PASSWORD="$(openssl rand -hex 24)"
+                    export Bootstrap__AdminPassword="$(openssl rand -hex 24)"
+                    export CODEINSIGHTS_TEST_PASSWORD="$Bootstrap__AdminPassword"
+                    export CODEINSIGHTS_TEST_DB="Host=$DB_HOST;Port=$DB_PORT;Username=$DB_USER;Password=$DB_PASSWORD;Database=$DB_NAME"
+                    export ConnectionStrings__CodeInsights="$CODEINSIGHTS_TEST_DB"
+                    export Authentication__SigningKey="$(openssl rand -hex 32)"
+                    export CODEINSIGHTS_TEST_URL=http://127.0.0.1:5086 ASPNETCORE_URLS=http://127.0.0.1:5086
+                    reports_port=55433
+                    reports_account=codeinsightschecks
+                    reports_key="$(openssl rand -base64 64 | tr -d '\n')"
+                    export AZURITE_ACCOUNTS="$reports_account:$reports_key"
+                    export Ingestion__BlobConnectionString="DefaultEndpointsProtocol=http;AccountName=$reports_account;AccountKey=$reports_key;BlobEndpoint=http://127.0.0.1:$reports_port/$reports_account;"
+                    container="codeinsights-checks-$(Build.BuildId)"
+                    reports_container="codeinsights-reports-checks-$(Build.BuildId)"
+                    coverage_tool="$(Agent.ToolsDirectory)/codeinsights-dotnet-tools/dotnet-coverage"
+                    coverage_session="codeinsights-$(Build.BuildId)"
+                    api_pid=''
+                    cleanup() {
+                      if [ -n "$api_pid" ]; then
+                        pkill -TERM -P "$api_pid" 2>/dev/null || true
+                        kill "$api_pid" 2>/dev/null || true
+                      fi
+                      if [ -n "$coverage_session" ]; then
+                        "$coverage_tool" shutdown "$coverage_session" --nologo >/dev/null 2>&1 || true
+                      fi
+                      docker rm -f "$container" "$reports_container" >/dev/null 2>&1 || true
+                    }
+                    trap cleanup EXIT
+                    stale_ids="$(docker ps -aq --filter 'name=codeinsights-checks-' --filter 'name=codeinsights-reports-checks-' || true)"
+                    if [ -n "${stale_ids// }" ]; then
+                      docker rm -f ${stale_ids}
+                    fi
+                    docker run -d --name "$container" -e POSTGRES_PASSWORD="$DB_PASSWORD" -e POSTGRES_DB="$DB_NAME" -p "127.0.0.1:$DB_PORT:5432" postgres:16
+                    docker run -d --name "$reports_container" -e AZURITE_ACCOUNTS -p "127.0.0.1:$reports_port:10000" mcr.microsoft.com/azure-storage/azurite@sha256:830430c1da1a2d537e08f3e6764dd1f5ae00cf0346bcaf625b968ec3f0971fd5 azurite-blob --blobHost 0.0.0.0 --skipApiVersionCheck
+                    for attempt in $(seq 1 30); do
+                      if docker exec "$container" pg_isready -U postgres >/dev/null; then break; fi
+                      sleep 1
+                    done
+                    for attempt in $(seq 1 30); do
+                      if curl --silent --connect-timeout 2 --max-time 3 -o /dev/null "http://127.0.0.1:$reports_port/$reports_account"; then break; fi
+                      sleep 1
+                    done
+                    curl --silent --connect-timeout 2 --max-time 3 -o /dev/null "http://127.0.0.1:$reports_port/$reports_account"
+                    mkdir -p "$(Pipeline.Workspace)/codeinsights-dotnet/TestResults"
+                    "$coverage_tool" collect \
+                      --session-id "$coverage_session" \
+                      --server-mode \
+                      --background \
+                      --include-files "$(Build.SourcesDirectory)/apps/api/bin/Release/net10.0/CodeInsights.Api.dll" \
+                      --output "$(Pipeline.Workspace)/codeinsights-dotnet/TestResults/Cobertura.xml" \
+                      --output-format cobertura \
+                      --nologo
+                    "$coverage_tool" connect "$coverage_session" dotnet apps/api/bin/Release/net10.0/CodeInsights.Api.dll >api-checks.log 2>&1 &
+                    api_pid=$!
+                    for attempt in $(seq 1 60); do
+                      if curl --fail --silent "$CODEINSIGHTS_TEST_URL/api/v1/health" >/dev/null; then break; fi
+                      kill -0 "$api_pid"
+                      sleep 1
+                    done
+                    curl --fail --silent "$CODEINSIGHTS_TEST_URL/api/v1/health"
+                    dotnet test tests/CodeInsights.Tests/CodeInsights.Tests.csproj -c Release --no-build -- \
+                      --report-xunit-trx --report-xunit-trx-filename CodeInsights.Tests.trx \
+                      --results-directory "$(Pipeline.Workspace)/codeinsights-dotnet/TestResults"
+                    pkill -TERM -P "$api_pid" 2>/dev/null || true
+                    kill "$api_pid"
+                    wait "$api_pid" || true
+                    api_pid=''
+                    "$coverage_tool" shutdown "$coverage_session" --nologo
+                    coverage_session=''
+                    test -s "$(Pipeline.Workspace)/codeinsights-dotnet/TestResults/Cobertura.xml"
+                    dotnet publish apps/api/CodeInsights.Api.csproj -c Release --no-build -o /tmp/codeinsights-publish
+                    pushd apps/web
+                    npm ci
+                    rm -rf "$(Pipeline.Workspace)/codeinsights-web-reports"
+                    mkdir -p "$(Pipeline.Workspace)/codeinsights-web-reports"
+                    frontend_status=0
+                    npm run check:ci || frontend_status=$?
+                    cp -R test-results coverage "$(Pipeline.Workspace)/codeinsights-web-reports/" 2>/dev/null || true
+                    if [ "$frontend_status" -ne 0 ]; then exit "$frontend_status"; fi
+                    VITE_APP_VERSION="$(APP_VERSION)" npm run build
+                    popd
+                  displayName: "Validate API contracts, frontend and publish output"
+
+          # The API test step stops at the first failure: publish its TRX anyway so the failing test is named.
+          - task: PublishTestResults@2
+            displayName: "Publish API test results"
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: VSTest
+              testResultsFiles: $(Pipeline.Workspace)/codeinsights-dotnet/TestResults/CodeInsights.Tests.trx
+              testRunTitle: CodeInsights API
+              failTaskOnFailedTests: true
+
+          - task: PublishTestResults@2
+            displayName: "Publish frontend test results"
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: apps/web/test-results/junit.xml
+              testRunTitle: CodeInsights web
+              failTaskOnFailedTests: true
+
+          - task: PublishCodeCoverageResults@2
+            displayName: "Publish frontend code coverage"
+            condition: succeededOrFailed()
+            inputs:
+              summaryFileLocation: apps/web/coverage/cobertura-coverage.xml
+              pathToSources: apps/web/src
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish frontend reports"
+            condition: succeededOrFailed()
+            inputs:
+              targetPath: $(Pipeline.Workspace)/codeinsights-web-reports
+              artifact: codeinsights-web-reports
+
+          - template: az-docker-build-push-tpl.yml@AzPipelinesTpl
+            parameters:
+              azure_service_connection: "Subscription Fabrik Federated"
+              azure_container_registry: $(ACR_LOGIN_SERVER)
+              image_repository: $(IMAGE_NAME)
+              dockerfile_path: $(Build.SourcesDirectory)/Dockerfile
+              context: $(Build.SourcesDirectory)
+              image_tag: $(Build.BuildId)
+              artifact_name: codeinsights-image
+              include_latest_tag: true
+              buildArguments: APP_VERSION=$(APP_VERSION)
+              prune_before_build: true
+
+          - bash: |
+              set -euo pipefail
+              docker run --rm --entrypoint sh \
+                "$(ACR_LOGIN_SERVER)/$(IMAGE_NAME):$(IMAGE_TAG)" \
+                -c 'grep -R -F -- "$1" /app/wwwroot/assets/*.js >/dev/null' \
+                sh "$(APP_VERSION)"
+            displayName: "Verify Docker image application version"
+
+  # ── Deploy ────────────────────────────────────────────────────────────────────
+  - stage: Deploy
+    displayName: "Deploy → Web App"
+    dependsOn: Build
+    # Only a tag push (release) rolls the image out; plain master commits stop after Build.
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+    jobs:
+      - deployment: DeployWebApp
+        displayName: "Update container + restart"
+        environment: "sast-prod"
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureCLI@2
+                  displayName: "az webapp config container set + restart"
+                  inputs:
+                    azureSubscription: "Subscription Fabrik Federated"
+                    scriptType: bash
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                      set -euo pipefail
+                      az webapp config container set \
+                        --name "$(CONTAINER_APP_NAME)" \
+                        --resource-group "$(RESOURCE_GROUP)" \
+                        --container-image-name "$(ACR_LOGIN_SERVER)/$(IMAGE_NAME):$(IMAGE_TAG)"
+
+                      az webapp restart \
+                        --name "$(CONTAINER_APP_NAME)" \
+                        --resource-group "$(RESOURCE_GROUP)"
+
+                      FQDN=$(az webapp show \
+                        --name "$(CONTAINER_APP_NAME)" \
+                        --resource-group "$(RESOURCE_GROUP)" \
+                        --query "defaultHostName" --output tsv)
+
+                      for attempt in $(seq 1 60); do
+                        if curl --fail --silent --max-time 10 "https://${FQDN}/api/v1/health" >/dev/null; then break; fi
+                        sleep 10
+                      done
+                      curl --fail --silent --max-time 20 "https://${FQDN}/api/v1/health"
+                      curl --fail --silent --max-time 20 "https://${FQDN}/healthz"
+                      curl --fail --silent --max-time 20 "https://${FQDN}/" | grep -q '<div id="root"'
+
+                      export CODEINSIGHTS_SMOKE_URL="https://${FQDN}"
+                      CODEINSIGHTS_SMOKE_PASSWORD=$(az keyvault secret show --vault-name up-fr-odi-sast-prod-kv --name bootstrap-admin-password --query value -o tsv)
+                      export CODEINSIGHTS_SMOKE_PASSWORD
+                      python3 - <<'PY'
+                      import json, os, time, urllib.error, urllib.request
+                      base = os.environ['CODEINSIGHTS_SMOKE_URL']
+
+                      def load_json(request):
+                          for attempt in range(1, 7):
+                              try:
+                                  with urllib.request.urlopen(request, timeout=20) as response:
+                                      return json.load(response)
+                              except (OSError, urllib.error.URLError):
+                                  if attempt == 6:
+                                      raise
+                                  time.sleep(5)
+
+                      request = urllib.request.Request(base + '/api/v1/auth/login', data=json.dumps({
+                          'email': 'admin@codeinsights.local', 'password': os.environ['CODEINSIGHTS_SMOKE_PASSWORD']
+                      }).encode(), headers={'Content-Type': 'application/json'})
+                      token = load_json(request)['token']
+                      for path in ['/api/v1/auth/me', '/api/v1/projects', '/api/v1/profiles']:
+                          request = urllib.request.Request(base + path, headers={'Authorization': 'Bearer ' + token})
+                          load_json(request)
+                          print('Authenticated database probe passed: ' + path)
+                      assignment_path = '/api/v1/profiles/projects/Up.France.CodeInsights'
+                      request = urllib.request.Request(base + assignment_path, headers={'Authorization': 'Bearer ' + token})
+                      assignment = load_json(request)
+                      expected = {'profile_id': 'upcoop-dotnet', 'profile_version': '2', 'enforcement': 'informative'}
+                      if assignment != expected:
+                          request = urllib.request.Request(base + assignment_path, data=json.dumps(expected).encode(), method='PUT', headers={
+                              'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'
+                          })
+                          load_json(request)
+                          print('Assigned CodeInsights profile: upcoop-dotnet/2 (informative)')
+                      PY
+                      unset CODEINSIGHTS_SMOKE_PASSWORD
+
+                      echo "════════════════════════════════════════════════════════"
+                      echo "  Déploiement terminé — image :$(IMAGE_TAG)"
+                      echo "  Platform URL : https://${FQDN}"
+                      echo "════════════════════════════════════════════════════════"
+
+  - stage: Analyze
+    displayName: "Analyze → CodeInsights PROD"
+    dependsOn:
+      - Build
+      - Deploy
+    # Runs on every trigger even when Deploy was skipped (non-tag master commit).
+    condition: in(dependencies.Deploy.result, 'Succeeded', 'Skipped')
+    jobs:
+      - job: SecurityAnalysis
+        displayName: "Publish security analysis and metrics"
+        variables:
+          REPORT_SOURCE_ROOT: $[ stageDependencies.Build.BuildAndPush.outputs['ReportSourceRoot.path'] ]
+          # Defined empty so the publish input never receives the literal macro.
+          NEW_CODE_REFERENCE_BRANCH: ""
+        steps:
+          - checkout: self
+            fetchDepth: 0
+
+          - bash: |
+              set -euo pipefail
+              # A tag ref is analyzed once, so a same-branch baseline never
+              # exists: compare the release with the previous v* tag instead.
+              # PLATFORM_TARGET_SHA stays unset so the publisher resolves the
+              # baseline SHA through /new-code/resolve.
+              if [[ "$BUILD_SOURCEBRANCH" == refs/tags/* ]]; then
+                previous_tag="$(git describe --tags --abbrev=0 --match 'v*' HEAD^ 2>/dev/null || true)"
+                if [[ -n "$previous_tag" && "refs/tags/$previous_tag" != "$BUILD_SOURCEBRANCH" ]]; then
+                  echo "New Code reference: refs/tags/$previous_tag"
+                  echo "##vso[task.setvariable variable=NEW_CODE_REFERENCE_BRANCH]refs/tags/${previous_tag}"
+                  exit 0
+                fi
+                echo "No previous v* tag; falling back to the previous trigger-eligible commit."
+              fi
+              # The CI trigger skips commits that only touch docs,
+              # VS Code or another pipeline. Start before HEAD so this also
+              # selects the latest trigger-eligible commit on a manual run.
+              target_sha="$(git log --first-parent --format=%H -n 1 HEAD^ -- \
+                apps/api apps/web \
+                Dockerfile .dockerignore Directory.Build.props CodeInsights.slnx \
+                tests/CodeInsights.Tests tests/contracts .azuredevops/deploy-apps.yml)"
+              if [[ -z "$target_sha" ]]; then
+                echo "No previous trigger-eligible commit; New Code baseline will be absent."
+                target_sha="$(git rev-parse HEAD^)"
+              fi
+              echo "##vso[task.setvariable variable=PLATFORM_TARGET_SHA]${target_sha}"
+            displayName: "Set New Code baseline (previous tag or trigger-eligible commit)"
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+
+          # The reports were produced in Build, which can use another agent workspace.
+          - bash: |
+              if [[ "$REPORT_SOURCE_ROOT" != /* ]]; then
+                echo '##vso[task.logissue type=error]Build report source root is unavailable.'
+                exit 1
+              fi
+            displayName: "Verify build report source root"
+            env:
+              REPORT_SOURCE_ROOT: $(REPORT_SOURCE_ROOT)
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "CodeInsights: download codeinsights-dotnet-reports"
+            inputs:
+              artifact: codeinsights-dotnet-reports
+              path: $(Pipeline.Workspace)/codeinsights-publish/codeinsights-dotnet-reports
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "CodeInsights: download codeinsights-web-reports"
+            inputs:
+              artifact: codeinsights-web-reports
+              path: $(Pipeline.Workspace)/codeinsights-publish/codeinsights-web-reports
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "CodeInsights: download codeinsights-security-reports"
+            inputs:
+              artifact: codeinsights-security-reports
+              path: $(Pipeline.Workspace)/codeinsights-publish/codeinsights-security-reports
+
+          - task: UsePythonVersion@0
+            displayName: "CodeInsights: use Python 3.12"
+            inputs:
+              versionSpec: "3.12"
+
+          - task: UpCoopPublishReports@1
+            displayName: "CodeInsights: publish reports"
+            inputs:
+              reportsRoot: $(Pipeline.Workspace)/codeinsights-publish
+              projectKey: $(Build.Repository.Name)
+              codeInsightsServiceConnection: CodeInsights-Coop
+              sourceRoot: $(Build.SourcesDirectory)
+              reportSourceRoot: $(REPORT_SOURCE_ROOT)
+              profileId: upcoop-dotnet
+              profileVersion: "2"
+              newCodeReferenceBranch: $(NEW_CODE_REFERENCE_BRANCH)
+              failOnQualityGate: false

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeInsights – Work items Azure Boards</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Rendu autonome des slides : canevas 1920×1080 mis à l'échelle de la page. */
+  body { margin: 0; padding: 24px 16px 48px; background: #DDE3EA; color: #172A41; font-family: 'IBM Plex Sans', Arial, sans-serif; }
+  header, .entry { max-width: 1280px; margin: 0 auto 32px; }
+  header h1 { font-size: 28px; margin: 0 0 8px; }
+  header p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A4B5E; }
+  .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(23, 42, 65, 0.18); }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; box-sizing: border-box; transform-origin: top left; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide ul, .slide ol { padding-left: 1.3em; }
+  .slide table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  .slide th, .slide td { padding: 0.35em 0.6em; text-align: left; vertical-align: top; border-bottom: 1px solid #D8E1EB; }
+  .slide th { font-weight: 600; }
+  .slide tr:last-child td { border-bottom: none; }
+  .slide x-shape[kind="arrow-right"] { display: block; flex: none; clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .notes { margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3A4B5E; }
+  .notes summary { cursor: pointer; font-weight: 600; }
+  @media print { body { background: #FFFFFF; } .entry { break-inside: avoid; } .notes { display: none; } }
+</style>
+</head>
+<body>
+<header>
+<h1>CodeInsights – Work items Azure Boards</h1>
+<p>Présentation du lot 2 (P5.2), datée du 29 septembre 2026. Elle explique les changements de la branche <code>feat/boards-work-items</code> ; la référence fonctionnelle reste la section « Work items Azure Boards » de <a href="../collaboration.md">collaboration.md</a>.</p>
+</header>
+<article class="entry" aria-label="Slide 1 sur 12">
+<div class="frame">
+<section class="slide" id="cover" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<p style="font-size:26px; font-weight:600; color:#69B4FF; letter-spacing:3px; text-transform:uppercase">CodeInsights · Lot 2 · P5.2</p>
+<h1 style="font-size:96px; font-weight:700; line-height:1.05">Work items Azure Boards</h1>
+<p style="font-size:32px; color:#BCC9D8; line-height:1.4; width:1300px">Un finding peut ouvrir un work item, à la demande ou par des règles, sans doublon et sans que le board ne décide de l'état du finding.</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">feat/boards-work-items</p>
+<p style="font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">29 septembre 2026</p>
+</div>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 1</summary><p>Lot 2 de la vision cible : les work items Azure Boards. La branche part de develop, qui contient déjà le lot 1 (SLA). Les règles automatiques s'appuient sur les statuts SLA de ce lot.</p></details>
+</article>
+<article class="entry" aria-label="Slide 2 sur 12">
+<div class="frame">
+<section class="slide" id="context" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contexte</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Quatre décisions avant le code</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Périmètre</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Manuel et règles</h3><p style="font-size:26px; line-height:1.4; color:#516278">Un bouton dans le détail d'une issue, et deux règles automatiques par projet.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Type</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Configurable, Bug par défaut</h3><p style="font-size:26px; line-height:1.4; color:#516278">Issue pour un process Basic ; area path et itération facultatifs.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Résolution</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Un commentaire</h3><p style="font-size:26px; line-height:1.4; color:#516278">CodeInsights ne ferme jamais le work item.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Destination</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Le projet du dépôt</h3><p style="font-size:26px; line-height:1.4; color:#516278">Le lien dépôt Azure Repos désigne le projet Azure DevOps.</p></div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">La vision cible confie le ticketing à Jira ou GitLab ; dans l'écosystème Up, c'est Azure Boards. Le scan reste la source de vérité : fermer le work item ne change jamais le finding.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 2 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 2</summary><p>Les quatre choix ont été tranchés avant l'implémentation : périmètre manuel et automatique, type configurable avec Bug par défaut, simple commentaire à la résolution, destination déduite du lien dépôt du projet.</p></details>
+</article>
+<article class="entry" aria-label="Slide 3 sur 12">
+<div class="frame">
+<section class="slide" id="flow" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Fonctionnement</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">De la demande au work item</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px; align-items:center">
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Demande</h3><p style="font-size:24px; line-height:1.4; color:#516278">Bouton Create work item, ou règle automatique.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Lien pending</h3><p style="font-size:24px; line-height:1.4; color:#516278">Ligne finding_work_items et job durable work-item.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Job work-item</h3><p style="font-size:24px; line-height:1.4; color:#516278">Recherche WIQL du tag, puis création si rien n'existe.</p></div>
+<x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape>
+<div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600; color:#EDF4FB;">Lien created</h3><p style="font-size:24px; line-height:1.4; color:#BCC9D8">Numéro et URL du work item, affichés dans Issues.</p></div>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">À la résolution du finding</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Finding passé à resolved dans Issues</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Job work-item-comment, dans la même transaction</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Commentaire : auteur, motif, lien vers le hub</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Le work item reste ouvert : l'équipe le ferme</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 3 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 3</summary><p>Toute écriture vers Azure DevOps passe par un job durable, jamais par la requête HTTP de l'utilisateur : une panne d'Azure DevOps ne bloque ni l'écran ni l'ingestion, et une reprise ne perd rien.</p></details>
+</article>
+<article class="entry" aria-label="Slide 4 sur 12">
+<div class="frame">
+<section class="slide" id="data" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Données</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Deux tables, une option d'organisation</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:26%">Table</th><th style="width:30%">Colonnes</th><th style="width:44%">Rôle</th></tr><tr><td>finding_work_items</td><td>finding_id, work_item_id, url</td><td>Un lien par finding, identifiant conservé</td></tr><tr><td>finding_work_items</td><td>state, origin, last_error</td><td>pending, created ou failed ; manual ou règle</td></tr><tr><td>work_item_settings</td><td>work_item_type, area_path, iteration_path</td><td>Champs du work item, par projet</td></tr><tr><td>work_item_settings</td><td>auto_min_severity, auto_on_sla_breach</td><td>Règles automatiques</td></tr><tr><td>work_item_settings</td><td>auto_max_per_run, auto_since, version</td><td>Plafond, fenêtre d'activation, concurrence</td></tr><tr style="background:#E6EEF8"><td>azure_devops_org_config</td><td>work_items_enabled</td><td>Capacité de l'organisation, désactivée par défaut</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Migration <b>20260929182945_AddFindingWorkItems</b>. C'est l'exception assumée à « aucun mapping stocké » : un work item est un objet externe que les équipes modifient, son identifiant évite un doublon et permet de le commenter.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 4 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 4</summary><p>Sans ligne work_item_settings, un projet a les valeurs par défaut : type Bug, pas d'area path ni d'itération, aucune règle automatique.</p></details>
+</article>
+<article class="entry" aria-label="Slide 5 sur 12">
+<div class="frame">
+<section class="slide" id="idempotence" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Fiabilité</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Pas de doublon, des refus explicites</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:20px">
+<div style="display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:26px; line-height:1.5; color:#EDF4FB">tag = codeinsights-finding-&#123;id&#125;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:26px; line-height:1.5; color:#69B4FF">WIQL : [System.Tags] CONTAINS tag</p>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#172A41">Azure DevOps ne rend pas la création idempotente. Avant de créer, le job cherche le work item portant le tag du finding et l'adopte s'il existe : une réponse perdue suivie d'une reprise ne crée pas de doublon.</p>
+<p style="font-size:26px; line-height:1.4; color:#516278">Une deuxième demande sur un lien pending ou created le renvoie tel quel.</p>
+</div>
+<div style="width:720px; flex:none; display:flex; flex-direction:column; gap:14px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:32px">
+<h3 style="font-size:32px; font-weight:600">Réponses d'Azure DevOps</h3>
+<ul style="font-size:26px; line-height:1.5">
+<li>400, 404 : terminal, message d'Azure DevOps conservé</li>
+<li>401, 403 : terminal, avec le rappel du droit Work Items (Read &amp; Write)</li>
+<li>429, 5xx : repris jusqu'à cinq fois, puis failed</li>
+<li>failed : jamais recréé par une règle, bouton Retry dans Issues</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 5 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 5</summary><p>Le test WorkItemTests joue les trois chemins contre un substitut HTTP : création avec document JSON Patch, adoption d'un work item déjà tagué sans nouvel appel de création, refus 403 qui rend le lien failed avec le message d'Azure DevOps.</p></details>
+</article>
+<article class="entry" aria-label="Slide 6 sur 12">
+<div class="frame">
+<section class="slide" id="content" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contenu</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce que porte le work item</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:28%">Champ</th><th style="width:72%">Valeur</th></tr><tr><td>System.Title</td><td>[CodeInsights] sévérité · outil/règle · chemin, 255 caractères au plus</td></tr><tr><td>System.Description</td><td>Message, règle, sévérité, catégorie, localisation, branche, statut SLA ; HTML échappé</td></tr><tr><td>System.Tags</td><td>CodeInsights ; codeinsights-finding-&#123;id&#125;</td></tr><tr><td>System.AreaPath, IterationPath</td><td>Seulement s'ils sont réglés pour le projet</td></tr><tr><td>Relation Hyperlink</td><td>Analyse du finding dans le hub, si Ingestion:PlatformUrl est configuré</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">Le texte des scanners est échappé avant d'entrer dans la description : un message contenant du HTML s'affiche comme du texte. Aucun champ propre à un process (Severity, Priority) n'est envoyé.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 6 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 6</summary><p>Rester sur les champs System.* garantit que la création fonctionne quel que soit le process du projet, pourvu que le type de work item existe. Le type est la seule chose qu'il faut adapter pour un process Basic.</p></details>
+</article>
+<article class="entry" aria-label="Slide 7 sur 12">
+<div class="frame">
+<section class="slide" id="rules" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Règles automatiques</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Utiles sans inonder le board</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Règle 1</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Sévérité minimale</h3><p style="font-size:26px; line-height:1.4; color:#516278">Nouveaux findings de cette sévérité ou plus, détectés après l'activation.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Règle 2</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Dépassement de SLA</h3><p style="font-size:26px; line-height:1.4; color:#516278">Findings breached dont l'échéance tombe après l'activation.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Plafond</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">auto_max_per_run</h3><p style="font-size:26px; line-height:1.4; color:#516278">1 à 100 par projet et par passage, 10 par défaut ; le reste attend.</p></div>
+</div>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Branche principale, finding ouvert ou confirmé, sans lien</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">SLA d'abord, puis sévérités de la plus haute, plus anciens d'abord</p>
+<p style="flex:1; font-size:26px; line-height:1.35; background:#E6EEF8; border-radius:8px; padding:20px 24px">Job sla réveillé par l'ingestion, et maintenance horaire</p>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">auto_since est fixé à l'activation et effacé quand toutes les règles sont désactivées : l'historique antérieur ne crée aucun work item.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 7 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 7</summary><p>Le test de règles vérifie : blocker puis high dans l'ordre, plafond de 2 respecté, troisième finding traité au passage suivant, et rien pour un finding antérieur à l'activation, de sévérité insuffisante, sur une autre branche ou déjà résolu.</p></details>
+</article>
+<article class="entry" aria-label="Slide 8 sur 12">
+<div class="frame">
+<section class="slide" id="api" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">API</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Deux ressources, quatre routes</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:40%">Route</th><th style="width:22%">Accès</th><th style="width:38%">Comportement</th></tr><tr><td>GET …/findings/&#123;id&#125;/work-item</td><td>Accès au projet</td><td>Le lien, ou null tant qu'il n'existe pas</td></tr><tr><td>POST …/findings/&#123;id&#125;/work-item</td><td>Utilisateur, jeton avec collaboration:write</td><td>202 ; crée ou relance un lien failed ; 422 avec la cause si le projet n'est pas éligible</td></tr><tr><td>GET /api/v1/work-items/projects/&#123;projectKey&#125;</td><td>Accès au projet</td><td>Réglages et disponibilité : destination ou cause</td></tr><tr><td>PUT /api/v1/work-items/projects/&#123;projectKey&#125;</td><td>Administrateur</td><td>Version lue, 409 si modifiée ; valeurs bornées ; audit</td></tr></table>
+<p style="font-size:26px; line-height:1.4; color:#516278">…/findings = /api/v1/collaboration/findings. Tokens CI refusés ; routes ajoutées au catalogue du test de refus anonyme. La configuration d'organisation gagne work_items_enabled.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 8 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 8</summary><p>Le GET renvoie explicitement null avec le type application/json quand le finding n'a pas de work item : c'est un état normal, pas une erreur. Ce point a été corrigé pendant la validation manuelle, où la première version renvoyait un corps vide.</p></details>
+</article>
+<article class="entry" aria-label="Slide 9 sur 12">
+<div class="frame">
+<section class="slide" id="ui" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Interface</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Trois écrans touchés</h2></div>
+<div style="display:flex; flex-direction:row; gap:28px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Issues</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Bloc Azure Boards</h3><p style="font-size:26px; line-height:1.4; color:#516278">Create work item, création en file rafraîchie, lien #n vers Azure DevOps, message et Retry en cas d'échec.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Administration › Projects</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Work items</h3><p style="font-size:26px; line-height:1.4; color:#516278">Type, area path, itération, règles, plafond ; destination ou cause d'indisponibilité.</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Administration › Integrations</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Nouvelle capacité</h3><p style="font-size:26px; line-height:1.4; color:#516278">Case Azure Boards work items sur l'organisation, avec le droit requis rappelé.</p></div>
+</div>
+<p style="font-size:26px; line-height:1.4; color:#516278">Aucun nouveau composant ni nouvelle couleur : l'avertissement d'indisponibilité réutilise les tokens --warning et --warning-light. L'écran Work items est chargé à la demande dans son propre chunk Vite.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 9 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 9</summary><p>Les libellés de l'application restent en anglais, conformément à l'interface existante.</p></details>
+</article>
+<article class="entry" aria-label="Slide 10 sur 12">
+<div class="frame">
+<section class="slide" id="files" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Livraison</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">13 fichiers créés, 23 modifiés</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:24px">
+<div style="width:580px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/api/ · backend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">Services/FindingWorkItems.cs +<br>Endpoints/WorkItemEndpoints.cs +<br>Data/WorkItemEntities.cs +<br>Data/Migrations/ (2 +, snapshot)<br>Services/IngestionWorker.cs<br>Services/FindingCollaboration.cs<br>Endpoints/CollaborationEndpoints.cs<br>Endpoints/IntegrationEndpoints.cs<br>Data/Entities.cs, AppDbContext.cs<br>Program.cs</p>
+</div>
+<div style="width:640px; flex:none; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">apps/web/src/ · frontend</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">utils/work-items.ts +<br>features/administration/WorkItemSettings.tsx +<br>features/issues/components/IssueWorkItem.tsx +<br>features/issues/components/IssueReview.tsx<br>features/administration/DevOpsIntegrations.tsx<br>features/administration/Administration.tsx<br>config/navigation.ts<br>types/api.ts<br>styles/controls.css</p>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0">
+<p style="font-size:24px; font-weight:600; color:#005EB8">Tests et docs</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">WorkItemTests.cs +<br>routes.json<br>3 tests Vitest +<br>admin-data.test.ts<br>docs/ : 6 fichiers<br>presentations/ : 2</p>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 10 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 10</summary><p>Détail des tests Vitest créés : utils/work-items.test.ts, WorkItemSettings.test.tsx et IssueWorkItem.test.tsx. Documentation modifiée : collaboration, integration, interface, security-access, architecture et roadmap ; cette présentation et sa ligne d'index sous docs/presentations. Rien sous apps/core, apps/vscode, apps/mcp ou apps/visualstudio : aucune montée de version.</p></details>
+</article>
+<article class="entry" aria-label="Slide 11 sur 12">
+<div class="frame">
+<section class="slide" id="tests" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Vérifications</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui a tourné, et ce qui reste à voir</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px">
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">47 / 47</p><p style="font-size:24px; line-height:1.4; color:#516278">xUnit contre l'API, PostgreSQL et Azurite</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">144</p><p style="font-size:24px; line-height:1.4; color:#516278">routes qui refusent un appel anonyme</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">44 + 3</p><p style="font-size:24px; line-height:1.4; color:#516278">xUnit sans base, 3 ignorés</p></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">54</p><p style="font-size:24px; line-height:1.4; color:#516278">tests Vitest réussis, 7 ignorés</p></div>
+</div>
+<div style="display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#197047">Vérifié à la main</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>422 sans lien dépôt, 422 sur une sévérité invalide</li>
+<li>409 sur version périmée, auto_since posé à l'activation</li>
+<li>GET sans lien : null en application/json</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:32px; font-weight:600; color:#876000">Non vérifié</h3>
+<ul style="font-size:26px; line-height:1.45">
+<li>Appel réel à Azure DevOps : substitut HTTP seulement</li>
+<li>Parcours dans un navigateur</li>
+<li>docker build de l'image complète</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Work items Azure Boards · 11 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 11</summary><p>Toutes ces passes ont eu lieu après la dernière correction du code. Sur une base neuve sans migration préalable, SecurityReviewTests échoue parce qu'il suppose une base déjà migrée par un autre test ; ce défaut existait avant ce lot. En CI, l'API migre la base avant les tests. Les chiffres ci-dessus proviennent de passes sur base migrée.</p></details>
+</article>
+<article class="entry" aria-label="Slide 12 sur 12">
+<div class="frame">
+<section class="slide" id="limits" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#69B4FF; letter-spacing:2px; text-transform:uppercase">Suite</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Limites connues et prochaines étapes</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px">
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Limites assumées</h3>
+<ul style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>L'état du work item ne revient pas dans CodeInsights</li>
+<li>Une réouverture du finding n'est pas commentée</li>
+<li>Le plafond s'applique par passage, pas par analyse</li>
+<li>Extensions et MCP n'affichent pas encore le lien</li>
+</ul>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px">
+<h3 style="font-size:32px; font-weight:600">Prochaines étapes</h3>
+<ol style="font-size:26px; line-height:1.5; color:#BCC9D8">
+<li>Commit et PR vers develop</li>
+<li>Accorder Work Items (Read &amp; Write) à l'identité managée, puis activer la capacité</li>
+<li>Pilote : work item réel créé, adopté après reprise, commenté à la résolution</li>
+<li>Lot 3 : tendances de portefeuille</li>
+</ol>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#BCC9D8">CodeInsights · Work items Azure Boards · 12 / 12</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 12</summary><p>Accorder le droit Work Items à l'identité managée est une action d'administration Azure DevOps : elle n'a pas été faite et ne relève pas du code. La documentation de référence est la section « Work items Azure Boards » de docs/collaboration.md.</p></details>
+</article>
+<script>
+  // Met chaque canevas 1920×1080 à la largeur de son cadre.
+  const fit = () => document.querySelectorAll('.frame').forEach((frame) => {
+    frame.firstElementChild.style.transform = `scale(${frame.clientWidth / 1920})`;
+  });
+  addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+[
+  {
+    "id": "AZU-0001",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0002",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0003",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0004",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0005",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0006",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0007",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0008",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0009",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0010",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0011",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0012",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0013",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0014",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0015",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0016",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0017",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0018",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0019",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0020",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0021",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0022",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0023",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0024",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0025",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0026",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0027",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0028",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0029",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0030",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0031",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0032",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0033",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0034",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0035",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0036",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0037",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0038",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0039",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0040",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0041",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0042",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0043",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0044",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0045",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0046",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0047",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0048",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0049",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0050",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0051",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0052",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0056",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0057",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0058",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0059",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0060",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0061",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0062",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0063",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0064",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0065",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0066",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0067",
+    "severity": "low"
+  },
+  {
+    "id": "AZU-0068",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0069",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0070",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0071",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0072",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0073",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0074",
+    "severity": "high"
+  },
+  {
+    "id": "AZU-0075",
+    "severity": "medium"
+  },
+  {
+    "id": "AZU-0076",
+    "severity": "medium"
+  }
+]

@@ -1,0 +1,472 @@
+{
+  "name": "codeinsights",
+  "displayName": "CodeInsights",
+  "description": "Rapport CodeInsights de la branche courante et analyse locale des changements.",
+  "version": "0.7.3",
+  "publisher": "upcoop",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://dev.azure.com/up-group/Up.France.ODI/_git/Up.France.CodeInsights"
+  },
+  "engines": {
+    "vscode": "^1.104.0",
+    "node": ">=22"
+  },
+  "categories": [
+    "Linters",
+    "Testing",
+    "Other"
+  ],
+  "icon": "media/icon.png",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "L'extension lit la configuration Git du workspace et exécutera des scanners locaux."
+    }
+  },
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "codeinsights.mcp",
+        "label": "CodeInsights"
+      }
+    ],
+    "colors": [
+      {
+        "id": "codeinsights.severityHigh",
+        "description": "Icônes de criticité High : un rouge profond, distinct du rouge vif des Blocker.",
+        "defaults": {
+          "light": "#8e1b1b",
+          "dark": "#c34d4d",
+          "highContrast": "#e05a5a",
+          "highContrastLight": "#7a0f0f"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "CodeInsights",
+      "properties": {
+        "codeinsights.serverUrl": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "URL du hub CodeInsights, par exemple `https://codeinsights.example`. Sans valeur, l'extension reste inactive.",
+          "scope": "machine-overridable"
+        },
+        "codeinsights.projectKey": {
+          "type": "string",
+          "default": "",
+          "description": "Clé de projet à utiliser pour ce dossier. Vide : résolution automatique depuis l'URL du dépôt (lot L1).",
+          "scope": "resource"
+        },
+        "codeinsights.refreshIntervalSeconds": {
+          "type": "integer",
+          "default": 300,
+          "minimum": 0,
+          "description": "Intervalle de rafraîchissement du dernier rapport de la branche. Zéro désactive le rafraîchissement automatique."
+        },
+        "codeinsights.liveAnalysis.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Analyser les changements en cours avec les producteurs locaux après chaque sauvegarde."
+        },
+        "codeinsights.diagnostics.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Publier les issues de la dernière analyse dans le panneau Problèmes, avec leur position recalée sur le working tree."
+        },
+        "codeinsights.liveAnalysis.targetBranch": {
+          "type": "string",
+          "default": "origin/master",
+          "markdownDescription": "Référence servant de base au diff des changements en cours ; le repli est HEAD. Le champ `targetBranch` de `.codeinsights/vscode.json` prime sur ce réglage : la branche de référence est celle de la CI, pas celle du poste.",
+          "scope": "resource"
+        },
+        "codeinsights.liveAnalysis.semgrepConfig": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".codeinsights/semgrep-mqr-v1.json"
+          ],
+          "markdownDescription": "Fichiers de règles passés à semgrep. Vide : semgrep est déclaré absent plutôt qu'exécuté avec des règles inconnues. Le champ `semgrepConfig` de `.codeinsights/vscode.json` prime sur ce réglage : les règles sont celles de la CI, pas celles du poste.",
+          "scope": "resource"
+        },
+        "codeinsights.liveAnalysis.useDocker": {
+          "type": "boolean",
+          "default": false,
+          "description": "Exécuter les producteurs absents du PATH via Docker, avec les images figées ci-dessous et sans réseau."
+        },
+        "codeinsights.liveAnalysis.images": {
+          "type": "object",
+          "default": {
+            "semgrep": "semgrep/semgrep:1.145.0",
+            "gitleaks": "zricethezav/gitleaks:v8.30.0"
+          },
+          "description": "Images Docker des producteurs locaux, à figer comme celles de la CI."
+        },
+        "codeinsights.liveAnalysis.timeoutSeconds": {
+          "type": "integer",
+          "default": 120,
+          "minimum": 10,
+          "description": "Délai maximal accordé à un producteur local."
+        },
+        "codeinsights.liveAnalysis.maxFiles": {
+          "type": "integer",
+          "default": 100,
+          "minimum": 1,
+          "description": "Nombre maximal de fichiers modifiés soumis aux producteurs locaux."
+        },
+        "codeinsights.coverage.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Afficher la couverture de la dernière analyse en gouttière. Une couverture non mesurée n'est pas peinte."
+        },
+        "codeinsights.coverage.localLcov": {
+          "type": "string",
+          "default": "",
+          "description": "Chemin d'un LCOV local, relatif au dépôt. Il remplace la couverture de l'analyse seulement s'il est plus récent.",
+          "scope": "resource"
+        },
+        "codeinsights.duplication.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Surligner les blocs dupliqués de la dernière analyse dans le fichier ouvert."
+        },
+        "codeinsights.dependencies.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Annoter package.json, csproj et pubspec.yaml avec les CVE du SBOM de l'analyse. Une liste vide n'est pas une absence de risque."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "codeinsights.signIn",
+        "title": "CodeInsights : se connecter",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.signOut",
+        "title": "CodeInsights : se déconnecter",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.refresh",
+        "title": "CodeInsights : rafraîchir le rapport de la branche",
+        "category": "CodeInsights",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "codeinsights.openInHub",
+        "title": "CodeInsights : ouvrir dans le hub",
+        "category": "CodeInsights",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "codeinsights.analyzeChanges",
+        "title": "CodeInsights : analyser mes changements",
+        "category": "CodeInsights",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "codeinsights.filterIssues",
+        "title": "CodeInsights : filtrer les issues",
+        "category": "CodeInsights",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "codeinsights.clearIssueFilters",
+        "title": "CodeInsights : effacer les filtres d’issues",
+        "category": "CodeInsights",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "codeinsights.openIssue",
+        "title": "CodeInsights : ouvrir l’issue dans le code",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.openIssueInHub",
+        "title": "CodeInsights : ouvrir l’issue dans le hub",
+        "category": "CodeInsights",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "codeinsights.openRuleDefinition",
+        "title": "CodeInsights : ouvrir la définition de la règle",
+        "category": "CodeInsights",
+        "icon": "$(book)"
+      },
+      {
+        "command": "codeinsights.focusIssues",
+        "title": "CodeInsights : afficher la vue Issues",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.triageIssue",
+        "title": "CodeInsights : traiter l’issue",
+        "category": "CodeInsights",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "codeinsights.copyPrompt",
+        "title": "CodeInsights : copier le prompt de l’issue",
+        "category": "CodeInsights",
+        "icon": "$(clippy)"
+      },
+      {
+        "command": "codeinsights.explainIssue",
+        "title": "CodeInsights : expliquer l’issue avec l’assistant",
+        "category": "CodeInsights",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "codeinsights.openLocation",
+        "title": "CodeInsights : ouvrir la localisation",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.openLocalFinding",
+        "title": "CodeInsights : ouvrir l’issue locale",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.filterRules",
+        "title": "CodeInsights : filtrer les règles",
+        "category": "CodeInsights",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "codeinsights.clearRuleFilters",
+        "title": "CodeInsights : effacer les filtres de règles",
+        "category": "CodeInsights",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "codeinsights.openRuleInHub",
+        "title": "CodeInsights : ouvrir la règle dans le hub",
+        "category": "CodeInsights",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "codeinsights.showRule",
+        "title": "CodeInsights : afficher la règle",
+        "category": "CodeInsights",
+        "icon": "$(symbol-ruler)"
+      },
+      {
+        "command": "codeinsights.installPrePushHook",
+        "title": "CodeInsights : proposer le crochet Git pre-push",
+        "category": "CodeInsights"
+      },
+      {
+        "command": "codeinsights.configureMcpClient",
+        "title": "CodeInsights : configurer Claude Code",
+        "category": "CodeInsights"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "codeinsights",
+          "title": "CodeInsights",
+          "icon": "media/codeinsights.svg"
+        }
+      ]
+    },
+    "views": {
+      "codeinsights": [
+        {
+          "id": "codeinsights.branchReport",
+          "name": "Rapport de branche"
+        },
+        {
+          "id": "codeinsights.issues",
+          "name": "Issues"
+        },
+        {
+          "id": "codeinsights.details",
+          "name": "Détail",
+          "type": "webview"
+        },
+        {
+          "id": "codeinsights.rules",
+          "name": "Règles"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "codeinsights.refresh",
+          "when": "view == codeinsights.branchReport",
+          "group": "navigation"
+        },
+        {
+          "command": "codeinsights.openInHub",
+          "when": "view == codeinsights.branchReport",
+          "group": "navigation"
+        },
+        {
+          "command": "codeinsights.filterIssues",
+          "when": "view == codeinsights.issues",
+          "group": "navigation@1"
+        },
+        {
+          "command": "codeinsights.clearIssueFilters",
+          "when": "view == codeinsights.issues",
+          "group": "navigation@2"
+        },
+        {
+          "command": "codeinsights.refresh",
+          "when": "view == codeinsights.issues",
+          "group": "navigation@3"
+        },
+        {
+          "command": "codeinsights.analyzeChanges",
+          "when": "view == codeinsights.branchReport",
+          "group": "navigation@3"
+        },
+        {
+          "command": "codeinsights.filterRules",
+          "when": "view == codeinsights.rules",
+          "group": "navigation@1"
+        },
+        {
+          "command": "codeinsights.clearRuleFilters",
+          "when": "view == codeinsights.rules",
+          "group": "navigation@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "codeinsights.triageIssue",
+          "when": "view == codeinsights.issues && viewItem == codeinsights.issue",
+          "group": "inline@1"
+        },
+        {
+          "command": "codeinsights.explainIssue",
+          "when": "view == codeinsights.issues && viewItem == codeinsights.issue",
+          "group": "inline@2"
+        },
+        {
+          "command": "codeinsights.openIssueInHub",
+          "when": "view == codeinsights.issues && viewItem == codeinsights.issue",
+          "group": "codeinsights@1"
+        },
+        {
+          "command": "codeinsights.openRuleDefinition",
+          "when": "view == codeinsights.issues && viewItem == codeinsights.issue",
+          "group": "codeinsights@2"
+        },
+        {
+          "command": "codeinsights.copyPrompt",
+          "when": "view == codeinsights.issues && viewItem == codeinsights.issue",
+          "group": "codeinsights@3"
+        },
+        {
+          "command": "codeinsights.showRule",
+          "when": "view == codeinsights.issues && viewItem == codeinsights.issue",
+          "group": "codeinsights@4"
+        },
+        {
+          "command": "codeinsights.openRuleInHub",
+          "when": "view == codeinsights.rules && viewItem == codeinsights.rule",
+          "group": "codeinsights@1"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "codeinsights.branchReport",
+        "contents": "Renseigner l'URL du hub puis se connecter pour afficher le dernier rapport de la branche courante.\n[Ouvrir les paramètres](command:workbench.action.openSettings?%22codeinsights.serverUrl%22)\n[Se connecter](command:codeinsights.signIn)"
+      },
+      {
+        "view": "codeinsights.issues",
+        "contents": "Les issues de la dernière analyse de la branche courante apparaissent ici.\n[Rafraîchir](command:codeinsights.refresh)"
+      },
+      {
+        "view": "codeinsights.rules",
+        "contents": "Le catalogue de règles du projet apparaît ici après connexion.\n[Rafraîchir](command:codeinsights.refresh)"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "codeinsights.gettingStarted",
+        "title": "CodeInsights",
+        "description": "Lire le dernier rapport de la branche et estimer l'effet des changements en cours, sans quitter l'éditeur.",
+        "steps": [
+          {
+            "id": "server",
+            "title": "Renseigner l'URL du hub",
+            "description": "Ouvrir les paramètres et saisir l'URL du hub CodeInsights, par exemple ``https://codeinsights.example``.\n[Ouvrir les paramètres](command:workbench.action.openSettings?%22codeinsights.serverUrl%22)",
+            "media": {
+              "markdown": "media/walkthrough-server.md"
+            }
+          },
+          {
+            "id": "token",
+            "title": "Créer un jeton personnel",
+            "description": "Dans le hub, ouvrir l'avatar puis **Personal access tokens**. Créer un jeton de lecture, avec triage si le traitement des issues depuis l'IDE est souhaité. L'extension ne crée jamais de jeton elle-même.",
+            "media": {
+              "markdown": "media/walkthrough-token.md"
+            }
+          },
+          {
+            "id": "signin",
+            "title": "Se connecter",
+            "description": "Exécuter **CodeInsights : se connecter** et coller le jeton. Il est stocké uniquement dans SecretStorage.\n[Se connecter](command:codeinsights.signIn)",
+            "media": {
+              "markdown": "media/walkthrough-signin.md"
+            }
+          },
+          {
+            "id": "report",
+            "title": "Lire le rapport de la branche",
+            "description": "Le panneau **CodeInsights** affiche le verdict de la dernière analyse, ses mesures et ses issues. Une branche sans analyse reste vide : jamais un gate vert inventé.\n[Rafraîchir](command:codeinsights.refresh)",
+            "media": {
+              "markdown": "media/walkthrough-report.md"
+            }
+          },
+          {
+            "id": "local",
+            "title": "Analyser les changements en cours",
+            "description": "**Analyser mes changements** exécute semgrep et gitleaks sur les lignes ajoutées et estime l'effet sur le gate. Cette estimation n'est pas le verdict CI.\n[Analyser](command:codeinsights.analyzeChanges)",
+            "media": {
+              "markdown": "media/walkthrough-local.md"
+            }
+          }
+        ]
+      }
+    ],
+    "chatParticipants": [
+      {
+        "id": "codeinsights.assistant",
+        "name": "codeinsights",
+        "fullName": "CodeInsights",
+        "description": "Explique une issue CodeInsights et propose un correctif à partir de son contexte source.",
+        "isSticky": true
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "check": "tsc --noEmit --noUnusedLocals && vitest run",
+    "package": "node esbuild.mjs --production && vsce package --out dist/codeinsights-$npm_package_version.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.2",
+    "@types/vscode": "1.104.0",
+    "@vscode/vsce": "3.9.2",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

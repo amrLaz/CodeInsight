@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeInsights – Analyses de pull request</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Rendu autonome des slides : canevas 1920×1080 mis à l'échelle de la page. */
+  body { margin: 0; padding: 24px 16px 48px; background: #DDE3EA; color: #172A41; font-family: 'IBM Plex Sans', Arial, sans-serif; }
+  header, .entry { max-width: 1280px; margin: 0 auto 32px; }
+  header h1 { font-size: 28px; margin: 0 0 8px; }
+  header p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A4B5E; }
+  .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(23, 42, 65, 0.18); }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; box-sizing: border-box; transform-origin: top left; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide ul, .slide ol { padding-left: 1.3em; }
+  .slide table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  .slide th, .slide td { padding: 0.35em 0.6em; text-align: left; vertical-align: top; border-bottom: 1px solid #D8E1EB; }
+  .slide th { font-weight: 600; }
+  .slide tr:last-child td { border-bottom: none; }
+  .slide x-shape[kind="arrow-right"] { display: block; flex: none; clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .notes { margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3A4B5E; }
+  .notes summary { cursor: pointer; font-weight: 600; }
+  @media print { body { background: #FFFFFF; } .entry { break-inside: avoid; } .notes { display: none; } }
+</style>
+</head>
+<body>
+<header>
+<h1>CodeInsights – Analyses de pull request</h1>
+<p>Présentation de la séparation des analyses de branche et de pull request, datée du 1<sup>er</sup> octobre 2026. Elle explique les changements de la branche <code>feat/pull-request-analyses</code> ; la référence fonctionnelle reste <a href="../integration.md#analyses-de-branche-et-de-pull-request">Analyses de branche et de pull request</a>.</p>
+</header>
+<article class="entry" aria-label="Slide 1 sur 9">
+<div class="frame">
+<section class="slide" id="cover" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<p style="font-size:26px; font-weight:600; color:#69B4FF; letter-spacing:3px; text-transform:uppercase">CodeInsights · Branches et pull requests</p>
+<h1 style="font-size:96px; font-weight:700; line-height:1.05">Analyses de pull request</h1>
+<p style="font-size:32px; color:#BCC9D8; line-height:1.4; width:1300px">Un build de PR décrit ce que la PR fusionne. Il ne tient plus lieu de verdict, d'historique ni de baseline pour sa branche source.</p>
+<div style="display:flex; flex-direction:row; gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">feat/pull-request-analyses</p>
+<p style="font-size:24px; color:#EDF4FB; background:#22384F; border-radius:6px; padding:8px 16px">1er octobre 2026</p>
+</div>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 1</summary><p>Point de départ : sur la branche develop, l'écran New Code comparait develop à master. La dernière analyse de develop venait en fait du build de la PR develop → master, et une PR impose sa branche cible comme référence.</p></details>
+</article>
+<article class="entry" aria-label="Slide 2 sur 9">
+<div class="frame">
+<section class="slide" id="context" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Contexte et décisions</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Un build de PR se faisait passer pour sa branche</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Constat</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Verdict de branche emprunté</h3><p style="font-size:24px; line-height:1.4; color:#516278">La dernière analyse de develop était le build de la PR #51382 : verdict, commit et New Code de la PR affichés comme ceux de develop.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Constat</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Baseline faussée</h3><p style="font-size:24px; line-height:1.4; color:#516278">En modes version précédente, nombre de jours ou analyse spécifique, un build de PR pouvait devenir la baseline New Code de sa branche source.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Décision</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Branche sans build de branche</h3><p style="font-size:24px; line-height:1.4; color:#516278">État vide explicite qui propose ses PR, plutôt qu’un verdict emprunté.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Décision</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Vue d'une PR</h3><p style="font-size:24px; line-height:1.4; color:#516278">Overall et New Code, comme une branche.</p></div></div><p style="font-size:26px; line-height:1.4; color:#516278">Option A pour les findings : un build de PR relie ses occurrences aux findings de sa branche source sans les modifier. Rétention des PR fermées décidée à 30 jours, à réaliser (slide 9).</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 2 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 2</summary><p>Les quatre décisions ont été prises le 1er octobre 2026. La conservation de 30 jours après fermeture n'est pas implémentée dans ce lot : détecter la fermeture demande d'interroger Azure DevOps ou GitHub.</p></details>
+</article>
+<article class="entry" aria-label="Slide 3 sur 9">
+<div class="frame">
+<section class="slide" id="flow" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Fonctionnement</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Le type se déduit du pr_id, sans changer le contrat</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px; align-items:center"><div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Publication</h3><p style="font-size:24px; line-height:1.4; color:#516278">Le manifeste porte déjà pr_id et pr_target_branch.</p></div><x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape><div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Ingestion</h3><p style="font-size:24px; line-height:1.4; color:#516278">La branche cible est désormais conservée sur l'analyse.</p></div><x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape><div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600;">Lectures</h3><p style="font-size:24px; line-height:1.4; color:#516278">Builds de branche d'un côté, builds de PR de l'autre.</p></div><x-shape kind="arrow-right" style="width:48px; height:24px; background:#8A9BB0"></x-shape><div style="width:350px; flex:none; display:flex; flex-direction:column; gap:10px; background:#172A41; border-radius:12px; padding:24px"><h3 style="font-size:32px; font-weight:600; color:#EDF4FB;">Hub</h3><p style="font-size:24px; line-height:1.4; color:#BCC9D8">Sélecteur Branches puis Pull requests.</p></div></div><p style="font-size:26px; line-height:1.4; color:#516278">POST /api/v1/analyses et le manifeste d'ingestion sont inchangés : aucune modification du runner partagé. Sans filtre kind, les listes d'analyses renvoient toujours les deux types, pour les extensions et le serveur MCP.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 3 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 3</summary><p>La séparation est entièrement côté lecture, plus la persistance de pr_target_branch que l'ingestion effaçait. La migration BackfillPullRequestTargetBranch la restaure depuis le dernier manifeste terminé de chaque analyse de PR.</p></details>
+</article>
+<article class="entry" aria-label="Slide 4 sur 9">
+<div class="frame">
+<section class="slide" id="api" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">API</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce que chaque lecture compte désormais</h2></div>
+<table style="font-size:24px; color:#172A41; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px"><tr><th style="width:30%">Lecture</th><th style="width:36%">Builds de branche</th><th style="width:34%">Builds de PR</th></tr><tr><td>/insights/branches</td><td>count, latest (null si aucun)</td><td>pull_request_count</td></tr><tr><td>/insights/summary</td><td>latest et compteurs pass/fail/unknown</td><td>latest de repli si le projet n'a que des PR</td></tr><tr><td>/insights/pull-requests</td><td>—</td><td>une ligne par PR : source, cible, count, latest</td></tr><tr><td>/analyses, /insights/analyses</td><td>kind=branch</td><td>kind=pull_request, pr_id=</td></tr><tr><td>Baseline New Code</td><td>seuls candidats</td><td>jamais candidats</td></tr><tr><td>Tendances de portefeuille</td><td>branche principale</td><td>ignorés</td></tr></table><p style="font-size:26px; line-height:1.4; color:#516278">Les PR sont triées par numéro décroissant (longueur puis texte), paginées par curseur comme les branches. Une valeur kind inconnue renvoie 422.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 4 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 4</summary><p>Les fonctions de requête BranchRowsAsync, PullRequestRowsAsync et ProjectLatestAsync sont extraites des handlers pour être testées directement sur PostgreSQL.</p></details>
+</article>
+<article class="entry" aria-label="Slide 5 sur 9">
+<div class="frame">
+<section class="slide" id="ui" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Interface</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Une PR se choisit comme une branche, sous son propre nom</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Sélecteur</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Branches, puis Pull requests</h3><p style="font-size:24px; line-height:1.4; color:#516278">Libellé PR #51382 · develop → master. En-têtes de groupe visuels seulement quand les deux types existent, masqués aux lecteurs d'écran.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Vue PR</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Metrics for pull request #N</h3><p style="font-size:24px; line-height:1.4; color:#516278">Trajet source → cible, Overall et New Code, lien vers la PR dans le dépôt.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Branche sans build</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">No branch analysis yet</h3><p style="font-size:24px; line-height:1.4; color:#516278">Boutons vers ses PR ; Issues affiche le même constat au lieu d'une liste vide.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Navigation</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Clé pr:&lt;id&gt;</h3><p style="font-size:24px; line-height:1.4; color:#516278">Dans le paramètre branch de l'URL ; « : » est interdit dans un ref Git. Un lien vers une analyse de PR ouvre sa PR.</p></div></div><p style="font-size:26px; line-height:1.4; color:#516278">La carte All Projects d'un projet analysé uniquement par PR affiche « Latest · PR #N ».</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 5 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 5</summary><p>Aucune nouvelle bibliothèque : ProjectPicker reçoit un champ group optionnel, les styles réutilisent les tokens existants.</p></details>
+</article>
+<article class="entry" aria-label="Slide 6 sur 9">
+<div class="frame">
+<section class="slide" id="files" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Livraison</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Fichiers créés et modifiés</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0"><p style="font-size:24px; font-weight:600; color:#005EB8">apps/api/ · backend</p><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">Services/AnalysisKinds.cs +<br>Endpoints/InsightEndpoints.cs<br>Services/NewCode.cs, PortfolioSnapshots.cs<br>Services/FindingCollaboration.cs<br>Services/FindingIdentityContinuity.cs<br>Services/SecurityReviewEvaluation.cs, FindingSla.cs<br>IngestionProcessor, GateEvaluation, contrats<br>Migrations/…BackfillPull… +</p></div><div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0"><p style="font-size:24px; font-weight:600; color:#005EB8">apps/web/src/ · frontend</p><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">utils/branch-selection.ts<br>workspace/useWorkspaceData.ts<br>workspace/Workspace.tsx<br>features/projects/Projects.tsx<br>features/issues/Issues.tsx<br>issues/components/ProjectHeader.tsx<br>common/ProjectPicker.tsx (+ .css)<br>types/api.ts, styles/shared-details.css</p></div><div style="flex:1; display:flex; flex-direction:column; gap:6px; border-top:4px solid #005EB8; padding:16px 0 0 0"><p style="font-size:24px; font-weight:600; color:#005EB8">Tests et docs</p><p style="font-family:'JetBrains Mono', 'Courier New', monospace; font-size:24px; line-height:1.4">PullRequestAnalysisTests.cs +<br>Projects.test.tsx +<br>8 fichiers de tests étendus<br>apps/core, vscode, visualstudio, mcp<br>docs/integration.md, collaboration.md<br>docs/interface.md, new-code.md<br>docs/roadmap.md, DESIGN.md<br>docs/presentations/ +</p></div></div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 6 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 6</summary><p>Tests étendus : branch-selection.test.ts, useWorkspaceData.test.tsx, ProjectPicker.test.tsx et le contrat projects-ux.test.ts, dont l'expression a suivi la clé de sélection.</p></details>
+</article>
+<article class="entry" aria-label="Slide 7 sur 9">
+<div class="frame">
+<section class="slide" id="tests" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Vérifications</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui a réellement tourné</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">4 / 4</p><p style="font-size:24px; line-height:1.35; color:#516278">PullRequestAnalysisTests sur PostgreSQL 16 isolé</p></div><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">67</p><p style="font-size:24px; line-height:1.35; color:#516278">tests API réussis, 1 ignoré (API HTTP non lancée)</p></div><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">78 + 27</p><p style="font-size:24px; line-height:1.35; color:#516278">tests Vitest web et cœur ; checks VS Code, Visual Studio et MCP verts</p></div><div style="flex:1; display:flex; flex-direction:column; gap:8px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:60px; font-weight:700; color:#005EB8">2</p><p style="font-size:24px; line-height:1.35; color:#516278">tests vus en échec sans leur correctif : baseline et findings</p></div></div><div style="display:flex; flex-direction:row; gap:48px"><div style="flex:1; display:flex; flex-direction:column; gap:12px"><h3 style="font-size:32px; font-weight:600; color:#197047">Vérifié</h3><ul style="font-size:26px; line-height:1.45"><li>Migration de données sur une base au schéma précédent</li><li>Requêtes traduites par EF Core et exécutées</li><li>Requêtes web selon branche ou PR</li></ul></div><div style="flex:1; display:flex; flex-direction:column; gap:12px"><h3 style="font-size:32px; font-weight:600; color:#876000">Non vérifié</h3><ul style="font-size:26px; line-height:1.45"><li>Parcours dans un navigateur, 390 / 768 / 1440 px</li><li>Tests HTTP de bout en bout, docker build</li><li>Migration sur les données de production</li></ul></div></div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 7 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 7</summary><p>Les deux tests qui exigent une base nommée codeinsights_test ont été rejoués sur une base jetable de ce nom, migrée au préalable comme en CI, puis supprimée. Collaboration, revue de sécurité et SLA restent verts après la modification des requêtes de preuve.</p></details>
+</article>
+<article class="entry" aria-label="Slide 8 sur 9">
+<div class="frame">
+<section class="slide" id="compat" style="background:#F4F6F9; color:#172A41; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#005EB8; letter-spacing:2px; text-transform:uppercase">Compatibilité</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Ce qui ne change pas pour les autres surfaces</h2></div>
+<div style="display:flex; flex-direction:row; gap:24px"><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Runner partagé</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Contrat inchangé</h3><p style="font-size:24px; line-height:1.4; color:#516278">POST /api/v1/analyses et le manifeste sont identiques ; la PR se reconnaît à son pr_id.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Extensions et MCP</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Alignés via le cœur partagé</h3><p style="font-size:24px; line-height:1.4; color:#516278">Build de branche d'abord ; à défaut, dernier build de PR de la branche, nommé PR #N · source → cible. Versions montées : VS Code 0.7.3, MCP 0.1.3, Visual Studio 0.1.1.</p></div><div style="flex:1; display:flex; flex-direction:column; gap:12px; background:#FBFCFE; border:1px solid #D8E1EB; border-radius:12px; padding:28px"><p style="font-size:24px; font-weight:600; color:#005EB8">Triage</p><h3 style="font-size:32px; font-weight:600; line-height:1.2">Décisions de la branche source</h3><p style="font-size:24px; line-height:1.4; color:#516278">Elles s'appliquent à ses PR. Trier depuis une PR enregistre la décision sur la branche source, sans report vers la cible.</p></div></div><p style="font-size:26px; line-height:1.4; color:#516278">Sans kind, /api/v1/analyses liste toujours les deux types pour les clients qui ne l'envoient pas. Le hub montre un état vide là où l'IDE, sans sélecteur, affiche la PR nommée comme telle.</p>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#586B80">CodeInsights · Analyses de pull request · 8 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 8</summary><p>La logique est unique : latestAnalysis, analysisScope et hubBranchKey dans apps/core, utilisés par VS Code, Visual Studio et le serveur MCP.</p></details>
+</article>
+<article class="entry" aria-label="Slide 9 sur 9">
+<div class="frame">
+<section class="slide" id="limits" style="background:#172A41; color:#EDF4FB; font-family:'IBM Plex Sans', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px"><p style="font-size:24px; font-weight:600; color:#69B4FF; letter-spacing:2px; text-transform:uppercase">Suite</p><h2 style="font-size:60px; font-weight:600; line-height:1.1">Limites connues et prochaines étapes</h2></div>
+<div style="flex:1; display:flex; flex-direction:row; gap:48px"><div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px"><h3 style="font-size:32px; font-weight:600">Limites assumées</h3><ul style="font-size:26px; line-height:1.5; color:#BCC9D8"><li>Décision prise sur une PR non reportée sur la cible</li><li>Rétention : builds de PR dans le quota de leur branche</li><li>Seules les PR les plus récentes chargées dans le sélecteur, plus la PR choisie</li><li>Cible non enregistrée sans manifeste</li></ul></div><div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#22384F; border-radius:12px; padding:36px"><h3 style="font-size:32px; font-weight:600">Prochaines étapes</h3><ol style="font-size:26px; line-height:1.5; color:#BCC9D8"><li>Revue de la PR vers develop</li><li>Purge 30 jours après fermeture</li></ol></div></div>
+<p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#BCC9D8">CodeInsights · Analyses de pull request · 9 / 9</p>
+</section>
+</div>
+<details class="notes"><summary>Notes de la slide 9</summary><p>Référence : docs/integration.md, section Analyses de branche et de pull request ; les lots restants sont décrits dans docs/roadmap.md, section Analyses de pull request.</p></details>
+</article>
+<script>
+  // Met chaque canevas 1920×1080 à la largeur de son cadre.
+  const fit = () => document.querySelectorAll('.frame').forEach((frame) => {
+    frame.firstElementChild.style.transform = `scale(${frame.clientWidth / 1920})`;
+  });
+  addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>

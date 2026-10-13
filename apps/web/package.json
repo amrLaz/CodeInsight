@@ -1,0 +1,35 @@
+{
+  "name": "codeinsights-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "check": "tsc --noEmit --noUnusedLocals && npm run test:run",
+    "check:ci": "tsc --noEmit --noUnusedLocals && vitest run --coverage --reporter=default --reporter=junit --outputFile.junit=test-results/junit.xml",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.102.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-is": "19.2.8",
+    "recharts": "3.10.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vitejs/plugin-react": "6.1.1",
+    "jsdom": "27.4.0",
+    "typescript": "5.9.3",
+    "vite": "8.2.2",
+    "vitest": "4.1.11"
+  }
+}

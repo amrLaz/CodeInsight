@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Upcoop Quality Hub</title>
+  <rect width="512" height="512" rx="96" fill="#005eb8"/>
+  <path fill="#172a41" stroke="#fff" stroke-width="20" stroke-linejoin="round" d="M256 82 405 144v105c0 94-60 162-149 200-89-38-149-106-149-200V144l149-62Z"/>
+  <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="35" d="m216 185-57 64 57 64m80-128 57 64-57 64m-51-49 27 27 55-61"/>
+</svg>

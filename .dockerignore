@@ -1,0 +1,31 @@
+.git
+.gitignore
+*.md
+
+# Node – rebuilt inside the Docker stage
+apps/web/node_modules
+apps/web/dist
+apps/web/coverage-final.json
+
+# Local dev files
+docker-compose.yml
+docker-compose.override.yml
+infra/
+scripts/
+tests/
+*.env
+.env*
+
+# CI artefacts
+coverage/
+htmlcov/
+*.xml
+
+# Infrastructure is not part of the application image
+.azuredevops/
+
+**/bin/
+**/obj/
+.migration/
+.artifacts/
+TestResults/

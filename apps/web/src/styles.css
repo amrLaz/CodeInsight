@@ -1,0 +1,8 @@
+@import './styles/theme.css';
+@import './styles/shell.css';
+@import './styles/controls.css';
+@import './styles/workspaces-base.css';
+@import './styles/administration.css';
+@import './styles/shared-details.css';
+@import './styles/rules-quality-gates.css';
+@import './components/ui/ui.css';

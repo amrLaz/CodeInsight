@@ -1,0 +1,34 @@
+.issue-review {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+.issue-review p {
+  overflow-wrap: anywhere;
+}
+.issue-review-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  align-items: end;
+}
+.issue-review label {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.issue-review input,
+.issue-review select,
+.issue-review textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.issue-review form {
+  margin: 1rem 0;
+}
+.issue-review ol {
+  padding-inline-start: 1.25rem;
+}

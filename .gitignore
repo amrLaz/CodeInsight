@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# Env
+.env
+
+# IDE (shared Run and Debug configuration only)
+.vscode/
+!/.vscode/
+/.vscode/*
+!/.vscode/launch.json
+!/.vscode/tasks.json
+!/.vscode/extensions.json
+.DS_Store
+
+# Test artifacts
+.pytest_cache/
+.coverage
+
+# Terraform (existing state and local provider cache are never versioned)
+**/.terraform/**
+**/terraform.tfstate
+**/terraform.tfstate.*
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfplan
+**/tmp/**
+
+# Local secrets and credentials
+.env.*
+!.env.example
+*.local.tfvars
+*.local.tfvars.json
+
+# Generated reports
+coverage/
+htmlcov/
+coverage.xml
+coverage-final.json
+
+# .NET and local validation artifacts
+**/bin/
+**/obj/
+.migration/
+.artifacts/
+TestResults/
+test-results/
+
+# Generated API types of the shared core
+apps/core/src/api/schema.d.ts
+.mcp.json

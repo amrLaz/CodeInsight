@@ -1,0 +1,234 @@
+name: Build_CodeInsights_MCP_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - apps/core/**
+      - apps/mcp/**
+      - .azuredevops/build-mcp-server.yml
+
+pr:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - apps/core/**
+      - apps/mcp/**
+      - .azuredevops/build-mcp-server.yml
+
+pool:
+  name: ManagedDevOpsPoolsLinux24
+
+variables:
+  - name: CORE_DIR
+    value: apps/core
+  - name: MCP_DIR
+    value: apps/mcp
+
+stages:
+  - stage: Build
+    displayName: "Check & publish the MCP server"
+    jobs:
+      # Les paths.include ci-dessus ne filtrent que les déclenchements CI : une stratégie
+      # de branche « build validation » lance le pipeline sur toutes les PR, quel que soit
+      # le chemin touché. Ce job rejoue donc le filtre au runtime.
+      - job: Scope
+        displayName: "Changements dans apps/mcp ou apps/core ?"
+        steps:
+          - checkout: self
+            fetchDepth: 0
+
+          - script: |
+              set -euo pipefail
+              # backticks : $(...) serait interprété comme une macro de pipeline.
+              # Vide hors PR : la garde de version ne s'applique qu'à une PR.
+              base=""
+              case "$BUILD_REASON" in
+                PullRequest)
+                  target="${PR_TARGET:-refs/heads/master}"
+                  git fetch --no-tags origin "$target"
+                  base=`git merge-base HEAD FETCH_HEAD`
+                  git diff --name-only "$base" HEAD > "$CHANGED_LIST"
+                  ;;
+                IndividualCI | BatchedCI)
+                  if git rev-parse --verify --quiet HEAD~1 > /dev/null; then
+                    git diff --name-only HEAD~1 HEAD > "$CHANGED_LIST"
+                  else
+                    git ls-files > "$CHANGED_LIST"
+                  fi
+                  ;;
+                *)
+                  # Exécution manuelle ou planifiée : publier sans condition.
+                  git ls-files > "$CHANGED_LIST"
+                  ;;
+              esac
+              echo "$base" > "$BASE_FILE"
+
+              if grep -qE '^(apps/mcp/|apps/core/|\.azuredevops/build-mcp-server\.yml$)' "$CHANGED_LIST"; then
+                echo "##vso[task.setvariable variable=serverTouched;isOutput=true]true"
+                echo "Serveur MCP ou cœur modifié : publication demandée."
+              else
+                echo "##vso[task.setvariable variable=serverTouched;isOutput=true]false"
+                echo "Aucun changement sous apps/mcp ni apps/core : publication ignorée."
+              fi
+            name: scope
+            displayName: "Détecter les changements du serveur"
+            env:
+              BUILD_REASON: $(Build.Reason)
+              PR_TARGET: $(System.PullRequest.TargetBranch)
+              # Hors du checkout, pour ne pas salir l'arbre de travail.
+              CHANGED_LIST: $(Agent.TempDirectory)/changed-paths.txt
+              BASE_FILE: $(Agent.TempDirectory)/merge-base.txt
+
+          # Une PR qui change ce qui est livré sans monter la version publierait un paquet
+          # indiscernable du précédent : le flux refuse la republication, et un poste déjà
+          # équipé ne verrait jamais la mise à jour. La garde est ici parce que c'est le
+          # dernier endroit où elle bloque encore quelque chose — après la fusion, il ne
+          # reste qu'un échec de publication sur master.
+          - script: |
+              set -euo pipefail
+              # backticks : $(...) serait interprété comme une macro de pipeline.
+              base=`cat "$BASE_FILE"`
+              if [ -z "$base" ]; then
+                echo "Base de comparaison inconnue : garde de version ignorée."
+                exit 0
+              fi
+              # Une version illisible doit arrêter la garde, jamais la faire passer en
+              # silence : une garde qui se tait quand elle ne sait pas ne garde rien.
+              if ! command -v node > /dev/null 2>&1; then
+                echo "##vso[task.logissue type=error]node est requis pour lire la version des manifestes."
+                exit 1
+              fi
+              read_version() {
+                git show "$1:$2" | node -p 'JSON.parse(require("fs").readFileSync(0, "utf8")).version'
+              }
+              failed=0
+              for manifest in $MANIFESTS; do
+                if ! git cat-file -e "$base:$manifest" 2>/dev/null; then
+                  echo "$manifest est nouveau dans cette PR : rien à comparer."
+                  continue
+                fi
+                previous=`read_version "$base" "$manifest"`
+                current=`read_version HEAD "$manifest"`
+                if [ "$previous" = "$current" ]; then
+                  echo "##vso[task.logissue type=error]$manifest : version $current inchangée alors que le paquet livré change. Monter la version (npm version patch --no-git-tag-version) avant de pousser."
+                  failed=1
+                  continue
+                fi
+                lowest=`printf '%s\n%s\n' "$previous" "$current" | sort -V | head -1`
+                if [ "$lowest" != "$previous" ]; then
+                  echo "##vso[task.logissue type=error]$manifest : version $current inférieure à $previous. Une version publiée ne se réutilise pas."
+                  failed=1
+                  continue
+                fi
+                echo "$manifest : $previous -> $current"
+              done
+              exit $failed
+            displayName: "Exiger la montée de version"
+            env:
+              BASE_FILE: $(Agent.TempDirectory)/merge-base.txt
+              MANIFESTS: "apps/mcp/package.json"
+            condition: >-
+              and(succeeded(),
+                  eq(variables['Build.Reason'], 'PullRequest'),
+                  eq(variables['scope.serverTouched'], 'true'))
+
+      - job: Package
+        displayName: "npm ci → check → npm pack"
+        dependsOn: Scope
+        condition: >-
+          and(succeeded(),
+              eq(dependencies.Scope.outputs['scope.serverTouched'], 'true'))
+        steps:
+          - checkout: self
+            fetchDepth: 1
+
+          - task: UseNode@1
+            displayName: "Install Node 24"
+            inputs:
+              version: "24.x"
+
+          # Le serveur est bundlé depuis les sources du cœur : ses checks d'abord, car un
+          # cœur cassé casse aussi bien l'IDE que l'agent.
+          - script: npm ci
+            displayName: "Install core dependencies"
+            workingDirectory: $(CORE_DIR)
+
+          - script: npm run check
+            displayName: "Core checks"
+            workingDirectory: $(CORE_DIR)
+
+          - script: npm ci
+            displayName: "Install dependencies"
+            workingDirectory: $(MCP_DIR)
+
+          # tsc, Vitest, bundle, puis dialogue MCP réel avec dist/server.js.
+          - script: npm run check
+            displayName: "Checks"
+            workingDirectory: $(MCP_DIR)
+
+          - script: |
+              set -euo pipefail
+              # backticks : $(...) serait interprété comme une macro de pipeline.
+              version=`node -p "require('./package.json').version"`
+              mkdir -p "$(Build.ArtifactStagingDirectory)/npm"
+              # prepack reconstruit le bundle en --production : le tarball ne peut pas
+              # contenir autre chose que les sources de ce commit.
+              npm pack --pack-destination "$(Build.ArtifactStagingDirectory)/npm"
+              echo "##vso[task.setvariable variable=packageVersion]$version"
+              echo "@upcoop/codeinsights-mcp $version prêt"
+            displayName: "Pack & lire la version"
+            workingDirectory: $(MCP_DIR)
+
+          # Hors master (PR, branche de travail), le tarball n'est qu'un sous-produit du
+          # check : on le construit sans le publier.
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish tarball"
+            condition: >-
+              and(succeeded(),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/npm
+              artifact: CodeInsightsMcp
+              publishLocation: pipeline
+
+          # Optionnel : CODEINSIGHTS_NPM_FEED = URL de registre du flux Azure Artifacts,
+          # par exemple https://pkgs.dev.azure.com/up-group/_packaging/<flux>/npm/registry/
+          # Le .npmrc est écrit ici et jamais versionné : un registre codé dans le dépôt
+          # ferait chercher les dépendances publiques sur le flux interne à chaque npm ci.
+          - script: |
+              set -euo pipefail
+              printf '@upcoop:registry=%s\nalways-auth=true\n' "$CODEINSIGHTS_NPM_FEED" > .npmrc
+              echo "Registre du scope @upcoop : $CODEINSIGHTS_NPM_FEED"
+            displayName: "Écrire le .npmrc du flux"
+            workingDirectory: $(MCP_DIR)
+            condition: >-
+              and(succeeded(),
+                  ne(variables['CODEINSIGHTS_NPM_FEED'], ''),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+            env:
+              CODEINSIGHTS_NPM_FEED: $(CODEINSIGHTS_NPM_FEED)
+
+          - task: npmAuthenticate@0
+            displayName: "Authenticate npm feed"
+            condition: >-
+              and(succeeded(),
+                  ne(variables['CODEINSIGHTS_NPM_FEED'], ''),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+            inputs:
+              workingFile: $(MCP_DIR)/.npmrc
+
+          # npm publish refuse une version déjà publiée : la version de package.json est
+          # la seule source, et une republication sans montée de version doit échouer
+          # bruyamment plutôt que d'écraser un paquet déjà installé sur des postes.
+          - script: npm publish
+            displayName: "Publish @upcoop/codeinsights-mcp"
+            workingDirectory: $(MCP_DIR)
+            condition: >-
+              and(succeeded(),
+                  ne(variables['CODEINSIGHTS_NPM_FEED'], ''),
+                  eq(variables['Build.SourceBranch'], 'refs/heads/master'))

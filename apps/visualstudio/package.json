@@ -1,0 +1,27 @@
+{
+  "name": "codeinsights-visualstudio",
+  "displayName": "CodeInsights",
+  "description": "Extension Visual Studio CodeInsights : rapport de branche, issues et analyse locale, via le cœur partagé.",
+  "version": "0.1.1",
+  "publisher": "upcoop",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://dev.azure.com/up-group/Up.France.ODI/_git/Up.France.CodeInsights"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "check": "tsc --noEmit --noUnusedLocals && node esbuild.mjs && node src/rpc.check.mjs && node src/protocol.check.mjs && node src/session.check.mjs && node src/version.check.mjs",
+    "package": "node esbuild.mjs --production"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.2",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  }
+}
